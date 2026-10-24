@@ -1,0 +1,16 @@
+{
+  "name": "tiffany-macher-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portafolio web de Tiffany Macher, UX Researcher. Sitio estático (HTML + CSS + JS, sin framework).",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/dev.mjs dist",
+    "check-assets": "node scripts/check-assets.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

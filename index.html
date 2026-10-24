@@ -1,0 +1,1963 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tiffany Macher — UX Researcher</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230a0a0b%27/%3E%3Cpath d=%27M32 10l5 17 17 5-17 5-5 17-5-17-17-5 17-5z%27 fill=%27%238a90ff%27/%3E%3C/svg%3E">
+<meta name="description" content="Portfolio of Tiffany Macher, UX Researcher with a Psychology background and 3+ years of experience in digital banking research.">
+<meta name="color-scheme" content="dark light">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   DESIGN TOKENS — change the whole system from here
+   ========================================================= */
+:root{
+  /* type */
+  --font-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --fs-display:clamp(2.5rem,5vw,4.5rem);
+  --fs-h1:clamp(2.1rem,4.6vw,3.6rem);
+  --fs-h2:clamp(1.6rem,3vw,2.25rem);
+  --fs-h3:clamp(1.15rem,1.8vw,1.4rem);
+  --fs-lead:clamp(1.0rem,1.9vw,1.50rem);
+  --fs-body:1.0625rem;
+  --fs-small:.9rem;
+  --fs-eyebrow:.78rem;
+  --lh-tight:1.06;
+  --lh-body:1.65;
+  /* spacing (4px base) */
+  --s-1:.25rem; --s-2:.5rem; --s-3:.75rem; --s-4:1rem; --s-5:1.5rem; --s-6:2rem;
+  --s-7:3rem; --s-8:4.5rem; --s-9:6.5rem; --s-10:8rem;
+  --gutter:clamp(1.25rem,4vw,2rem);
+  --w-site:76rem;
+  --w-case:50rem;
+  /* shape */
+  --r-sm:0.5rem; --r-md:0.875rem; --r-lg:1.25rem; --r-pill:62.4375rem;
+  --header-h:4rem;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+:root[data-theme="dark"]{
+  --bg:#0a0a0b;
+  --surface:#15151b;
+  --surface-2:#1c1c24;
+  --border:#2a2a33;
+  --text:#ffffff;
+  --text-2:#d4d4da;
+  --muted:#9a9aa6;
+  --accent:#8a90ff;
+  --accent-ink:#0a0a0b;
+  --accent-soft:rgba(138,144,255,.14);
+  --media-bg:#e9eaf0;
+  --star:rgba(255,255,255,.07);
+  --ok:#6fd49a;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#fafaf9;
+  --surface:#ffffff;
+  --surface-2:#f1f1f4;
+  --border:#dcdce3;
+  --text:#101014;
+  --text-2:#2c2c35;
+  --muted:#5d5d6a;
+  --accent:#4b52e0;
+  --accent-ink:#ffffff;
+  --accent-soft:rgba(75,82,224,.1);
+  --media-bg:#eceef5;
+  --star:rgba(16,16,20,.06);
+  --ok:#1f8a54;
+  color-scheme:light;
+}
+
+/* desktop: the whole page is drawn smaller, like a browser zoomed out to ~75–85% */
+@media (min-width:1100px){html{font-size:clamp(12px,.66vw,14.5px)}}
+/* ========== base ========== */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 4rem);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font-sans);font-size:var(--fs-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;transition:background .3s var(--ease),color .3s var(--ease)}
+img{max-width:100%;display:block;height:auto}
+h1,h2,h3,h4,p,ul,ol,figure,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:0.375rem}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:var(--s-4);top:-6.25rem;background:var(--accent);color:var(--accent-ink);padding:var(--s-2) var(--s-4);border-radius:var(--r-sm);z-index:100}
+.skip:focus{top:var(--s-3)}
+.wrap{width:100%;max-width:calc(var(--w-site) + var(--gutter)*2);margin-inline:auto;padding-inline:var(--gutter)}
+.wrap-case{max-width:calc(var(--w-case) + var(--gutter)*2)}
+[hidden]{display:none!important}
+
+/* ========== header ========== */
+.header{position:sticky;top:0;z-index:50;height:var(--header-h);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(0.875rem);-webkit-backdrop-filter:blur(0.875rem);border-bottom:1px solid var(--border)}
+.header .wrap{height:100%;display:flex;align-items:center;gap:var(--s-6)}
+.logo{font-weight:600;font-size:1.15rem;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:.35em;white-space:nowrap}
+.logo .spark{color:var(--accent);font-size:1.1em}
+.nav{display:flex;gap:var(--s-5)}
+.nav a{position:relative;font-size:.97rem;color:var(--text-2);padding:.25rem 0}
+.nav a[aria-current="page"]{color:var(--text)}
+.nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--text);border-radius:2px}
+.nav a:hover{color:var(--text)}
+.tools{margin-left:auto;display:flex;align-items:center;gap:var(--s-4)}
+.link-quiet{display:inline-flex;align-items:center;gap:.4em;color:var(--muted);font-size:.95rem;transition:color .2s}
+.link-quiet:hover{color:var(--text)}
+.link-quiet svg{width:1em;height:1em}
+.toggle{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:var(--r-pill);padding:2px;background:var(--surface)}
+.toggle button{min-width:2.5rem;height:1.875rem;padding:0 .7rem;border-radius:var(--r-pill);font-size:.8rem;font-weight:600;color:var(--muted);letter-spacing:.04em;transition:background .2s,color .2s}
+.toggle button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.theme-btn{width:2.125rem;height:2.125rem;display:grid;place-items:center;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text-2)}
+.theme-btn svg{width:1.0625rem;height:1.0625rem}
+.theme-btn .i-sun{display:none}
+:root[data-theme="light"] .theme-btn .i-sun{display:block}
+:root[data-theme="light"] .theme-btn .i-moon{display:none}
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,1.25rem);background:var(--surface-2);border:1px solid var(--border);padding:.6rem 1rem;border-radius:var(--r-pill);font-size:.9rem;opacity:0;pointer-events:none;transition:.3s var(--ease);z-index:120}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ========== shared type ========== */
+.eyebrow{font-size:var(--fs-eyebrow);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow.accent{color:var(--accent)}
+.h-display{font-size:var(--fs-display);line-height:var(--lh-tight);letter-spacing:-.035em;font-weight:600}
+.h1{font-size:var(--fs-h1);line-height:1.08;letter-spacing:-.03em;font-weight:600}
+.h2{font-size:var(--fs-h2);line-height:1.15;letter-spacing:-.025em;font-weight:600}
+.h3{font-size:var(--fs-h3);line-height:1.3;letter-spacing:-.015em;font-weight:600}
+.lead{font-size:var(--fs-lead);line-height:1.5;color:var(--muted);letter-spacing:-.01em}
+.muted{color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.chip{font-size:.85rem;padding:.2rem .8rem;border:1px solid var(--border);border-radius:var(--r-pill);color:var(--text-2);background:transparent}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.7rem 1.25rem;border-radius:var(--r-sm);font-weight:500;border:1px solid var(--border);background:var(--surface);transition:transform .2s var(--ease),border-color .2s,background .2s}
+.btn:hover{border-color:var(--text-2);transform:translateY(-1px)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.link-accent{color:var(--accent);display:inline-flex;gap:.4em;align-items:center;font-weight:500}
+.link-accent:hover{text-decoration:underline;text-underline-offset:4px}
+
+/* ========== hero ========== */
+.hero{position:relative;padding:var(--s-7) 0 var(--s-6);overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2;display:block;width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,transparent 45%,var(--bg) 100%)}
+.hero .h-display{max-width:30ch;font-size:clamp(2.25rem,4.2vw,3.4rem)}
+.hero .lead{max-width:60ch;margin-top:var(--s-4);font-size:clamp(1rem,1.5vw,1.2rem)}
+
+/* ========== project card ========== */
+.section{padding:var(--s-8) 0}
+.section-head{margin-bottom:var(--s-6)}
+.card-project{position:relative;border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface);padding:var(--s-5);display:grid;gap:var(--s-5);transition:border-color .25s}
+.card-project+.card-project{margin-top:var(--s-7)}
+.work-sec{padding-top:var(--s-3)}
+.work-sec .section-head{margin-bottom:var(--s-4)}
+.card-project:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--border))}
+.card-project::before,.card-project::after{content:"";position:absolute;width:1.375rem;height:1.375rem;border:2px solid var(--muted);opacity:.55;pointer-events:none}
+.card-project::before{top:0.625rem;left:0.625rem;border-right:0;border-bottom:0;border-radius:0.5rem 0 0 0}
+.card-project::after{bottom:0.625rem;right:0.625rem;border-left:0;border-top:0;border-radius:0 0 0.5rem 0}
+.media{position:relative;background:var(--media-bg);border-radius:var(--r-md);overflow:hidden;display:flex;justify-content:center;align-items:flex-start;gap:clamp(1rem,5vw,4rem);padding:var(--s-6) var(--s-5) 0;height:clamp(16.875rem,30vw,21.25rem)}
+.media figure{flex:0 0 auto;width:clamp(8.125rem,22vw,14.6875rem);text-align:center}
+.media figure img{width:100%}
+.media .tilt-l{transform:translateY(0.75rem) rotate(-3deg)}
+.media figure.wide{width:clamp(12.5rem,32vw,23.75rem)}
+.media figure.wide img{border-radius:0.625rem;box-shadow:0 0.625rem 1.75rem rgba(0,0,0,.2)}
+.media .tilt-r{transform:translateY(-4px) rotate(2deg)}
+.media figcaption{position:absolute;bottom:var(--s-3);font-size:.78rem;color:#4a4a58;background:rgba(255,255,255,.85);padding:.15rem .7rem;border-radius:var(--r-pill)}
+.card-body{display:grid;gap:var(--s-3);padding:0 var(--s-2)}
+.card-body .desc{color:var(--muted);font-size:1.12rem;max-width:60ch}
+.badges{display:flex;flex-wrap:wrap;gap:var(--s-3) var(--s-5);margin-top:var(--s-2);color:var(--muted)}
+.badges b{color:var(--accent);font-weight:600}
+.card-actions{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);flex-wrap:wrap;padding:var(--s-2)}
+.card-stretch::after{content:"";position:absolute;inset:0}
+.card-actions .btn,.card-actions a{position:relative;z-index:1}
+
+/* ========== about teaser ========== */
+.about-teaser{display:grid;gap:var(--s-7);grid-template-columns:minmax(0,1fr);align-items:center}
+.photo{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);aspect-ratio:1/1;max-width:23.75rem;background:var(--surface)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.edu{margin-top:var(--s-4);color:var(--muted);font-size:.95rem}
+.edu .spark{color:var(--accent);padding:0 .3em}
+.quote-band{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:var(--s-8) 0;text-align:left}
+.quote-band .h-display{font-size:clamp(2rem,5vw,3.8rem);margin-top:var(--s-3);max-width:20ch}
+
+/* ========== footer ========== */
+.footer{border-top:1px solid var(--border);padding:var(--s-6) 0;margin-top:var(--s-8);color:var(--muted);font-size:.95rem}
+.footer .wrap{display:flex;gap:var(--s-5);flex-wrap:wrap;align-items:center}
+.footer .push{margin-left:auto;display:flex;gap:var(--s-5);flex-wrap:wrap}
+.footer a:hover{color:var(--text)}
+
+/* ========== quick view dialog ========== */
+dialog{border:1px solid var(--border);border-radius:var(--r-lg);background:var(--surface);color:var(--text);padding:0;width:min(58.75rem,calc(100vw - 2rem));max-height:calc(100vh - 3rem);overflow:auto;overscroll-behavior:contain}
+dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
+.dlg-inner{padding:clamp(1.25rem,4vw,2.5rem);display:grid;gap:var(--s-6)}
+.dlg-close{position:sticky;top:0;margin-left:auto;float:right;width:2.5rem;height:2.5rem;border-radius:var(--r-sm);display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--border);z-index:2;margin:var(--s-3) var(--s-3) 0 0}
+.dlg-close svg{width:1.125rem;height:1.125rem}
+
+/* ========== meta + tldr ========== */
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(10.625rem,1fr));gap:var(--s-5) var(--s-6);border-top:1px solid var(--border);padding-top:var(--s-5)}
+.meta dt{font-size:var(--fs-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:var(--s-1)}
+.meta dd{color:var(--text)}
+.tldr{border:1px solid var(--border);background:var(--surface-2);border-radius:var(--r-md);padding:var(--s-5)}
+.tldr .eyebrow{color:var(--accent);margin-bottom:var(--s-3)}
+.tldr p{color:var(--text-2);font-size:1.08rem}
+.stats{display:flex;flex-wrap:wrap;gap:var(--s-5) var(--s-7);border-top:1px solid var(--border);margin-top:var(--s-5);padding-top:var(--s-5)}
+.stat .num{font-size:2.4rem;line-height:1;font-weight:600;letter-spacing:-.03em;color:var(--accent)}
+.stat .cap{margin-top:var(--s-2);color:var(--muted);font-size:.9rem;max-width:26ch}
+
+/* ========== case page ========== */
+.case-hero{padding:var(--s-7) 0 var(--s-6);display:grid;gap:var(--s-6)}
+.back{color:var(--muted);display:inline-flex;gap:.5em;align-items:center;font-size:.95rem}
+.back:hover{color:var(--text)}
+.subnav{position:sticky;top:var(--header-h);z-index:40;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(0.75rem);-webkit-backdrop-filter:blur(0.75rem);border-bottom:1px solid var(--border)}
+.subnav ul{display:flex;gap:var(--s-5);overflow-x:auto;scrollbar-width:none;padding-block:0}
+.subnav a{display:block;padding:.85rem 0;color:var(--muted);font-size:.95rem;white-space:nowrap;border-bottom:2px solid transparent}
+.subnav a:hover{color:var(--text)}
+.subnav a.on{color:var(--accent);border-color:var(--accent)}
+.case-sec{padding:var(--s-8) 0 var(--s-2)}
+.case-sec>.wrap>*+*{margin-top:var(--s-5)}
+.case-sec .h2{max-width:22ch}
+.prose p{color:var(--text-2)}
+.prose p+p{margin-top:var(--s-4)}
+.sub-eyebrow{color:var(--accent);font-size:var(--fs-eyebrow);font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.block{display:grid;gap:var(--s-4);padding-top:var(--s-6);border-top:1px solid var(--border);margin-top:var(--s-6)!important}
+.block:first-of-type{border-top:0;padding-top:0;margin-top:var(--s-5)!important}
+.block p{color:var(--muted);line-height:1.7}
+.block .checklist li{line-height:1.6}
+.lbl{color:var(--text)!important;font-weight:600;margin-top:var(--s-2)}
+.panel{background:var(--media-bg);border-radius:var(--r-md);padding:var(--s-6) var(--s-5) 0;display:flex;justify-content:center;gap:clamp(1rem,4vw,3rem);overflow:hidden;align-items:flex-start}
+.panel.pad-b{padding-bottom:var(--s-5)}
+.panel.center{align-items:center}
+.panel figure{text-align:center;flex:0 1 auto}
+.panel figure img{margin-inline:auto}
+.panel figcaption{margin-top:var(--s-3);font-size:.82rem;color:#4a4a58;padding-bottom:var(--s-4)}
+.panel.wide img{width:100%;max-width:47.5rem}
+.panel .p160 img{width:clamp(5rem,17vw,10rem)}
+.panel .p180 img{width:clamp(6rem,20vw,11.25rem)}
+.panel .p220 img{width:clamp(6.875rem,22vw,12.5rem)}
+.panel .p260 img{width:clamp(8.125rem,28vw,15.625rem)}
+.panel .pw img{width:clamp(12.5rem,42vw,23.75rem);border-radius:0.625rem;box-shadow:0 0.5rem 1.5rem rgba(0,0,0,.18)}
+/* same height for every cropped screen panel (phones peek in from the top) */
+.panel.crop{height:clamp(13.125rem,26vw,15.625rem);padding-bottom:0}
+.panel.crop figure{align-self:stretch;position:relative;overflow:hidden}
+.panel.crop figcaption{position:absolute;left:0.375rem;right:0.375rem;bottom:var(--s-3);margin:0;padding:.2rem .5rem;background:rgba(255,255,255,.92);border-radius:var(--r-sm);font-size:.74rem;line-height:1.3}
+.cards{display:grid;gap:var(--s-4);grid-template-columns:repeat(auto-fit,minmax(14.375rem,1fr))}
+.cardlet{border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);padding:var(--s-5)}
+.cardlet .sub-eyebrow{display:block;margin-bottom:var(--s-2)}
+.cardlet p{color:var(--text-2);font-size:1rem}
+.checklist{display:grid;gap:var(--s-3)}
+.checklist li{position:relative;padding-left:1.6rem;color:var(--text-2)}
+.checklist li::before{content:"";position:absolute;left:0;top:.62em;width:.55rem;height:.55rem;border-radius:50%;background:var(--accent)}
+.callout{border:1px solid color-mix(in srgb,var(--accent) 45%,var(--border));background:var(--accent-soft);border-radius:var(--r-md);padding:var(--s-5)}
+.callout h3{margin-bottom:var(--s-3)}
+/* timeline of stages */
+.stages{display:grid;gap:var(--s-4);grid-template-columns:repeat(auto-fit,minmax(10.625rem,1fr));counter-reset:st}
+.stage{border-top:3px solid var(--accent);padding-top:var(--s-3);display:grid;gap:var(--s-2);align-content:start}
+.stage .n{font-size:1.9rem;font-weight:700;letter-spacing:-.03em;line-height:1}
+.stage h3{font-size:1.02rem}
+.stage p{font-size:.92rem;color:var(--muted);line-height:1.5}
+.stage .dec{color:var(--accent);font-size:.9rem;margin-top:var(--s-2)}
+/* bars */
+.chart{border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);padding:var(--s-6) var(--s-6) var(--s-7);margin-block:var(--s-2)}
+.chart h4{font-size:1.1rem;line-height:1.4;font-weight:600;margin-bottom:var(--s-2);max-width:44ch}
+.chart .n{color:var(--muted);font-size:.85rem;margin-bottom:var(--s-6)}
+.bars{display:grid;gap:var(--s-5)}
+.bar{display:grid;grid-template-columns:minmax(6.875rem,12.5rem) 1fr 3.4rem;gap:var(--s-4);align-items:center;font-size:.95rem;line-height:1.4}
+.bar .track{height:0.75rem;border-radius:var(--r-pill);background:var(--surface-2);overflow:hidden}
+.bar .fill{display:block;height:100%;width:0;background:var(--accent);border-radius:inherit;transition:width 1s var(--ease)}
+.in .bar .fill,.bar.in .fill{width:var(--v)}
+.bar .val{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.ranks{counter-reset:r;display:grid;gap:var(--s-2);grid-template-columns:repeat(auto-fit,minmax(12.5rem,1fr))}
+.ranks li{counter-increment:r;border:1px solid var(--border);border-radius:var(--r-sm);padding:.6rem .9rem;background:var(--surface);display:flex;gap:.8rem;align-items:center}
+.ranks li::before{content:counter(r);font-weight:700;color:var(--accent);min-width:1ch}
+/* outcome */
+.outcome{display:grid;gap:var(--s-4);grid-template-columns:1fr 1fr}
+.outcome .big{grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end;gap:var(--s-2)}
+.outcome .big .ico{color:var(--accent);width:1.75rem;height:1.75rem}
+.outcome .big strong{font-size:2rem;letter-spacing:-.03em;font-weight:600}
+.outcome .small strong{font-size:2rem;font-weight:600;letter-spacing:-.03em;display:block}
+.cta-end{display:flex;justify-content:space-between;gap:var(--s-4);flex-wrap:wrap;align-items:center;padding:var(--s-7) 0 0}
+
+/* ========== about page ========== */
+.about-hero{padding:var(--s-8) 0 var(--s-5)}
+.about-hero .h-display{margin-top:var(--s-3);text-align:center}
+.about-hero .lead{max-width:64ch;margin:var(--s-6) auto 0;color:var(--text)}
+.orbit{display:grid;gap:var(--s-5);grid-template-columns:minmax(0,1fr);align-items:center;margin-top:var(--s-4)}
+.orbit .col{display:grid;gap:var(--s-5)}
+.orbit .tag{border:1px solid var(--border);background:var(--surface);border-radius:var(--r-md);padding:var(--s-4) var(--s-5);transition:transform .3s var(--ease),border-color .3s}
+.orbit .tag:hover{transform:translateY(-3px);border-color:var(--accent)}
+.orbit .tag h3{font-size:1rem;font-weight:600;margin-bottom:.25rem}
+.orbit .tag p{color:var(--muted);font-size:.92rem;line-height:1.5}
+.orbit .photo{max-width:14.375rem;margin-inline:auto;width:100%;border-radius:var(--r-md)}
+.story{max-width:var(--w-case)}
+.story .h1{margin:var(--s-3) 0 var(--s-5)}
+.story p{color:var(--text-2)}
+.story p+p{margin-top:var(--s-4)}
+.path{display:grid;gap:var(--s-4);margin-top:var(--s-6);position:relative}
+.path::before{content:"";position:absolute;left:0.6875rem;top:0.625rem;bottom:0.625rem;width:2px;background:var(--border)}
+.step{position:relative;padding-left:2.6rem}
+.step::before{content:"";position:absolute;left:4px;top:1.4rem;width:1rem;height:1rem;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.step .box{border:1px solid var(--border);background:var(--surface);border-radius:var(--r-md);padding:var(--s-4) var(--s-5)}
+.step .where{font-size:var(--fs-eyebrow);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.step h3{font-size:1.15rem;margin-top:.2rem}
+.step p{color:var(--muted);font-size:.95rem;margin-top:.15rem}
+.step .role+.role{margin-top:var(--s-3);padding-top:var(--s-3);border-top:1px dashed var(--border)}
+.details{display:grid;gap:var(--s-4);grid-template-columns:repeat(auto-fit,minmax(15.625rem,1fr));margin-top:var(--s-5)}
+.detail{border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s-5);background:var(--surface)}
+.detail .eyebrow{display:block;margin-bottom:var(--s-3);color:var(--accent)}
+.detail p{font-size:1.2rem;line-height:1.35;letter-spacing:-.015em;font-weight:500}
+.curious{max-width:var(--w-case)}
+.curious p{color:var(--text-2)}
+.curious p+p{margin-top:var(--s-4)}
+
+/* ========== case components ========== */
+.opp{border-left:2px solid var(--accent);padding-left:var(--s-4);color:var(--text-2)!important}
+.opp strong{color:var(--accent);font-weight:600}
+.flow{counter-reset:f;display:grid;gap:var(--s-3)}
+.flow li{counter-increment:f;position:relative;padding:.7rem 1rem .7rem 3rem;border:1px solid var(--border);border-radius:var(--r-sm);background:var(--surface);color:var(--text-2);line-height:1.55}
+.flow li::before{content:counter(f);position:absolute;left:1rem;top:.7rem;font-weight:700;color:var(--accent)}
+.gallery{display:grid;gap:var(--s-4);grid-template-columns:repeat(2,minmax(0,1fr))}
+.gallery figure:first-child{grid-column:1/-1}
+.gallery img{width:100%;border-radius:var(--r-md);border:1px solid var(--border)}
+.gallery figcaption{margin-top:var(--s-2);font-size:.85rem;color:var(--muted);line-height:1.5}
+.versus{display:grid;gap:var(--s-4);grid-template-columns:1fr 1fr}
+.block+.block .gallery{margin-top:var(--s-2)}
+@media (max-width:640px){.versus,.gallery{grid-template-columns:1fr}}
+
+/* ========== round 2: notes ========== */
+/* cropped panels */
+.panel.cover{aspect-ratio:7/4;padding:var(--s-6) var(--s-5) 0;align-items:flex-start}
+.panel.cover .pcover{width:min(42%,18.75rem)}
+.panel.cover .pcover img{width:100%}
+.panel.crop.tall{height:clamp(18.75rem,40vw,25rem)}
+.panel.crop.side{gap:clamp(1.25rem,5vw,3.5rem)}
+.side-list{align-self:center;text-align:left;color:#1c1c28}
+.side-list .side-h{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#4a4a58;margin-bottom:var(--s-2)}
+.side-list ol{counter-reset:s;display:grid;gap:.5rem}
+.side-list li{counter-increment:s;font-weight:600;font-size:1rem}
+.side-list li::before{content:counter(s) ". ";color:#4a4a58;font-weight:500}
+.panel .lock{align-self:center;display:grid;place-items:center;width:6rem;height:6rem;border-radius:50%;background:rgba(18,128,92,.12);color:#12805c}
+.panel .lock svg{width:2.875rem;height:2.875rem}
+/* findings: more air between ideas */
+.findings{display:grid;gap:var(--s-8)}
+.finding{display:grid;gap:var(--s-4)}
+.finding+.finding{padding-top:var(--s-7);border-top:1px solid var(--border)}
+.finding p{color:var(--muted);line-height:1.7}
+.finding .opp{margin-top:var(--s-1)}
+/* annotated figure: available vs set-aside balance */
+.ff-stage{background:var(--media-bg);border-radius:var(--r-md);padding:var(--s-6) var(--s-5) 0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,14.375rem) minmax(0,1fr);gap:var(--s-5);align-items:start;height:clamp(20.625rem,38vw,23.125rem);overflow:hidden;margin-top:var(--s-3)}
+.ff-phone img{width:100%}
+.ff-left,.ff-right{padding-top:clamp(7.5rem,15vw,9.375rem);display:grid;gap:var(--s-5);align-content:start}
+.ff-tag{position:relative;background:#bfe8d3;color:#0f3d2a!important;font-size:.82rem;line-height:1.4!important;font-weight:500;padding:.6rem .8rem;border-radius:0.375rem}
+.ff-left .ff-tag::after,.ff-right .ff-tag::before{content:"";position:absolute;top:50%;width:var(--s-5);height:2px;background:#39b97a}
+.ff-left .ff-tag::after{left:100%}
+.ff-right .ff-tag::before{right:100%}
+.ff-out{display:grid;gap:var(--s-2);color:#1c1c28;font-size:.85rem;font-weight:600}
+.ff-out li::before{content:"→ ";color:#4a4a58}
+@media (max-width:720px){.ff-stage{grid-template-columns:1fr;height:auto;padding-bottom:var(--s-5)}.ff-phone{max-width:12.5rem;margin-inline:auto;max-height:15rem;overflow:hidden}.ff-left,.ff-right{padding-top:0}.ff-tag::before,.ff-tag::after{display:none}}
+/* Alcancía: more breathing room between groups */
+[data-view="case-alcancia"] .case-sec>.wrap>*+*{margin-top:var(--s-6)}
+[data-view="case-alcancia"] .block{gap:var(--s-5)}
+[data-view="case-alcancia"] .block+.block{margin-top:var(--s-8)}
+[data-view="case-alcancia"] .cards{gap:var(--s-4);margin-block:var(--s-2)}
+[data-view="case-alcancia"] .flow{gap:var(--s-4);margin-block:var(--s-2) var(--s-4)}
+.tl-body{display:grid;gap:var(--s-4)}
+.tl-body p{line-height:1.65}
+.tldr .stats{margin-top:var(--s-6);padding-top:var(--s-6)}
+.prose-p{color:var(--text-2)}
+.g-main figcaption,.g-cap{margin-top:var(--s-3);font-size:.88rem;color:var(--muted);line-height:1.5}
+.g-main figcaption strong,.g-cap strong{color:var(--text-2)}
+.g-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);margin-top:var(--s-5)}
+.g-pair img{aspect-ratio:4/3;object-fit:cover}
+.gallery{display:block}
+.gallery img{width:100%;border-radius:var(--r-md);border:1px solid var(--border)}
+@media (max-width:640px){.g-pair{grid-template-columns:1fr}}
+/* about: the photo with a gentle reveal */
+.story-grid{display:grid;gap:var(--s-7);grid-template-columns:minmax(0,1fr)}
+@media (min-width:900px){.story-grid{grid-template-columns:minmax(0,1fr) 15rem;align-items:start}}
+.story-grid .story{max-width:none}
+.moment{margin:0}
+.moment-frame{position:relative;overflow:hidden;border-radius:var(--r-md);border:1px solid var(--border);aspect-ratio:3/4;background:var(--surface);transition:transform .3s var(--ease),border-color .3s}
+.moment-frame:hover{transform:translateY(-3px);border-color:var(--accent)}
+.moment-frame img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 1.4s var(--ease)}
+.moment.in .moment-frame img{transform:scale(1)}
+.moment-frame::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle 9rem at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 38%,transparent),transparent 70%);opacity:0;transition:opacity .35s}
+.moment-frame:hover::after{opacity:1}
+.moment figcaption{margin-top:var(--s-3);font-size:.82rem;color:var(--muted);line-height:1.45}
+@media (prefers-reduced-motion:reduce){.moment-frame,.moment-frame img{transition:none}.moment-frame img{transform:none}}
+
+/* ========== reveal ========== */
+.reveal{opacity:0;transform:translateY(1.125rem);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .bar .fill{transition:none;width:var(--v)}
+  *{animation:none!important}
+}
+
+/* ========== responsive ========== */
+@media (min-width:860px){
+  .about-teaser{grid-template-columns:minmax(0,20rem) minmax(0,1fr);gap:var(--s-8)}
+  .orbit{grid-template-columns:1fr 14.375rem 1fr;gap:var(--s-6)}
+  .orbit .col:first-child .tag:nth-child(1){margin-left:3rem;margin-right:-.5rem}
+  .orbit .col:first-child .tag:nth-child(2){margin-right:3rem}
+  .orbit .col:first-child .tag:nth-child(3){margin-left:2rem;margin-right:-.5rem}
+  .orbit .col:last-child .tag:nth-child(1){margin-right:3rem;margin-left:-.5rem}
+  .orbit .col:last-child .tag:nth-child(2){margin-left:3rem}
+  .orbit .col:last-child .tag:nth-child(3){margin-right:2rem;margin-left:-.5rem}
+  .card-project{padding:var(--s-6)}
+}
+@media (max-width:860px){
+  .hide-md{display:none!important}
+  .header .wrap{gap:var(--s-4)}
+}
+@media (max-width:640px){
+  :root{--header-h:6.5rem}
+  .header{height:auto;padding-block:.5rem}
+  .header .wrap{flex-wrap:wrap;gap:var(--s-2) var(--s-4)}
+  .tools{width:100%;margin-left:0;justify-content:space-between;order:3}
+  .nav{margin-left:auto}
+  .outcome{grid-template-columns:1fr}
+  .outcome .big{grid-row:auto}
+  .bar{grid-template-columns:1fr 3.2rem}
+  .bar .track{grid-column:1/-1;order:3}
+  .section{padding:var(--s-7) 0}
+  .hero{padding:var(--s-8) 0 var(--s-7)}
+  .media{height:21.25rem}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="#/" aria-label="Tiffany Macher — home"><span class="spark" aria-hidden="true">✦</span> Tiffany Macher</a> 
+    <nav class="nav" aria-label="Primary">
+      <a href="#/work" data-route="home" data-i18n="nav_work">Work</a>
+      <a href="#/about" data-route="about" data-i18n="nav_about">About</a>
+    </nav>
+    <div class="tools">
+      <button class="link-quiet hide-md" id="copyEmail" type="button" aria-label="Copy email address" data-i18n-aria="aria_copy">
+        <span>tiffanymacher@gmail.com</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+      </button>
+      <a class="link-quiet" href="https://www.linkedin.com/in/tiffanymacher/" target="_blank" rel="noopener">LinkedIn
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <div style="display:flex;align-items:center;gap:var(--s-3)">
+        <div class="toggle" role="group" aria-label="Language" data-i18n-aria="aria_lang">
+          <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
+          <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
+        </div>
+        <button class="theme-btn" id="themeBtn" type="button" aria-label="Toggle dark / light mode" data-i18n-aria="aria_theme">
+          <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HOME ===================== -->
+<div data-view="home">
+  <section class="hero">
+    <canvas class="hero-bg" id="heroBg" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h1 class="h-display" data-i18n="hero_h1">People don't use products the way we imagine they do.</h1>
+      <p class="lead" data-i18n="hero_sub">UX Researcher with a Psychology background and 3+ years of experience figuring out how to make digital products work better for the people using them.</p>
+    </div>
+  </section>
+
+  <section class="section work-sec" id="work" aria-labelledby="work-h">
+    <div class="wrap">
+      <div class="section-head"><h2 class="eyebrow" id="work-h" data-i18n="work_eyebrow">Selected work</h2></div>
+
+      <!-- CASE 1 · Interbank Home -->
+      <article class="card-project reveal">
+        <div class="media">
+          <figure class="tilt-l"><img src="assets/home-old.png" width="523" height="920" alt="Previous Interbank app Home screen" data-i18n-alt="alt_old" loading="lazy"></figure>
+          <figure class="tilt-r"><img src="assets/home-new.png" width="523" height="919" alt="Redesigned Interbank app Home screen with operations and products tabs" data-i18n-alt="alt_new" loading="lazy"></figure>
+        </div>
+        <div class="chips" aria-label="Project tags" data-i18n-aria="aria_tags">
+          <span class="chip" data-i18n="tag_banking">Digital banking</span>
+          <span class="chip" data-i18n="tag_mixed">Quantitative and qualitative research</span>
+          <span class="chip" data-i18n="tag_eval">Evaluative</span>
+          <span class="chip" data-i18n="tag_impact">Strategic impact</span>
+        </div>
+        <div class="card-body">
+          <p class="eyebrow" data-i18n="card_eyebrow">Interbank app · Home redesign</p>
+          <h3 class="h1" style="font-size:clamp(1.6rem,3.2vw,2.5rem)"><a class="card-stretch" href="#/case/interbank-home" data-i18n="case_title">Research that put everyday operations first in the redesigned Interbank app Home</a></h3>
+          <p class="desc" data-i18n="card_desc">Mixed-methods research to align the Home redesign with users' priorities and usage patterns.</p>
+          <p class="badges"><span data-i18n="b1"><b>Reached production</b></span><span data-i18n="b2"><b>700+</b> survey responses</span><span data-i18n="b3"><b>6</b> weeks</span></p>
+        </div>
+        <div class="card-actions">
+          <a class="link-accent" href="#/case/interbank-home"><span data-i18n="view_case">View case study</span> <span aria-hidden="true">→</span></a>
+          <button class="btn" type="button" data-qv="qv" aria-haspopup="dialog" data-i18n="quick">Quick view</button>
+        </div>
+      </article>
+
+      <!-- CASE 2 · Alcancía -->
+      <article class="card-project reveal">
+        <div class="media">
+          <figure class="tilt-l wide"><img src="assets/alcancia-worksheet.png" width="637" height="387" alt="Workshop worksheet with sticky notes under the headings Like, Would change and Would like" data-i18n-alt="alt_al_ws" loading="lazy"></figure>
+          <figure class="tilt-r"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app" loading="lazy"></figure>
+        </div>
+        <div class="chips" aria-label="Project tags" data-i18n-aria="aria_tags">
+          <span class="chip" data-i18n="tag_banking">Digital banking</span>
+          <span class="chip" data-i18n="al_tag_qual">Qualitative research</span>
+          <span class="chip" data-i18n="al_tag_gen">Generative research</span>
+        </div>
+        <div class="card-body">
+          <p class="eyebrow" data-i18n="al_card_eyebrow">Interbank app · Alcancía workshops</p>
+          <h3 class="h1" style="font-size:clamp(1.6rem,3.2vw,2.5rem)"><a class="card-stretch" href="#/case/alcancia" data-i18n="al_title">Understanding different saving habits to guide the evolution of Interbank's Alcancía</a></h3>
+          <p class="desc" data-i18n="al_card_desc">Two workshops with 12 customers to understand why people use Alcancía in different ways, and what that means for the product's next stage.</p>
+          <p class="badges"><span data-i18n="al_b1"><b>Approved for development</b></span><span data-i18n="al_b2"><b>12</b> customers</span><span data-i18n="al_b3"><b>4</b> weeks</span></p>
+        </div>
+        <div class="card-actions">
+          <a class="link-accent" href="#/case/alcancia"><span data-i18n="view_case">View case study</span> <span aria-hidden="true">→</span></a>
+          <button class="btn" type="button" data-qv="qv-alcancia" aria-haspopup="dialog" data-i18n="quick">Quick view</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="about-teaser" aria-labelledby="ab-h">
+    <div class="wrap">
+      <div class="about-teaser">
+        <div class="photo reveal"><img src="assets/tiffany.jpg" width="800" height="800" alt="Portrait of Tiffany Macher smiling in front of green plants" data-i18n-alt="alt_photo" loading="lazy"></div>
+        <div class="reveal">
+          <h2 class="h2" id="ab-h" data-i18n="ab_h">Hi, I'm Tiffany.</h2>
+          <p class="lead" style="margin-top:var(--s-4)" data-i18n="ab_p">I'm a UX Researcher with a Psychology background, a soft spot for asking one more question, and 3+ years of experience in digital banking helping product teams make sense of user behavior, challenge assumptions, and turn research into better product decisions.</p>
+          <p class="edu"><span data-i18n="edu_l">Ux Researcher</span><span class="spark" aria-hidden="true">✦</span><span data-i18n="edu_r">Bachelor's degree in Psychology</span></p>
+          <p style="margin-top:var(--s-5)"><a class="btn" href="#/about"><span data-i18n="about_btn">About me</span> <span aria-hidden="true">→</span></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band" aria-label="Research philosophy" data-i18n-aria="aria_phil">
+    <div class="wrap reveal">
+      <p class="eyebrow accent" data-i18n="phil_l">My research philosophy</p>
+      <p class="h-display" data-i18n="phil_t">Assume less. Ask better questions.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<div data-view="about" hidden>
+  <section class="about-hero">
+    <div class="wrap">
+      <p class="eyebrow accent" data-i18n="nav_about">About</p>
+      <h1 class="h-display" data-i18n="ab_h">Hi, I'm Tiffany.</h1>
+      <p class="lead" data-i18n="ab_p">I'm a UX Researcher with a Psychology background, a soft spot for asking one more question, and 3+ years of experience in digital banking helping product teams make sense of user behavior, challenge assumptions, and turn research into better product decisions.</p>
+    </div>
+  </section>
+
+  <section class="section orbit-sec">
+    <div class="wrap">
+      <div class="orbit">
+        <div class="col">
+          <div class="tag reveal"><h3 data-i18n="t1h">Psychology was the starting point</h3><p data-i18n="t1p">First, I wanted to understand people. Turns out, I still do.</p></div>
+          <div class="tag reveal"><h3 data-i18n="t2h">A researcher, not a mind reader</h3><p data-i18n="t2p">Listening, observing, and accepting when reality contradicts your hypothesis.</p></div>
+          <div class="tag reveal"><h3 data-i18n="t3h">Three years in digital banking</h3><p data-i18n="t3p">Researching products that are part of everyday life.</p></div>
+        </div>
+        <div class="photo reveal"><img src="assets/tiffany.jpg" width="800" height="800" alt="Portrait of Tiffany Macher smiling in front of green plants" data-i18n-alt="alt_photo" loading="lazy"></div>
+        <div class="col">
+          <div class="tag reveal"><h3 data-i18n="t4h">There's a pattern in there somewhere</h3><p data-i18n="t4p">Somewhere between what people say, what they do, and product data, things start making sense.</p></div>
+          <div class="tag reveal"><h3 data-i18n="t5h">AI can speed up the process.</h3><p data-i18n="t5p">Not replace the thinking.</p></div>
+          <div class="tag reveal"><h3 data-i18n="t6h">Peruvian, now figuring things out in Spain</h3><p data-i18n="t6p">New places, new perspectives, more to discover.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="story-grid">
+        <div class="story reveal">
+          <p class="eyebrow accent" data-i18n="click_l">The moment it clicked</p>
+          <h2 class="h1" data-i18n="click_h">People don't use products the way we imagine they do.</h2>
+          <p data-i18n="click_p1">In digital banking, a decision that seems obvious to a product team may not make the same sense to the person using the app.<br>A name can raise doubts. A feature designed to make a task easier can go unnoticed.</p>
+          <p data-i18n="click_p2">What happens in a person's mind when they interact with a product?</p>
+          <p data-i18n="click_p3">People interpret what they see, build expectations, and act on what they understand. And that interpretation doesn't always match what we designed.</p>
+          <p data-i18n="click_p4">At Interbank, I researched experiences around payments, savings, navigation, and digital sales, exploring how people understood interfaces, what they expected from them, and what influenced their behavior.</p>
+          <p data-i18n="click_p5">Discovering everything that happens behind an interaction is what connected me with UX Research: the chance to look beyond the obvious and question our own assumptions.</p>
+          <p data-i18n="click_p6">I'm interested in understanding how people make sense of what we design and how that knowledge can help us make better product decisions.</p>
+        </div>
+        <figure class="moment reveal" >
+          <div class="moment-frame"><img src="assets/tiffany-presenting.jpg" width="900" height="1200" alt="Tiffany presenting research recommendations on a projected slide in a meeting room" data-i18n-alt="alt_mom" loading="lazy"></div>
+          <figcaption data-i18n="mom_cap">Sharing research recommendations with the team</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow accent" data-i18n="path_l">How I got here</p>
+      <ol class="path" aria-label="Career path" data-i18n-aria="aria_path">
+        <li class="step reveal" style="margin-left:0">
+          <div class="box"><p class="where" data-i18n="p1w">Valencia · Spain</p><h3 data-i18n="p1h">A new chapter, still asking questions</h3></div>
+        </li>
+        <li class="step reveal" style="margin-left:clamp(0rem,4vw,3rem)">
+          <div class="box">
+            <p class="where" data-i18n="p2w">Interbank · Peru</p>
+            <div class="role"><h3 data-i18n="p2h">Design Researcher</h3><p>2023–2026</p></div>
+            <div class="role"><h3 data-i18n="p2h2">Digital Transformation and Innovation Trainee</h3><p data-i18n="p2p2">UX Research · Product discovery · Usability</p></div>
+          </div>
+        </li>
+        <li class="step reveal" style="margin-left:clamp(0rem,8vw,6rem)">
+          <div class="box"><p class="where" data-i18n="p3w">Ux Researcher</p><h3 data-i18n="p3h">Psychology</h3><p data-i18n="p3p">Bachelor's degree · 2017–2022</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <p class="eyebrow accent" data-i18n="det_l">Small details</p>
+      <div class="details">
+        <div class="detail reveal"><span class="eyebrow" data-i18n="d1l">My research philosophy</span><p data-i18n="d1p">Assume less. Ask better questions.</p></div>
+        <div class="detail reveal"><span class="eyebrow" data-i18n="d2l">My relationship with data</span><p data-i18n="d2p">Numbers tell you what. People help you understand why.</p></div>
+        <div class="detail reveal"><span class="eyebrow" data-i18n="d3l">My superpower</span><p data-i18n="d3p">Connecting the dots without pretending they're always connected.</p></div>
+        <div class="detail reveal"><span class="eyebrow" data-i18n="d4l">A gentle reminder</span><p data-i18n="d4p">Users aren't wrong for not understanding your interface.</p></div>
+        <div class="detail reveal"><span class="eyebrow" data-i18n="d5l">Current side quest</span><p data-i18n="d5p">Building a life in Spain, one administrative appointment at a time.</p></div>
+        <div class="detail reveal"><span class="eyebrow" data-i18n="d6l">Forever learning</span><p data-i18n="d6p">Turns out, understanding people is a lifelong project.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="curious reveal">
+        <h2 class="h2" data-i18n="cur_h">A little more, for the curious</h2>
+        <p style="margin-top:var(--s-5)" data-i18n="cur_p1">Outside work, I like discovering new things, getting excited about ideas, and occasionally getting a little too invested in whatever has caught my attention lately.</p>
+        <p data-i18n="cur_p2">Currently figuring out life in Spain, one new experience at a time. Still curious, still learning, and still asking questions — apparently, that's not just a work thing.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CASE STUDY ===================== -->
+<div data-view="case" hidden>
+  <div class="wrap wrap-case case-hero">
+    <a class="back" href="#/work"><span aria-hidden="true">←</span> <span data-i18n="back">All work</span></a>
+    <div class="chips" aria-label="Project tags" data-i18n-aria="aria_tags">
+      <span class="chip" data-i18n="tag_banking">Digital banking</span>
+      <span class="chip" data-i18n="tag_mixed">Quantitative and qualitative research</span>
+      <span class="chip" data-i18n="tag_eval">Evaluative</span>
+      <span class="chip" data-i18n="tag_impact">Strategic impact</span>
+    </div>
+    <h1 class="h1" data-i18n="case_title">Research that put everyday operations first in the redesigned Interbank app Home</h1>
+  </div>
+
+  <div class="wrap">
+    <div class="panel pad-b" style="max-width:var(--w-case);margin-inline:auto;border-radius:var(--r-md);">
+      <figure class="p220"><img src="assets/home-old.png" width="523" height="920" alt="Previous Interbank app Home screen" data-i18n-alt="alt_old"><figcaption data-i18n="cap_old">Previous Home</figcaption></figure>
+      <figure class="p220"><img src="assets/home-new.png" width="523" height="919" alt="Redesigned Interbank app Home screen with operations and products tabs" data-i18n-alt="alt_new"><figcaption data-i18n="cap_new">Redesigned Home</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="wrap wrap-case" style="margin-top:var(--s-6)">
+    <dl class="meta">
+      <div><dt data-i18n="m_time">Duration</dt><dd data-i18n="m_time_v">6 weeks</dd></div>
+      <div><dt data-i18n="m_role">Role</dt><dd data-i18n="m_role_v">UX Researcher</dd></div>
+      <div><dt data-i18n="m_team">Team</dt><dd data-i18n="m_team_v">2 product designers + 2 design researchers + 3 growth hackers</dd></div>
+      <div><dt data-i18n="m_scope">Scope</dt><dd data-i18n="m_scope_v">Home, navigation and product discovery</dd></div>
+      <div><dt data-i18n="m_tools">Tools</dt><dd>Figma · Maze · Qualtrics · Zoom · Claude</dd></div>
+    </dl>
+    <div class="tldr" style="margin-top:var(--s-6)">
+      <p class="eyebrow">TL;DR</p>
+      <p data-i18n="tldr">Interbank, a leading bank in Peru with 5M+ customers and 3M+ app users, wanted its app to become the main channel for everyday banking, ahead of other mobile banking apps. Usage data and primacy studies showed it wasn't users' first choice for payments and frequent operations. Together with another researcher, I planned and ran an iterative mixed-methods study to understand what people needed to find when they open the app, and how to reorganize the Home so everyday operations are easy to reach without making it harder to discover banking products. The redesigned Home reached production.</p>
+      <div class="stats">
+        <div class="stat"><div class="num">81.5%</div><div class="cap" data-i18n="s1">chose payments and operations among what they do most often (729 respondents)</div></div>
+        <div class="stat"><div class="num">65.5%</div><div class="cap" data-i18n="s2">named payments and operations among the most important things to find on the Home (706 respondents)</div></div>
+      </div>
+      <p class="muted" style="margin-top:var(--s-5);font-size:.92rem" data-i18n="kpis">Key indicators: Transactionality + Discovery + Engagement + Conversion</p>
+    </div>
+  </div>
+
+  <nav class="subnav" aria-label="Case study sections" data-i18n-aria="aria_sections" style="margin-top:var(--s-7)">
+    <div class="wrap wrap-case">
+      <ul class="subnav-list">
+        <li><a href="#solution" data-i18n="sn1">Solution</a></li>
+        <li><a href="#problem" data-i18n="sn2">Problem</a></li>
+        <li><a href="#research" data-i18n="sn3">Research</a></li>
+        <li><a href="#design" data-i18n="sn4">Design</a></li>
+        <li><a href="#role" data-i18n="sn5">My role</a></li>
+        <li><a href="#outcome" data-i18n="sn6">Outcome</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SOLUTION -->
+  <section class="case-sec" id="solution" aria-labelledby="sol-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="sol_l">Solution · Key findings</p>
+      <h2 class="h2" id="sol-h" data-i18n="sol_h">Operations first, products one tap away, and an onboarding to guide the change</h2>
+
+      <div class="block reveal">
+        <h3 class="h3" data-i18n="k1h">Order of operations by usage</h3>
+        <p data-i18n="k1p">People value quick access to their operations from the first view, in an order based on how often they use them.</p>
+        <div class="panel crop side"><figure class="p260"><img src="assets/home-new.png" width="523" height="919" alt="Redesigned Home with the most frequent operations shown first" data-i18n-alt="alt_k1"></figure>
+          <div class="side-list"><p class="side-h" data-i18n="sl_h">First three on the Home</p><ol><li data-i18n="sl1">Plin</li><li data-i18n="sl2">Transfers</li><li data-i18n="sl3">Card payment</li></ol></div></div>
+      </div>
+
+      <div class="block reveal">
+        <h3 class="h3" data-i18n="k2h">Safety through hidden products</h3>
+        <p data-i18n="k2p">Finding their accounts in a second view contributed to a sense of security, especially in public spaces.</p>
+        <div class="panel crop"><figure class="p220"><img src="assets/wf-products.png" width="180" height="408" alt="Early wireframe of the products view, one tap away on a second tab" data-i18n-alt="alt_k2"><figcaption data-i18n="cap_k2">Early proposal · “See my products” tab</figcaption></figure>
+          <div class="lock" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="14" y="28" width="36" height="26" rx="6"/><path d="M22 28v-8a10 10 0 0 1 20 0v8"/><circle cx="32" cy="41" r="3" fill="currentColor"/></svg></div></div>
+      </div>
+
+      <div class="block reveal">
+        <h3 class="h3" data-i18n="k3h">Support for the transition</h3>
+        <p data-i18n="k3p">Adding an onboarding improved success and reduced the time needed to find products.</p>
+        <div class="panel pad-b">
+          <figure class="p260"><img src="assets/onboarding-v1.png" width="345" height="704" alt="First onboarding tooltip explaining where products moved" data-i18n-alt="alt_k3a"><figcaption data-i18n="cap_k3a">Tested version</figcaption></figure>
+          <figure class="p260"><img src="assets/onboarding-v2.png" width="339" height="692" alt="Adjusted onboarding tooltip with shorter copy and a step counter" data-i18n-alt="alt_k3b"><figcaption data-i18n="cap_k3b">Adjusted version</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="block reveal">
+        <h3 class="h3" data-i18n="k4h">Balance visible to operate</h3>
+        <p data-i18n="k4p">Needing to check their balance before operating helps people decide which operations to perform and for how much. Seeing it from the first screen of the flow lets them continue with confidence.</p>
+        <div class="panel crop tall"><figure class="p260"><img src="assets/case-home-iter-balance.png" width="560" height="1156" alt="Plin flow with the available balance visible before operating" data-i18n-alt="alt_k4"><figcaption data-i18n="cap_k4">Balance visible at the start of the flow</figcaption></figure></div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:var(--s-7)">
+        <h3 class="h3" data-i18n="imp_h">Impact on the business</h3>
+        <p class="muted" style="margin-bottom:var(--s-4)" data-i18n="imp_p">The insights from this research directly shaped the product roadmap, leading to:</p>
+        <ul class="checklist">
+          <li data-i18n="imp1">Redefinition of the Home's information architecture, especially the hierarchy between operations and products.</li>
+          <li data-i18n="imp2">Selection of one Home proposal over the other, backed by quantitative and qualitative evidence.</li>
+          <li data-i18n="imp3">Design adjustments to the chosen proposal based on frictions found in the qualitative study.</li>
+          <li data-i18n="imp4">An onboarding as a key factor for the first release to production.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="case-sec" id="problem" aria-labelledby="prob-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="prob_l">Problem</p>
+      <h2 class="h2" id="prob-h" data-i18n="prob_h">The Interbank app wasn't users' first choice for everyday operations</h2>
+      <div class="prose">
+        <p data-i18n="prob_p1">Usage data and primacy studies showed that Interbank's app wasn't the first option for its users to make payments and other frequent operations.</p>
+        <p data-i18n="prob_p2">The Home at the time didn't prioritize users' main actions, such as payments and frequent operations.</p>
+      </div>
+      <div class="cards">
+        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="ch_l">Challenge</span><p data-i18n="ch_p">Understand what people needed to find when they enter the app, and how to reorganize the Home to ease access to usual operations without making it harder to discover banking products.</p></div>
+        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="sc_l">Scope</span><p data-i18n="sc_p">Home, navigation and product discovery.</p></div>
+        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="ri_l">Research impact</span><p data-i18n="ri_p">Research applied to design decisions for a Home that reached production.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="case-sec" id="research" aria-labelledby="res-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="res_l">Research</p>
+      <h2 class="h2" id="res-h" data-i18n="res_h">Eight steps of iterative research behind each product decision</h2>
+      <p class="muted" data-i18n="res_p">I combined quantitative and qualitative methods, with an iterative analysis process that produced preliminary findings for quick design decisions.</p>
+
+      <ol class="stages reveal" aria-label="Research process overview" data-i18n-aria="aria_stages">
+        <li class="stage"><span class="n">01</span><h3 data-i18n="g1h">Exploration and benchmark</h3><p data-i18n="g1p">Benchmark of banking and payment apps to find opportunities to improve access to everyday operations.</p><p class="dec" data-i18n="g1d">→ Decision: initial criteria for a Home oriented to everyday operations.</p></li>
+        <li class="stage"><span class="n">02</span><h3 data-i18n="g2h">Survey</h3><p data-i18n="g2p">Qualtrics · 729 responses. What users do most in the app and what they expect on the Home.</p><p class="dec" data-i18n="g2d">→ Decision: focus proposals on giving operations the leading role.</p></li>
+        <li class="stage"><span class="n">03</span><h3 data-i18n="g3h">Usage metrics</h3><p data-i18n="g3p">Frequency of use of each operation, to decide which ones deserve direct shortcuts.</p><p class="dec" data-i18n="g3d">→ Decision: priority and order of the Home shortcuts.</p></li>
+        <li class="stage"><span class="n">04</span><h3 data-i18n="g4h">First design proposals</h3><p data-i18n="g4p">The design team explored different navigation structures based on the research so far.</p><p class="dec" data-i18n="g4d">→ Decision: two proposals to test, tabs and nav bar.</p></li>
+        <li class="stage"><span class="n">05</span><h3 data-i18n="g5h">Guerrilla testing</h3><p data-i18n="g5p">Customers in bank branches explored both proposals to find comprehension problems and preferences.</p><p class="dec" data-i18n="g5d">→ Decision: the winning proposal was chosen.</p></li>
+        <li class="stage"><span class="n">06</span><h3 data-i18n="g6h">Moderated testing via Zoom</h3><p data-i18n="g6p">Usability + interviews · 15 participants. Clarity, usefulness, ease of use and frictions of the new Home.</p><p class="dec" data-i18n="g6d">→ Decision: tabs confirmed, with adjustments to onboarding and balance visibility.</p></li>
+        <li class="stage"><span class="n">07</span><h3 data-i18n="g7h">Design iteration</h3><p data-i18n="g7p">Findings translated into a clearer proposal: refined onboarding and balance visible before operating.</p><p class="dec" data-i18n="g7d">→ Decision: what still needed validation before production.</p></li>
+        <li class="stage"><span class="n">08</span><h3 data-i18n="g8h">Unmoderated validation: Maze</h3><p data-i18n="g8p">Onboarding vs. no onboarding, to see if users could find the products tab.</p><p class="dec" data-i18n="g8d">→ Decision: onboarding prioritized for the first release.</p></li>
+      </ol>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">01 · <span data-i18n="bm_l">Exploration and benchmark</span></p>
+        <p data-i18n="bm_p1"><strong>Objective:</strong> identify opportunities to improve access to everyday operations and the organization of the Home.</p>
+        <p data-i18n="bm_p2"><strong>Method:</strong> benchmark of banking and payment apps, including GoPay, Nubank, BBVA, N26 and Revolut.</p>
+        <p class="lbl" data-i18n="lbl_explored">What we explored</p>
+        <ul class="checklist">
+          <li data-i18n="bm1">How operations are presented from the main screen.</li>
+          <li data-i18n="bm2">How access to frequent or favorite operations is made easy.</li>
+          <li data-i18n="bm3">How offers and commercial opportunities are integrated into the experience.</li>
+        </ul>
+        <div class="panel wide pad-b"><figure><img src="assets/benchmark.png" width="810" height="339" alt="Home screens of Gopay, Revolut, BBVA, N26 and Nubank used in the benchmark" data-i18n-alt="alt_bm"></figure></div>
+        <p data-i18n="bm_c"><strong>Contribution:</strong> the benchmark helped identify relevant design patterns and set initial criteria to explore a Home more oriented to everyday operations.</p>
+      </div>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">02 · <span data-i18n="sv_l">Quantitative research: user priorities</span></p>
+        <p data-i18n="sv_p1"><strong>Objective:</strong> understand what customers did most often in the app and what they expected to find on the Home.</p>
+        <p data-i18n="sv_p2"><strong>Method:</strong> quantitative survey built in Qualtrics and distributed in-app to active users of the banking app. <strong>Sample:</strong> 729 responses.</p>
+        <p class="lbl" data-i18n="lbl_investigated">What I investigated</p>
+        <ul class="checklist">
+          <li data-i18n="sv1">Operations done most often.</li>
+          <li data-i18n="sv2">Content considered most important on the Home.</li>
+          <li data-i18n="sv3">Relative priority of operations versus access to products.</li>
+        </ul>
+        <div class="chart">
+          <h4 data-i18n="c1h">What do you do most often in your banking app?</h4>
+          <p class="n" data-i18n="c1n">729 respondents</p>
+          <ul class="bars">
+            <li class="bar"><span data-i18n="c1a">Make payments and operations</span><span class="track"><span class="fill" style="--v:81.5%"></span></span><span class="val">81.5%</span></li>
+            <li class="bar"><span data-i18n="c1b">Make frequent operations</span><span class="track"><span class="fill" style="--v:50.5%"></span></span><span class="val">50.5%</span></li>
+            <li class="bar"><span data-i18n="c1c">See my products</span><span class="track"><span class="fill" style="--v:10%"></span></span><span class="val">10%</span></li>
+          </ul>
+        </div>
+        <div class="chart">
+          <h4 data-i18n="c2h">What matters most to you to have on your banking app's main screen?</h4>
+          <p class="n" data-i18n="c2n">706 respondents</p>
+          <ul class="bars">
+            <li class="bar"><span data-i18n="c2a">Make payments and operations</span><span class="track"><span class="fill" style="--v:65.5%"></span></span><span class="val">65.5%</span></li>
+            <li class="bar"><span data-i18n="c2b">Have frequent operations</span><span class="track"><span class="fill" style="--v:52.5%"></span></span><span class="val">52.5%</span></li>
+            <li class="bar"><span data-i18n="c2c">See pre-approved product offers</span><span class="track"><span class="fill" style="--v:22%"></span></span><span class="val">22%</span></li>
+            <li class="bar"><span data-i18n="c2d">See my products</span><span class="track"><span class="fill" style="--v:17.5%"></span></span><span class="val">17.5%</span></li>
+          </ul>
+        </div>
+        <p class="lbl" data-i18n="lbl_results">Main results</p>
+        <ul class="checklist">
+          <li data-i18n="sv_r1">81.5% selected payments and operations among the activities they do most often.</li>
+          <li data-i18n="sv_r2">65.5% considered payments and operations among the most important things to find on the Home.</li>
+        </ul>
+        <p data-i18n="sv_c"><strong>Contribution:</strong> the results supported the need to give everyday operations more visibility and provided a quantitative basis to guide the content hierarchy.</p>
+      </div>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">03 · <span data-i18n="us_l">Usage metrics: prioritizing operations</span></p>
+        <p data-i18n="us_p1"><strong>Objective:</strong> define which operations needed more visibility and in what order to present them on the Home.</p>
+        <p data-i18n="us_p2"><strong>Method:</strong> review of usage metrics for the app's operations.</p>
+        <p class="lbl" data-i18n="lbl_analyzed">What I analyzed</p>
+        <ul class="checklist">
+          <li data-i18n="us1">How often each operation is used.</li>
+          <li data-i18n="us2">Which operations should be prioritized as direct shortcuts on the Home.</li>
+        </ul>
+        <ol class="ranks" aria-label="Operations ranked by usage" data-i18n-aria="aria_ranks">
+          <li data-i18n="r1">Plin to a phone number</li>
+          <li data-i18n="r2">Pay services</li>
+          <li data-i18n="r3">Transfer money</li>
+          <li data-i18n="r4">Top up phone</li>
+          <li data-i18n="r5">Transport top-up</li>
+          <li data-i18n="r6">Currency exchange</li>
+        </ol>
+        <p data-i18n="us_c"><strong>Contribution:</strong> usage metrics complemented the survey results and served as criteria to prioritize and order the shortcuts in the first design proposals.</p>
+      </div>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">04 · <span data-i18n="fp_l">First design proposals: hierarchy and navigation</span></p>
+        <p data-i18n="fp_p1">The design team developed initial proposals based on what the research had shown, with different navigation structures to evaluate which one made it easier to reach everyday operations and to discover products.</p>
+        <div class="panel pad-b" style="gap:clamp(.75rem,3vw,2rem)">
+          <figure class="p180"><img src="assets/wf-operations.png" width="208" height="469" alt="Wireframe of the tabs proposal showing the Operations tab" data-i18n-alt="alt_g1"><figcaption data-i18n="cap_g1">Tabs · Operations</figcaption></figure>
+          <figure class="p180"><img src="assets/wf-products.png" width="180" height="408" alt="Wireframe of the tabs proposal showing the Products tab" data-i18n-alt="alt_g2"><figcaption data-i18n="cap_g2">Tabs · Products</figcaption></figure>
+          <figure class="p180"><img src="assets/wf-navbar.png" width="208" height="470" alt="Wireframe of the navigation bar proposal" data-i18n-alt="alt_g3"><figcaption data-i18n="cap_g3">Nav bar proposal</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">05 · <span data-i18n="gu_l">Qualitative exploration: guerrilla testing</span></p>
+        <p data-i18n="gu_p1"><strong>Objective:</strong> contrast the first proposals with users and identify comprehension problems and opportunities for improvement.</p>
+        <p data-i18n="gu_p2"><strong>Method:</strong> guerrilla tests with customers present in a bank branch.</p>
+        <p class="lbl" data-i18n="lbl_explored_me">What I explored</p>
+        <ul class="checklist">
+          <li data-i18n="gu1">Understanding of the structure and organization of each Home proposal.</li>
+          <li data-i18n="gu2">How easy it was to locate products and find the main operations.</li>
+          <li data-i18n="gu3">Understanding of the interface elements and what they do.</li>
+          <li data-i18n="gu4">Which proposal users preferred after exploring both.</li>
+        </ul>
+        <div class="panel pad-b" style="gap:clamp(.6rem,2.5vw,1.6rem)">
+          <figure class="p160"><img src="assets/case-home-g-tabs-ops.png" width="420" height="942" alt="Tabs proposal, Operations tab, with the Products tab highlighted" data-i18n-alt="alt_gt1"><figcaption data-i18n="cap_gt1">Tabs · Operations</figcaption></figure>
+          <figure class="p160"><img src="assets/case-home-g-tabs-products.png" width="364" height="820" alt="Tabs proposal, Products tab" data-i18n-alt="alt_gt2"><figcaption data-i18n="cap_gt2">Tabs · Products</figcaption></figure>
+          <figure class="p160"><img src="assets/case-home-g-nav-home.png" width="420" height="944" alt="Nav bar proposal, Home, with the Products item highlighted in the bar" data-i18n-alt="alt_gt3"><figcaption data-i18n="cap_gt3">Nav bar · Home</figcaption></figure>
+          <figure class="p160"><img src="assets/case-home-g-nav-products.png" width="420" height="944" alt="Nav bar proposal, Products screen" data-i18n-alt="alt_gt4"><figcaption data-i18n="cap_gt4">Nav bar · Products</figcaption></figure>
+        </div>
+        <div class="callout"><p class="h3" data-i18n="gu_k">2 of 3 customers preferred Tabs</p></div>
+        <p data-i18n="gu_c"><strong>Contribution:</strong> it made it possible to contrast both proposals and identify the one that was clearer and preferred by users, providing evidence for the next design iteration.</p>
+      </div>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">06 · <span data-i18n="mo_l">Moderated qualitative evaluation</span></p>
+        <p data-i18n="mo_p1"><strong>Main objective:</strong> evaluate the understanding, perception and ease of use of the new Home proposal, identifying frictions and opportunities to improve its structure and features.</p>
+        <p data-i18n="mo_p2"><strong>Method:</strong> moderated sessions over Zoom, combining exploration tasks and interface evaluation with interviews.</p>
+        <p data-i18n="mo_p3"><strong>Sample:</strong> 15 participants, including single-product users, multi-product users and merchants.</p>
+        <p class="lbl" data-i18n="lbl_investigated">What I investigated</p>
+        <ul class="checklist">
+          <li data-i18n="mo_i1">Understanding of how the Home is organized, and how easy it was to find operations and products through tabs.</li>
+          <li data-i18n="mo_i2">Perception of the visual hierarchy and the usefulness of the shortcuts to everyday operations.</li>
+          <li data-i18n="mo_i3">Interpretation of labels, icons and commercial elements, and the expectations they created.</li>
+          <li data-i18n="mo_i4">Usefulness and clarity of the onboarding to find their way around the interface changes.</li>
+        </ul>
+        <div class="panel pad-b" style="gap:clamp(.75rem,3vw,2rem)">
+          <figure class="p180"><img src="assets/case-home-mod-onboarding.png" width="560" height="1156" alt="Onboarding tooltip announcing that products were relocated to a second tab" data-i18n-alt="alt_mo1"><figcaption data-i18n="cap_mo1">Onboarding</figcaption></figure>
+          <figure class="p180"><img src="assets/case-home-mod-home.png" width="560" height="1156" alt="Redesigned Home with Operations and Products tabs" data-i18n-alt="alt_mo2"><figcaption data-i18n="cap_mo2">Evaluated Home</figcaption></figure>
+        </div>
+        <p class="lbl" data-i18n="mo_rh">Main results</p>
+        <ul class="checklist">
+          <li data-i18n="mo1">People valued having operations at first sight. The number of options felt adequate and the order of the first three was seen as consistent with how often they use them.</li>
+          <li data-i18n="mo2"><strong>More privacy when checking products:</strong> finding products in a second view felt safer, especially when using the app in public spaces.</li>
+          <li data-i18n="mo3">Needing to check their balance before operating helps them decide which operations to perform and for how much.</li>
+          <li data-i18n="mo4">The onboarding was seen as clear and helpful to understand the changes. The spotlights made it easier to identify options, although some images felt repetitive or distracting.</li>
+        </ul>
+        <p data-i18n="mo_c"><strong>Contribution:</strong> the findings helped consolidate the hierarchy between operations and products, support the tabs navigation structure and refine the selected proposal. They also guided improvements to the onboarding and to balance visibility.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN -->
+  <section class="case-sec" id="design" aria-labelledby="des-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="des_l">Design iteration</p>
+      <h2 class="h2" id="des-h" data-i18n="des_h">From findings to a clearer, user-aligned proposal</h2>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">07 · <span data-i18n="di_l">Design iteration</span></p>
+        <p data-i18n="des_p1"><strong>Objective:</strong> translate the findings of the first phases into a clearer proposal aligned with users' needs.</p>
+        <p class="lbl" data-i18n="lbl_worked">Aspects worked on</p>
+        <ul class="checklist">
+          <li data-i18n="des1"><strong>Onboarding refinement:</strong> improve the clarity of the orientation resources to help users understand the changes and find their way around the new Home.</li>
+          <li data-i18n="des2"><strong>Access to key information before operating:</strong> explore showing the balance from the first screen of the flow, so users can check what they need before continuing with an operation.</li>
+        </ul>
+        <div class="panel pad-b" style="gap:clamp(.75rem,3vw,2rem)">
+          <figure class="p180"><img src="assets/case-home-iter-onboarding.png" width="560" height="1156" alt="Adjusted onboarding tooltip with a step counter" data-i18n-alt="alt_di1"><figcaption data-i18n="cap_di1">Onboarding adjustments</figcaption></figure>
+          <figure class="p180"><img src="assets/case-home-iter-balance.png" width="560" height="1156" alt="Plin flow with the available balance visible at the top and hidden by default" data-i18n-alt="alt_di2"><figcaption data-i18n="cap_di2">Balance visibility adjustments</figcaption></figure>
+        </div>
+        <p data-i18n="des_c"><strong>Contribution:</strong> the learnings were built into the proposal's evolution and made it possible to define which aspects needed further validation before going to production.</p>
+      </div>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow">08 · <span data-i18n="mz_l">Unmoderated quantitative validation: Maze</span></p>
+        <p data-i18n="mz_p1"><strong>Objective:</strong> check whether users could find the products in the second tab of the new Home, and evaluate how much the onboarding contributed to that task in the iterated version.</p>
+        <p data-i18n="mz_p2"><strong>Method:</strong> unmoderated test in Maze, comparing one experience with the onboarding and one without it.</p>
+        <p class="lbl" data-i18n="lbl_evaluated">What I evaluated</p>
+        <ul class="checklist">
+          <li data-i18n="mz_e1">Whether participants managed to reach the products section.</li>
+          <li data-i18n="mz_e2">Success in the discovery task.</li>
+          <li data-i18n="mz_e3">Time needed to complete the task in each condition.</li>
+        </ul>
+        <div class="callout"><p class="h3" data-i18n="mz_k">Participants who saw the onboarding were more successful and needed less time to find the products.</p></div>
+        <p data-i18n="mz_c"><strong>Contribution:</strong> prioritizing the onboarding for the first release to production, to make the new navigation and product discovery easier to understand.</p>
+      </div>
+
+      <div class="callout reveal" style="margin-top:var(--s-7)">
+        <h3 class="h3" data-i18n="kf_h">Key findings</h3>
+        <ul class="checklist">
+          <li data-i18n="mz1"><strong>Everyday operations had to be the priority.</strong> Payments and frequent operations stood out among users' main needs.</li>
+          <li data-i18n="mz2"><strong>Navigation shaped discovery.</strong> Products were easier to find through tabs than from the navigation bar that was evaluated.</li>
+          <li data-i18n="mz3"><strong>Guidance eased the transition.</strong> The Maze results favored adding an onboarding to help people discover the Home's new structure.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLE -->
+  <section class="case-sec" id="role" aria-labelledby="role-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="role_l">My role</p>
+      <h2 class="h2" id="role-h" data-i18n="role_h">My role as UX Researcher</h2>
+      <p class="muted" data-i18n="role_p">I worked with another researcher on planning and running the research, analyzing results and communicating findings to the Digital Product team and the Head of Digital Channels.</p>
+      <ul class="checklist">
+        <li data-i18n="ro1">Designed the research plan and chose methods for each phase's objectives, aligned with stakeholders.</li>
+        <li data-i18n="ro2">Designed the moderation guide and facilitated the qualitative study (usability + in-depth interviews).</li>
+        <li data-i18n="ro3">Defined and set up the Qualtrics questionnaire for the quantitative survey.</li>
+        <li data-i18n="ro4">Designed the protocol and moderated the guerrilla sessions in branches.</li>
+        <li data-i18n="ro5">Followed up on, analyzed and interpreted findings across the different stages.</li>
+        <li data-i18n="ro6">Synthesized and communicated insights to product and design teams to inform design decisions.</li>
+        <li data-i18n="ro7">Collaborated actively in evaluating and adjusting design proposals based on the findings.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section class="case-sec" id="outcome" aria-labelledby="out-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" id="out-h" data-i18n="out_l">Outcome</p>
+      <div class="outcome reveal">
+        <div class="cardlet big">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>
+          <strong data-i18n="out1">Shipped</strong>
+          <p data-i18n="out1p">The redesigned Home reached production.</p>
+        </div>
+        <div class="cardlet small"><strong>700+</strong><p data-i18n="out2">in-app survey responses</p></div>
+        <div class="cardlet small"><strong data-i18n="out3n">6 weeks</strong><p data-i18n="out3">from kick-off to findings</p></div>
+      </div>
+      <h3 class="h3" style="margin-top:var(--s-7)" data-i18n="fr_h">From research to product decisions</h3>
+      <div class="prose">
+        <p data-i18n="fr_p1">The research helped define a Home that prioritized frequent operations, separated access to operations and products with tabs, and added an onboarding to guide users.</p>
+        <p data-i18n="fr_p2">It also helped evaluate which features deserved space on the main screen, considering both the preferences expressed during testing and the behavioral signals available.</p>
+        <p data-i18n="fr_p3">The redesigned Home reached production. The research provided evidence to guide decisions on hierarchy, navigation and product discovery.</p>
+      </div>
+      <div class="cta-end">
+        <a class="btn" href="#/work"><span aria-hidden="true">←</span> <span data-i18n="back">All work</span></a>
+        <a class="btn primary" href="#/about"><span data-i18n="about_btn">About me</span> <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== CASE STUDY · ALCANCÍA ===================== -->
+<div data-view="case-alcancia" hidden>
+  <div class="wrap wrap-case case-hero">
+    <a class="back" href="#/work"><span aria-hidden="true">←</span> <span data-i18n="back">All work</span></a>
+    <div class="chips" aria-label="Project tags" data-i18n-aria="aria_tags">
+      <span class="chip" data-i18n="tag_banking">Digital banking</span>
+      <span class="chip" data-i18n="al_tag_qual">Qualitative research</span>
+      <span class="chip" data-i18n="al_tag_gen">Generative research</span>
+    </div>
+    <h1 class="h1" data-i18n="al_title">Understanding different saving habits to guide the evolution of Interbank's Alcancía</h1>
+  </div>
+
+  <div class="wrap">
+    <div class="panel cover" style="max-width:var(--w-case);margin-inline:auto">
+      <figure class="pcover"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app"></figure>
+    </div>
+  </div>
+
+  <div class="wrap wrap-case" style="margin-top:var(--s-6)">
+    <dl class="meta">
+      <div><dt data-i18n="m_time">Duration</dt><dd data-i18n="al_m_time_v">4 weeks</dd></div>
+      <div><dt data-i18n="m_role">Role</dt><dd data-i18n="m_role_v">UX Researcher</dd></div>
+      <div><dt data-i18n="m_team">Team</dt><dd data-i18n="al_m_team_v">2 Product Designers + 2 Design Researchers</dd></div>
+      <div><dt data-i18n="m_scope">Scope</dt><dd data-i18n="al_m_scope_v">Alcancía · Saving behaviors · User expectations · Product evolution</dd></div>
+      <div><dt data-i18n="m_methods">Methods</dt><dd data-i18n="al_m_methods_v">Qualitative research · 2 in-person workshops · Thematic analysis</dd></div>
+    </dl>
+    <div class="tldr" style="margin-top:var(--s-6)">
+      <p class="eyebrow">TL;DR</p>
+      <div class="tl-body">
+        <p data-i18n="al_tl1">Alcancía is a feature of the Interbank app that lets customers set money aside from their available balance.</p>
+        <p data-i18n="al_tl2">Based on behavioral indicators, two ways of using the feature were identified: setting money aside for monthly or short-term payments, or building savings for the medium and long term.</p>
+        <p data-i18n="al_tl3">To understand how the experience could better respond to these needs, I planned and facilitated two workshops with 12 customers across transactional, aspirational, and mixed profiles.</p>
+        <p data-i18n="al_tl4">The research revealed that users value the flexibility of the feature, but also express the need to organize their savings by goals and to have mechanisms that help them keep the money set aside.</p>
+        <p data-i18n="al_tl5">These findings informed design proposals for flexible savings goals, scheduled savings, and greater control over withdrawals.</p>
+        <p data-i18n="al_tl6">I collaborated directly with Product Designers to define solutions and later participated in user evaluations of the proposed concepts and screens.</p>
+      </div>
+      <!-- CONFIRMAR antes de publicar: base del 13× y si 76% / 6% corresponden a todos los clientes con saldo -->
+      <div class="stats">
+        <div class="stat"><div class="num">877K</div><div class="cap" data-i18n="al_s1">customers with a balance in Alcancía</div></div>
+        <div class="stat"><div class="num">76%</div><div class="cap" data-i18n="al_s2">transactional users, primarily focused on organizing expenses</div></div>
+        <div class="stat"><div class="num">6%</div><div class="cap" data-i18n="al_s3">aspirational users, primarily focused on saving</div></div>
+        <div class="stat"><div class="num">13×</div><div class="cap" data-i18n="al_s4">average balance among aspirational users, compared with the reference group used in the internal analysis</div></div>
+      </div>
+      <p class="muted" style="margin-top:var(--s-5);font-size:.92rem" data-i18n="al_kpis">Key indicators: Engagement · Savings balances · Savings retention · Bank primacy</p>
+    </div>
+  </div>
+
+  <nav class="subnav" aria-label="Case study sections" data-i18n-aria="aria_sections" style="margin-top:var(--s-7)">
+    <div class="wrap wrap-case">
+      <ul class="subnav-list">
+        <li><a href="#a-solution" data-i18n="sn1">Solution</a></li>
+        <li><a href="#a-problem" data-i18n="sn2">Problem</a></li>
+        <li><a href="#a-research" data-i18n="sn3">Research</a></li>
+        <li><a href="#a-design" data-i18n="sn4">Design</a></li>
+        <li><a href="#a-role" data-i18n="sn5">My role</a></li>
+        <li><a href="#a-outcome" data-i18n="sn6">Outcome</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SOLUTION · KEY FINDINGS -->
+  <section class="case-sec" id="a-solution" aria-labelledby="a-sol-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="sol_l">Solution · Key findings</p>
+      <h2 class="h2" id="a-sol-h" data-i18n="al_sol_h">One savings tool, different reasons to use it</h2>
+
+      <div class="findings">
+        <div class="finding reveal">
+          <p class="sub-eyebrow" data-i18n="al_fn1">Finding 1</p>
+          <h3 class="h3" data-i18n="al_k1h">Alcancía served different functions depending on the purpose of the money</h3>
+          <p data-i18n="al_k1p">Transactional users used it to organize money for recurring expenses and payments, and valued being able to withdraw it when it was time to pay. Aspirational users used it to accumulate savings for the medium and long term, and valued that the money stayed set aside.</p>
+          <p class="opp" data-i18n="al_k1o"><strong>Design opportunity:</strong> support different saving behaviors without assuming that every customer uses Alcancía for the same purpose.</p>
+        </div>
+
+        <div class="finding reveal">
+          <p class="sub-eyebrow" data-i18n="al_fn2">Finding 2</p>
+          <h3 class="h3" data-i18n="al_k2h">Flexibility makes saving easier, but also withdrawing</h3>
+          <p data-i18n="al_k2p">Participants valued deciding how much to put in and when, with no mandatory amounts or dates. But that same ease of withdrawal could make it harder to keep savings for a specific goal.</p>
+          <p class="opp" data-i18n="al_k2o"><strong>Design opportunity:</strong> explore ways to balance flexibility with greater control over withdrawals.</p>
+        </div>
+
+        <div class="finding reveal">
+          <p class="sub-eyebrow" data-i18n="al_fn3">Finding 3</p>
+          <h3 class="h3" data-i18n="al_k3h">Setting money apart gives a sense of control and security</h3>
+          <p data-i18n="al_k3p">By keeping money apart from the balance they used every day, and limiting spending to a specific amount, participants described feeling more in control of their expenses. Some also saw it as a way to keep that money protected.</p>
+          <p class="opp" data-i18n="al_k3o"><strong>Design opportunity:</strong> strengthen the role of Alcancía as a space to organize and protect money according to its intended use.</p>
+          <figure class="ff" aria-label="Alcancía screen: available balance versus balance set aside" data-i18n-aria="al_ff_aria">
+            <div class="ff-stage">
+              <div class="ff-left"><p class="ff-tag" data-i18n="al_ff_l">Balance available for payments and ATM withdrawals</p></div>
+              <div class="ff-phone"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app"></div>
+              <div class="ff-right">
+                <p class="ff-tag" data-i18n="al_ff_r">Balance set aside, not available for payments or ATM withdrawals</p>
+                <ul class="ff-out"><li data-i18n="al_ff_o1">Sense of expense organization</li><li data-i18n="al_ff_o2">Sense of security</li></ul>
+              </div>
+            </div>
+          </figure>
+        </div>
+
+        <div class="finding reveal">
+          <p class="sub-eyebrow" data-i18n="al_fn4">Finding 4</p>
+          <h3 class="h3" data-i18n="al_k4h">Saving for goals doesn't necessarily mean looking for returns</h3>
+          <p data-i18n="al_k4p">Aspirational users valued grouping money around personal goals, such as family, education, pets, and travel. Interest was visible and appreciated, but organizing money around a purpose could matter more.</p>
+          <p class="opp" data-i18n="al_k4o"><strong>Design opportunity:</strong> make it easier to structure savings around individual goals and preferences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="case-sec" id="a-problem" aria-labelledby="a-prob-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="prob_l">Problem</p>
+      <h2 class="h2" id="a-prob-h" data-i18n="al_prob_h">Two usage patterns, one feature</h2>
+      <div class="prose">
+        <p data-i18n="al_prob_p1">Alcancía is a feature of the Interbank app that lets customers set aside part of the money in their account and keep it apart from their available balance.</p>
+        <p data-i18n="al_prob_p2">Usage data showed two distinct behaviors:</p>
+      </div>
+      <ul class="checklist">
+        <li data-i18n="al_prob_b1">76% of customers had a transactional profile, characterized by frequent deposits and withdrawals and average balances below S/ 5,000.</li>
+        <li data-i18n="al_prob_b2">In contrast, 6% had an aspirational profile, with deposits but no withdrawals and average balances above S/ 5,000 over three months.</li>
+      </ul>
+      <p class="prose-p" data-i18n="al_prob_p3">Although aspirational users were a smaller share, their average balance was 13 times higher than that of the reference group in the internal analysis, which made them a relevant segment for the bank's deposit growth.</p>
+      <div class="cards">
+        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="al_bq_l">Business question</span><p data-i18n="al_bq_p">How can we adapt the Alcancía experience to the different customer profiles that use it?</p></div>
+        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="al_ob_l">Research objective</span><p data-i18n="al_ob_p">Understand how the different user profiles perceived Alcancía and what they expected from it.</p></div>
+        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="sc_l">Scope</span><p data-i18n="al_sc_p">Alcancía, saving behaviors, user expectations and product evolution.</p></div>
+      </div>
+      <p class="lbl" data-i18n="al_sobj_l">Specific objectives</p>
+      <ul class="checklist">
+        <li data-i18n="al_o1">Understand how they perceived the current Alcancía experience and which aspects made it easier or harder to use.</li>
+        <li data-i18n="al_o2">Explore saving behaviors and how they used the feature to organize payments, expenses and financial goals.</li>
+        <li data-i18n="al_o3">Identify the needs and motivations behind the different usage patterns, as well as opportunities for the product to evolve.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="case-sec" id="a-research" aria-labelledby="a-res-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="res_l">Research</p>
+      <h2 class="h2" id="a-res-h" data-i18n="al_res_h">Two workshops to understand what each profile valued</h2>
+
+      <div class="stats" style="margin-top:var(--s-4)">
+        <div class="stat"><div class="num">12</div><div class="cap" data-i18n="al_r1">participants</div></div>
+        <div class="stat"><div class="num">2</div><div class="cap" data-i18n="al_r2">in-person workshops</div></div>
+        <div class="stat"><div class="num">3</div><div class="cap" data-i18n="al_r3">usage profiles</div></div>
+      </div>
+
+      <div class="block reveal">
+        <h3 class="h3" data-i18n="al_pf_h">Participant profiles</h3>
+        <div class="cards">
+          <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_pf1l">Transactional users · 4</span><p data-i18n="al_pf1p">They save and withdraw throughout the month. At the end of the month, their average balance stays below S/ 5,000.</p></div>
+          <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_pf2l">Aspirational users · 4</span><p data-i18n="al_pf2p">They save and make no withdrawals throughout the month.</p></div>
+          <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_pf3l">Mixed users · 4</span><p data-i18n="al_pf3p">They save and withdraw throughout the month, yet they keep a balance as the months go by.</p></div>
+        </div>
+        <p class="muted" data-i18n="al_pf_n">Profiles were defined from usage patterns and balances over a three-month period.</p>
+      </div>
+
+      <div class="block reveal">
+        <h3 class="h3" data-i18n="al_wf_h">How the workshops worked</h3>
+        <p data-i18n="al_wf_p">The sessions combined individual reflection, group discussion and prioritization of opportunities.</p>
+        <ol class="flow">
+          <li data-i18n="al_w1"><strong>Context and opening:</strong> financial practices and each participant's relationship with Alcancía.</li>
+          <li data-i18n="al_w2"><strong>Mental model:</strong> spontaneous associations and interpretations of the Alcancía concept.</li>
+          <li data-i18n="al_w3"><strong>Current experience:</strong> what they valued, what they would change and what they would like, through a Like / Would change / Would like activity.</li>
+          <li data-i18n="al_w4"><strong>Discussion and prioritization:</strong> sharing needs and expectations, with small-group activities.</li>
+          <li data-i18n="al_w5"><strong>Concept exploration:</strong> presenting and discussing ideas for future features.</li>
+          <li data-i18n="al_w6"><strong>Closing:</strong> final reflections and expectations.</li>
+        </ol>
+        <div class="gallery">
+          <figure class="g-main"><img src="assets/alcancia-worksheet.png" width="637" height="387" alt="Workshop worksheet with sticky notes under the headings Like, Would change and Would like" data-i18n-alt="alt_al_ws" loading="lazy"><figcaption data-i18n="al_g1"><strong>Personal exercise:</strong> Like / Would change / Would like worksheet, filled in by a participant.</figcaption></figure>
+          <div class="g-pair">
+            <img src="assets/alcancia-workshop-table.png" width="637" height="387" alt="Participants working with sticky notes around a table during a workshop" data-i18n-alt="alt_al_g2" loading="lazy">
+            <img src="assets/alcancia-workshop-room.png" width="637" height="372" alt="Workshop room with participants seated around a long table" data-i18n-alt="alt_al_g3" loading="lazy">
+          </div>
+          <p class="g-cap" data-i18n="al_g2"><strong>Group discussion</strong> of personal answers and joint prioritization.</p>
+        </div>
+      </div>
+
+      <div class="block reveal">
+        <p class="sub-eyebrow" data-i18n="al_an_l">Analysis of results</p>
+        <p data-i18n="al_th">I led the thematic analysis of the sessions, which surfaced patterns around how people organize money, how flexible saving should be, the sense of control and security that comes from keeping money apart, and the differences between those who save for goals and those who manage their month with Alcancía.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN -->
+  <section class="case-sec" id="a-design" aria-labelledby="a-des-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="al_des_l">Design · From insights to product opportunities</p>
+      <h2 class="h2" id="a-des-h" data-i18n="al_des_h">From a long feature wish list to one guiding tension</h2>
+      <p data-i18n="al_des_p1">The question stopped being only which features to add. It became how to let people organize money by its purpose and have better control over when they use it.</p>
+
+      <div class="versus reveal">
+        <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_vs1l">Ease and flexibility</span><p data-i18n="al_vs1p">Let people set money aside when they need to and use it for their payments.</p></div>
+        <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_vs2l">Protecting the purpose</span><p data-i18n="al_vs2p">Help money meant for saving stay set apart and be less exposed to impulsive spending.</p></div>
+      </div>
+      <p data-i18n="al_vs_c">The opportunity was to offer different levels of organization and control depending on the purpose of the money, without removing the autonomy that made Alcancía useful in the first place.</p>
+
+      <div class="block reveal">
+        <h3 class="h3" data-i18n="al_imp_h">The findings informed collaborative design work on several potential improvements</h3>
+        <ul class="checklist">
+          <li data-i18n="al_d1"><strong>More saving categories</strong> to organize money according to different purposes.</li>
+          <li data-i18n="al_d2"><strong>Flexible savings goals</strong> with user-defined amounts, dates and frequencies.</li>
+          <li data-i18n="al_d3"><strong>Greater control over withdrawals</strong> to help customers protect money intended for saving.</li>
+          <li data-i18n="al_d4"><strong>Scheduled savings</strong> to support more consistent saving habits.</li>
+        </ul>
+        <p data-i18n="al_d5">Other ideas, including bill payments from Alcancía, reminders, shared savings, and financial education, were also explored as customer expectations. They were recorded as expectations to explore, not as confirmed product decisions.</p>
+        <p data-i18n="al_d6">The proposals went through subsequent rounds of user evaluation. I collaborated directly with designers on solution definition and participated in later testing of concepts and screens.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLE -->
+  <section class="case-sec" id="a-role" aria-labelledby="a-role-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="role_l">My role</p>
+      <h2 class="h2" id="a-role-h" data-i18n="role_h">My role as UX Researcher</h2>
+      <p class="muted" data-i18n="al_role_p">I contributed across the research process, from defining objectives and participant criteria to presenting findings to leadership. Beyond the initial research, I worked directly with Product Designers to translate user evidence into design opportunities and took part in the later evaluations of the proposed solutions.</p>
+      <ul class="checklist">
+        <li data-i18n="al_ro1">Defined the research objectives and participant selection criteria.</li>
+        <li data-i18n="al_ro2">Designed and refined the workshop guide and prepared the materials.</li>
+        <li data-i18n="al_ro3">Coordinated recruitment with an external agency.</li>
+        <li data-i18n="al_ro4">Facilitated the workshop sessions.</li>
+        <li data-i18n="al_ro5">Led the thematic analysis.</li>
+        <li data-i18n="al_ro6">Presented the findings to leadership and turned them into recommendations for the Product and Design teams.</li>
+        <li data-i18n="al_ro7">Worked with Product Designers to define solutions, and took part in later evaluations of concepts and screens.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section class="case-sec" id="a-outcome" aria-labelledby="a-out-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" id="a-out-h" data-i18n="out_l">Outcome</p>
+      <div class="outcome reveal">
+        <div class="cardlet big">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
+          <strong data-i18n="al_out1">Approved for development</strong>
+          <p data-i18n="al_out1p">The initiatives were approved in different phases. Implementation depends on prioritization and development capacity.</p>
+        </div>
+        <div class="cardlet small"><strong>12</strong><p data-i18n="al_out2">customers across transactional, aspirational and mixed profiles</p></div>
+        <div class="cardlet small"><strong data-i18n="al_out3n">2 workshops</strong><p data-i18n="al_out3">plus later evaluations of concepts and screens</p></div>
+      </div>
+      <h3 class="h3" style="margin-top:var(--s-7)" data-i18n="al_fr_h">Research that informed product direction</h3>
+      <ul class="checklist">
+        <li data-i18n="al_f1"><strong>A clearer understanding of customer segments:</strong> identified differences between expense-management behaviors and goal-oriented saving.</li>
+        <li data-i18n="al_f2"><strong>Evidence-informed design opportunities:</strong> translated user needs into directions for categories, savings goals, scheduled saving and withdrawal controls.</li>
+        <li data-i18n="al_f3"><strong>Cross-functional collaboration:</strong> presented findings to leadership and worked with designers to define potential solutions.</li>
+        <li data-i18n="al_f4"><strong>Continued evaluation:</strong> contributed to subsequent user testing as the proposals evolved.</li>
+      </ul>
+      <div class="callout reveal" style="margin-top:var(--s-6)">
+        <h3 class="h3" data-i18n="al_nc_h">What this case does not claim</h3>
+        <p class="muted" data-i18n="al_nc_p">The redesigned experience had not yet reached production, so changes in engagement, savings balances, savings retention and bank primacy remain expected outcomes rather than measured impact. The value of this work was to give the team evidence to define and evaluate the direction of the product.</p>
+      </div>
+      <div class="cta-end">
+        <a class="btn" href="#/work"><span aria-hidden="true">←</span> <span data-i18n="back">All work</span></a>
+        <a class="btn primary" href="#/about"><span data-i18n="about_btn">About me</span> <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Tiffany Macher</span>
+    <div class="push">
+      <a href="mailto:tiffanymacher@gmail.com">tiffanymacher@gmail.com</a>
+      <a href="https://www.linkedin.com/in/tiffanymacher/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+<!-- QUICK VIEW -->
+<dialog id="qv" aria-labelledby="qv-title">
+  <button class="dlg-close" type="button" data-qv-close aria-label="Close" data-i18n-aria="aria_close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="dlg-inner">
+    <div class="chips">
+      <span class="chip" data-i18n="tag_banking">Digital banking</span>
+      <span class="chip" data-i18n="tag_mixed">Quantitative and qualitative research</span>
+      <span class="chip" data-i18n="tag_eval">Evaluative</span>
+      <span class="chip" data-i18n="tag_impact">Strategic impact</span>
+    </div>
+    <h2 class="h1" id="qv-title" data-i18n="case_title">Research that put everyday operations first in the redesigned Interbank app Home</h2>
+    <div class="panel pad-b" style="border-radius:var(--r-md)">
+      <figure class="p220"><img src="assets/home-old.png" width="523" height="920" alt="Previous Interbank app Home screen" data-i18n-alt="alt_old"><figcaption data-i18n="cap_old">Previous Home</figcaption></figure>
+      <figure class="p220"><img src="assets/home-new.png" width="523" height="919" alt="Redesigned Interbank app Home screen with operations and products tabs" data-i18n-alt="alt_new"><figcaption data-i18n="cap_new">Redesigned Home</figcaption></figure>
+    </div>
+    <dl class="meta">
+      <div><dt data-i18n="m_time">Duration</dt><dd data-i18n="m_time_v">6 weeks</dd></div>
+      <div><dt data-i18n="m_role">Role</dt><dd data-i18n="m_role_v">UX Researcher</dd></div>
+      <div><dt data-i18n="m_team">Team</dt><dd data-i18n="m_team_v">2 product designers + 2 design researchers + 3 growth hackers</dd></div>
+      <div><dt data-i18n="m_scope">Scope</dt><dd data-i18n="m_scope_v">Home, navigation and product discovery</dd></div>
+    </dl>
+    <div class="tldr">
+      <p class="eyebrow">TL;DR</p>
+      <p data-i18n="qv_tldr">Interbank wanted its app to be the main channel for everyday banking, but usage data showed it wasn't users' first choice for payments. I ran an iterative mixed-methods study with another researcher to find out what people need on the Home, and the redesigned Home reached production.</p>
+      <div class="stats">
+        <div class="stat"><div class="num">81.5%</div><div class="cap" data-i18n="s1">chose payments and operations among what they do most often (729 respondents)</div></div>
+      </div>
+    </div>
+    <p><a class="btn primary" href="#/case/interbank-home" data-qv-go><span data-i18n="see_full">See full case study</span> <span aria-hidden="true">→</span></a></p>
+  </div>
+</dialog>
+
+<dialog id="qv-alcancia" aria-labelledby="qv-al-title">
+  <button class="dlg-close" type="button" data-qv-close aria-label="Close" data-i18n-aria="aria_close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div class="dlg-inner">
+    <div class="chips">
+      <span class="chip" data-i18n="tag_banking">Digital banking</span>
+      <span class="chip" data-i18n="al_tag_qual">Qualitative research</span>
+      <span class="chip" data-i18n="al_tag_gen">Generative research</span>
+    </div>
+    <h2 class="h1" id="qv-al-title" data-i18n="al_title">Understanding different saving habits to guide the evolution of Interbank's Alcancía</h2>
+    <div class="panel cover">
+      <figure class="pcover"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app"></figure>
+    </div>
+    <dl class="meta">
+      <div><dt data-i18n="m_time">Duration</dt><dd data-i18n="al_m_time_v">4 weeks</dd></div>
+      <div><dt data-i18n="m_role">Role</dt><dd data-i18n="m_role_v">UX Researcher</dd></div>
+      <div><dt data-i18n="m_team">Team</dt><dd data-i18n="al_m_team_v">2 Product Designers + 2 Design Researchers</dd></div>
+      <div><dt data-i18n="m_methods">Methods</dt><dd data-i18n="al_m_methods_v">Qualitative research · 2 in-person workshops · Thematic analysis</dd></div>
+    </dl>
+    <div class="tldr">
+      <p class="eyebrow">TL;DR</p>
+      <p data-i18n="al_qv_tldr">Alcancía is a feature of the Interbank app that lets customers set money aside from their available balance. I facilitated two workshops with 12 customers: users value flexibility, but also need to organize their savings by goals and have mechanisms that help them keep the money set aside. The resulting initiatives were approved for development.</p>
+    </div>
+    <p><a class="btn primary" href="#/case/alcancia" data-qv-go><span data-i18n="see_full">See full case study</span> <span aria-hidden="true">→</span></a></p>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- ES translations (EN lives in the markup) ---------- */
+var ES = {
+skip:"Saltar al contenido",
+nav_work:"Trabajo",
+nav_about:"Sobre mí",
+aria_copy:"Copiar correo electrónico",
+aria_lang:"Idioma",
+aria_theme:"Cambiar entre modo oscuro y claro",
+aria_tags:"Etiquetas del proyecto",
+aria_phil:"Filosofía de investigación",
+aria_path:"Trayectoria",
+aria_sections:"Secciones del caso de estudio",
+aria_ranks:"Operaciones ordenadas por uso",
+aria_close:"Cerrar",
+hero_h1:"Las personas no usan los productos como los imaginamos.",
+hero_sub:"UX Researcher con formación en Psicología y más de 3 años de experiencia buscando cómo hacer que los productos digitales funcionen mejor para las personas que los usan.",
+work_eyebrow:"Trabajo seleccionado",
+tag_banking:"Banca digital",
+tag_mixed:"Investigación cuantitativa y cualitativa",
+tag_eval:"Evaluativo",
+card_eyebrow:"App de Interbank · Rediseño de la Home",
+case_title:"Investigación que puso las operaciones del día a día en primer plano en la Home rediseñada de la app de Interbank",
+card_desc:"Investigación de métodos mixtos para alinear el rediseño de la Home con prioridades y patrones de uso de los usuarios.",
+b1:"<b>Llegó a producción</b>",
+b2:"<b>700+</b> respuestas de encuesta",
+b3:"<b>6</b> semanas",
+view_case:"Ver caso de estudio",
+quick:"Vista rápida",
+see_full:"Ver caso de estudio completo",
+alt_old:"Pantalla de inicio anterior de la app de Interbank",
+alt_new:"Pantalla de inicio rediseñada de la app de Interbank con pestañas de operaciones y productos",
+alt_photo:"Retrato de Tiffany Macher sonriendo frente a unas plantas verdes",
+ab_h:"Hola, soy Tiffany.",
+ab_p:"Soy UX Researcher con formación en Psicología, una debilidad por hacer una pregunta más y más de 3 años de experiencia en banca digital ayudando a los equipos de producto a entender el comportamiento de los usuarios, cuestionar supuestos y convertir la investigación en mejores decisiones de producto.",
+edu_l:"Universidad de Lima",
+edu_r:"Grado en Psicología",
+about_btn:"Sobre mí",
+phil_l:"Mi filosofía de investigación",
+phil_t:"Asumir menos. Hacer mejores preguntas.",
+t1h:"La Psicología fue el punto de partida",
+t1p:"Primero quise entender a las personas. Resulta que todavía quiero.",
+t2h:"Una investigadora, no una lectora de mentes",
+t2p:"Escuchar, observar y aceptar cuando la realidad contradice tu hipótesis.",
+t3h:"Tres años en banca digital",
+t3p:"Investigando productos que forman parte de la vida cotidiana.",
+t4h:"Hay un patrón por ahí",
+t4p:"En algún punto entre lo que las personas dicen, lo que hacen y los datos del producto, todo empieza a cobrar sentido.",
+t5h:"La IA puede acelerar el proceso.",
+t5p:"No reemplazar el pensamiento.",
+t6h:"Peruana, ahora descubriendo cómo hacer las cosas en España",
+t6p:"Nuevos lugares, nuevas perspectivas, más por descubrir.",
+click_l:"El momento en que hizo clic",
+click_h:"Las personas no usan los productos como los imaginamos.",
+click_p1:"En banca digital, una decisión que parece obvia para un equipo de producto puede no tener el mismo sentido para quien utiliza la aplicación.<br>Un nombre puede generar dudas. Una funcionalidad diseñada para facilitar una tarea puede pasar desapercibida.",
+click_p2:"¿Qué ocurre en la mente de una persona cuando interactúa con un producto?",
+click_p3:"Las personas interpretan lo que ven, construyen expectativas y actúan en función de lo que entienden. Y esa interpretación no siempre coincide con lo que diseñamos.",
+click_p4:"En Interbank investigué experiencias de pagos, ahorro, navegación y venta digital, explorando cómo las personas comprendían las interfaces, qué esperaban de ellas y qué influía en su comportamiento.",
+click_p5:"Descubrir todo lo que ocurre detrás de una interacción fue lo que me conectó con UX Research: la posibilidad de mirar más allá de lo evidente y cuestionar nuestras propias suposiciones.",
+path_l:"Cómo llegué hasta aquí",
+p1w:"Valencia · España",
+p1h:"Un nuevo capítulo, con las mismas preguntas",
+p2w:"Interbank · Perú",
+p2h:"Design Researcher",
+p2h2:"Digital Transformation and Innovation Trainee",
+p2p2:"Investigación UX · Descubrimiento de producto · Usabilidad",
+p3w:"Universidad de Lima",
+p3h:"Psicología",
+p3p:"Grado · 2017–2022",
+det_l:"Pequeños detalles",
+d1l:"Mi filosofía de investigación",
+d1p:"Asumir menos. Hacer mejores preguntas.",
+d2l:"Mi relación con los datos",
+d2p:"Los números te dicen qué. Las personas te ayudan a entender por qué.",
+d3l:"Mi superpoder",
+d3p:"Conectar los puntos sin fingir que siempre están conectados.",
+d4l:"Un recordatorio amable",
+d4p:"Los usuarios no se equivocan por no entender tu interfaz.",
+d5l:"Misión secundaria actual",
+d5p:"Construir una vida en España, una cita administrativa a la vez.",
+d6l:"Aprendiendo siempre",
+d6p:"Resulta que entender a las personas es un proyecto de toda la vida.",
+cur_h:"Un poco más, para los curiosos",
+cur_p1:"Fuera del trabajo, me gusta descubrir cosas nuevas, entusiasmarme con las ideas y, de vez en cuando, involucrarme un poco demasiado en lo que haya captado mi atención últimamente.",
+cur_p2:"Ahora mismo, descubriendo la vida en España, una experiencia nueva a la vez. Sigo curiosa, sigo aprendiendo y sigo haciendo preguntas: al parecer, eso no solo me pasa en el trabajo.",
+back:"Todo el trabajo",
+cap_old:"Home previa",
+cap_new:"Home rediseñada",
+m_time:"Duración",
+m_time_v:"6 semanas",
+m_role:"Rol",
+m_role_v:"UX Researcher",
+m_team:"Equipo",
+m_team_v:"2 product designers + 2 design researchers + 3 growth hackers",
+m_scope:"Alcance",
+m_scope_v:"Home, navegación y descubrimiento de productos",
+m_tools:"Herramientas",
+tldr:"Interbank, banco líder en el Perú con más de 5 millones de clientes y 3 millones de usuarios de la app, buscaba consolidar su app como el canal principal para las operaciones bancarias del día a día, frente a otros aplicativos móviles bancarios. Los datos de uso y estudios de principalidad indicaban que no era la primera opción de sus usuarios para realizar pagos y otras operaciones frecuentes. Junto a otro researcher, planifiqué y ejecuté una investigación iterativa de métodos mixtos para entender qué necesitaban encontrar al entrar en la app y cómo reorganizar la Home para facilitar el acceso a las operaciones habituales sin dificultar el descubrimiento de productos bancarios. La Home rediseñada llegó a producción.",
+qv_tldr:"Interbank buscaba que su app fuera el canal principal para las operaciones bancarias del día a día, pero los datos de uso mostraban que no era la primera opción de sus usuarios para pagar. Junto a otro researcher, realicé una investigación iterativa de métodos mixtos para entender qué necesitan las personas en la Home, y la Home rediseñada llegó a producción.",
+s1:"eligió pagos y operaciones entre las actividades que realiza con más frecuencia (729 encuestados)",
+s2:"consideró los pagos y operaciones como uno de los contenidos más importantes a encontrar en la Home (706 encuestados)",
+kpis:"Indicadores clave: Transaccionalidad + Descubrimiento + Engagement + Conversión",
+sn1:"Solución",
+sn2:"Problema",
+sn3:"Investigación",
+sn4:"Diseño",
+sn5:"Mi rol",
+sn6:"Resultado",
+sol_l:"Solución · Hallazgos clave",
+sol_h:"Operaciones primero, productos a un toque y un onboarding que acompaña el cambio",
+k1h:"Orden de operaciones según uso",
+k1p:"Valoran acceder rápidamente a sus operaciones desde la primera vista, con un orden basado en frecuencia de uso.",
+alt_k1:"Home rediseñada con las operaciones más frecuentes al inicio",
+k2h:"Seguridad por productos ocultos",
+k2p:"Encontrar sus cuentas en una segunda vista contribuyó a la sensación de seguridad, especialmente en contextos de uso público.",
+alt_k2:"Wireframe inicial de la vista de productos, a un toque en una segunda pestaña",
+cap_k2:"Propuesta inicial · pestaña “Ver mis productos”",
+k3h:"Acompañamiento para la transición",
+k3p:"La incorporación de un onboarding mejoró el éxito y redujo el tiempo necesario para encontrar los productos.",
+alt_k3a:"Primer mensaje de onboarding que explica dónde se movieron los productos",
+cap_k3a:"Versión evaluada",
+alt_k3b:"Mensaje de onboarding ajustado, con texto más corto y contador de pasos",
+cap_k3b:"Versión ajustada",
+k4h:"Visibilidad de saldo para operar",
+k4p:"La necesidad de consultar el saldo antes de operar ayuda a decidir qué operaciones realizar y por qué importe. Verlo desde la primera pantalla del flujo les permite continuar con confianza.",
+imp_h:"Impacto en negocio",
+imp_p:"Los insights de esta investigación moldearon directamente el roadmap del producto, dando lugar a:",
+imp1:"Redefinición de la arquitectura de información de la Home, especialmente en la jerarquía entre operaciones y productos.",
+imp2:"Selección de una propuesta de Home sobre la otra, con respaldo cuantitativo y cualitativo.",
+imp3:"Ajuste del diseño de la propuesta elegida a partir de fricciones identificadas en el estudio cualitativo.",
+imp4:"Incorporación de un onboarding como factor clave para la primera salida a producción.",
+prob_l:"Problema",
+prob_h:"La app de Interbank no era la primera opción de sus usuarios para operar en el día a día",
+prob_p1:"Datos de uso y estudios de principalidad indicaban que la app de Interbank no era la primera opción de sus usuarios para realizar pagos y otras operaciones frecuentes.",
+prob_p2:"La Home de ese momento no priorizaba las principales acciones de los usuarios, como pagos y operaciones frecuentes.",
+ch_l:"Reto",
+ch_p:"Entender qué necesitaban encontrar al entrar en la app y cómo reorganizar la Home para facilitar el acceso a las operaciones habituales sin dificultar el descubrimiento de productos bancarios.",
+sc_l:"Alcance",
+sc_p:"Home, navegación y descubrimiento de productos.",
+res_l:"Investigación",
+res_h:"Ocho pasos de investigación iterativa detrás de cada decisión de producto",
+res_p:"Combiné métodos cuantitativos y cualitativos, con un proceso de análisis iterativo que permitió generar hallazgos preliminares para una ágil toma de decisiones de diseño.",
+bm_l:"Exploración y benchmark",
+bm_p1:"<strong>Objetivo:</strong> identificar oportunidades para mejorar el acceso a las operaciones cotidianas y la organización de la Home.",
+bm_p2:"<strong>Método:</strong> benchmark de aplicaciones bancarias y de pagos, incluyendo GoPay, Nubank, BBVA, N26 y Revolut.",
+bm1:"Cómo se presentan las operaciones desde la pantalla principal.",
+bm2:"Cómo se facilita el acceso a operaciones frecuentes o favoritas.",
+bm3:"Cómo se integran las ofertas y oportunidades comerciales en la experiencia.",
+alt_bm:"Pantallas de inicio de Gopay, Revolut, BBVA, N26 y Nubank usadas en el benchmark",
+bm_c:"<strong>Cómo contribuyó al proyecto:</strong> el benchmark ayudó a identificar patrones de diseño relevantes y a establecer criterios iniciales para explorar una Home más orientada a las operaciones cotidianas.",
+sv_l:"Investigación cuantitativa: prioridades de los usuarios",
+sv_p1:"<strong>Objetivo:</strong> comprender qué hacían los clientes con mayor frecuencia en la app y qué esperaban encontrar en la Home.",
+sv_p2:"<strong>Método:</strong> encuesta cuantitativa en Qualtrics distribuida mediante in-app a usuarios activos de la app bancaria. <strong>Muestra:</strong> 729 respuestas.",
+c1h:"¿Qué realizas con mayor frecuencia en tu app bancaria?",
+c1n:"729 encuestados",
+c1a:"Realizar pagos y operaciones",
+c1b:"Realizar operaciones frecuentes",
+c1c:"Ver mis productos",
+c2h:"¿Qué consideras lo más importante de tener en la pantalla principal de tu app bancaria?",
+c2n:"706 encuestados",
+c2a:"Realizar pagos y operaciones",
+c2b:"Tener operaciones frecuentes",
+c2c:"Ver ofertas de productos preaprobados",
+c2d:"Ver mis productos",
+sv_c:"<strong>Cómo contribuyó al proyecto:</strong> los resultados respaldaron la necesidad de dar mayor visibilidad a las operaciones habituales y aportaron una base cuantitativa para orientar la jerarquía de contenidos.",
+us_l:"Análisis de métricas de uso: priorización de operaciones",
+us_p1:"<strong>Objetivo:</strong> definir qué operaciones debían tener mayor visibilidad y en qué orden presentarlas en la Home.",
+us_p2:"<strong>Método:</strong> revisión de métricas de uso de las operaciones de la app.",
+r1:"Plinear a celular",
+r2:"Pagar servicios",
+r3:"Transferir dinero",
+r4:"Recargar celular",
+r5:"Recarga de transporte",
+r6:"Cambio de moneda",
+us_c:"<strong>Contribución al proyecto:</strong> las métricas de uso complementaron los resultados de la encuesta y sirvieron como criterio para priorizar y ordenar los accesos a las operaciones en las primeras propuestas de diseño.",
+gu_l:"Exploración cualitativa: guerrilla testing",
+gu_p1:"<strong>Objetivo:</strong> contrastar las primeras propuestas con usuarios e identificar problemas de comprensión y oportunidades de mejora.",
+gu_p2:"<strong>Método:</strong> pruebas de guerrilla con clientes presentes en una sucursal bancaria.",
+alt_g1:"Wireframe de la propuesta con tabs mostrando la pestaña Operaciones",
+cap_g1:"Tabs · Operaciones",
+alt_g2:"Wireframe de la propuesta con tabs mostrando la pestaña Productos",
+cap_g2:"Tabs · Productos",
+alt_g3:"Wireframe de la propuesta con barra de navegación",
+cap_g3:"Propuesta Nav Bar",
+gu_k:"2 de 3 clientes prefirieron Tabs",
+gu_c:"<strong>Cómo contribuyó al proyecto:</strong> permitió contrastar ambas propuestas e identificar la que resultaba más comprensible y preferida por los usuarios, aportando evidencia para orientar la siguiente iteración del diseño.",
+mo_l:"Evaluación cualitativa moderada",
+mo_p1:"<strong>Objetivo principal:</strong> evaluar la comprensión, percepción y facilidad de uso de la nueva propuesta de Home, identificando fricciones y oportunidades de mejora en su estructura y funcionalidades.",
+mo_p2:"<strong>Método:</strong> sesiones moderadas por Zoom, combinando tareas de exploración y evaluación de la interfaz con entrevistas.",
+mo_rh:"Principales resultados",
+mo1:"Valoraron tener las operaciones a primera vista. La cantidad de opciones resultó adecuada y el orden de las tres primeras se percibió coherente con su frecuencia de uso.",
+mo2:"<strong>Mayor privacidad al consultar productos:</strong> encontrar los productos en una segunda vista se percibió como más seguro, especialmente al usar la aplicación en espacios públicos.",
+mo3:"La necesidad de consultar el saldo antes de operar ayuda a decidir qué operaciones realizar y por qué importe.",
+mo_c:"<strong>Cómo contribuyó al proyecto:</strong> los hallazgos ayudaron a consolidar la jerarquía entre operaciones y productos, respaldar la estructura de navegación mediante tabs y refinar la propuesta seleccionada. También orientaron mejoras en el onboarding y en la visibilidad del saldo.",
+mz_l:"Validación cuantitativa no moderada: Maze",
+mz1:"<strong>Las operaciones cotidianas debían tener prioridad.</strong> Los pagos y las operaciones frecuentes destacaban entre las principales necesidades de los usuarios.",
+mz2:"<strong>La navegación condicionaba el descubrimiento.</strong> Los productos resultaban más fáciles de encontrar mediante tabs que desde la barra de navegación evaluada.",
+mz3:"<strong>La orientación facilitaba la transición.</strong> Los resultados de Maze favorecieron la incorporación de un onboarding para ayudar a descubrir la nueva estructura de la Home.",
+des_l:"Iteración de diseño",
+des_h:"De los hallazgos a una propuesta más clara y alineada con los usuarios",
+des_p1:"<strong>Objetivo:</strong> traducir los hallazgos de las primeras fases en una propuesta más clara y alineada con las necesidades de los usuarios.",
+des1:"<strong>Refinamiento del onboarding:</strong> mejorar la claridad de los recursos de orientación para ayudar a los usuarios a comprender los cambios y ubicarse en la nueva Home.",
+des2:"<strong>Acceso a información clave antes de operar:</strong> explorar la visibilidad del saldo desde la primera pantalla del flujo, para que los usuarios pudieran consultar la información necesaria antes de continuar con una operación.",
+des_c:"<strong>Cómo contribuyó al proyecto:</strong> los aprendizajes se incorporaron a la evolución de la propuesta y permitieron definir qué aspectos requerían una validación adicional antes de la salida a producción.",
+role_l:"Mi rol",
+role_h:"Mi rol como UX Researcher",
+role_p:"Trabajé junto a otro researcher en la planificación y ejecución de la investigación, el análisis de resultados y la comunicación de hallazgos al equipo de Producto Digital y al Head de Canales Digitales.",
+ro1:"Diseño del plan de research y selección de métodos según los objetivos de cada fase, en alineación con stakeholders.",
+ro2:"Diseño de la guía de moderación y facilitación del estudio cualitativo (usabilidad + entrevistas en profundidad).",
+ro3:"Definición y configuración del cuestionario en Qualtrics para la encuesta cuantitativa.",
+ro4:"Diseño del protocolo y moderación de sesiones de guerrilla en tienda.",
+ro5:"Seguimiento, análisis e interpretación de hallazgos en diferentes etapas.",
+ro6:"Síntesis y comunicación de insights a equipos de producto y diseño para informar decisiones de diseño.",
+ro7:"Colaboración activa en la evaluación y ajuste de las propuestas de diseño a partir de los hallazgos.",
+out_l:"Resultado",
+out1:"Lanzada",
+out1p:"La Home rediseñada llegó a producción.",
+out2:"respuestas de encuesta in-app",
+out3n:"6 semanas",
+out3:"de kick-off a hallazgos",
+fr_h:"De la investigación a las decisiones de producto",
+fr_p1:"La investigación contribuyó a definir una Home que priorizaba las operaciones frecuentes, diferenciaba el acceso a operaciones y productos mediante tabs e incorporaba un onboarding para orientar a los usuarios.",
+fr_p2:"También ayudó a evaluar qué funcionalidades merecían ocupar espacio en la pantalla principal, considerando tanto las preferencias expresadas durante las pruebas como las señales de comportamiento disponibles.",
+fr_p3:"La Home rediseñada llegó a producción. La investigación aportó evidencia para orientar decisiones de jerarquía, navegación y descubrimiento de productos.",
+tag_impact:"Impacto estratégico",
+m_methods:"Métodos",
+aria_stages:"Resumen del proceso de investigación",
+ri_l:"Impacto de la investigación",
+ri_p:"Investigación aplicada a decisiones de diseño de una Home que llegó a producción.",
+alt_k4:"Flujo de Plin con el saldo disponible visible antes de operar",
+cap_k4:"Saldo visible al inicio del flujo",
+g1h:"Exploración y benchmark",
+g1p:"Benchmark de apps bancarias y de pagos para identificar oportunidades de mejorar el acceso a las operaciones cotidianas.",
+g1d:"→ Decisión: criterios iniciales para una Home más orientada a las operaciones cotidianas.",
+g2h:"Encuesta",
+g2p:"Qualtrics · 729 respuestas. Qué hacen más los usuarios en la app y qué esperan encontrar en la Home.",
+g2d:"→ Decisión: enfocar las propuestas en dar protagonismo a las operaciones.",
+g3h:"Métricas de uso",
+g3p:"Frecuencia de uso de cada operación, para decidir cuáles merecen accesos directos.",
+g3d:"→ Decisión: prioridad y orden de los accesos de la Home.",
+g4h:"Primeras propuestas de diseño",
+g4p:"El equipo de diseño exploró distintas estructuras de navegación a partir de lo aprendido en la investigación.",
+g4d:"→ Decisión: dos propuestas para evaluar, tabs y barra de navegación.",
+g5h:"Guerrilla testing",
+g5p:"Clientes en sucursales exploraron ambas propuestas para identificar problemas de comprensión y preferencias.",
+g5d:"→ Decisión: se eligió la propuesta ganadora.",
+g6h:"Testeo moderado vía Zoom",
+g6p:"Usabilidad + entrevistas · 15 participantes. Claridad, utilidad, facilidad de uso y fricciones de la nueva Home.",
+g6d:"→ Decisión: se confirmaron los tabs, con ajustes en el onboarding y la visibilidad del saldo.",
+g7h:"Iteración de diseño",
+g7p:"Los hallazgos se tradujeron en una propuesta más clara: onboarding refinado y saldo visible antes de operar.",
+g7d:"→ Decisión: qué aspectos requerían validación antes de producción.",
+g8h:"Validación no moderada: Maze",
+g8p:"Con onboarding vs. sin onboarding, para ver si los usuarios podían encontrar la pestaña de productos.",
+g8d:"→ Decisión: onboarding priorizado para la primera salida a producción.",
+lbl_explored:"Qué exploramos",
+lbl_investigated:"Qué investigué",
+lbl_results:"Principales resultados",
+lbl_analyzed:"Qué analicé",
+lbl_explored_me:"Qué exploré",
+lbl_worked:"Aspectos trabajados",
+lbl_evaluated:"Qué evalué",
+sv1:"Operaciones realizadas con mayor frecuencia.",
+sv2:"Contenidos considerados más importantes en la Home.",
+sv3:"Prioridad relativa de las operaciones frente al acceso a productos.",
+sv_r1:"El 81,5 % seleccionó pagos y operaciones entre las actividades realizadas con más frecuencia.",
+sv_r2:"El 65,5 % consideró los pagos y operaciones como uno de los contenidos más importantes a encontrar en la Home.",
+us1:"La frecuencia de uso de las distintas operaciones.",
+us2:"Las operaciones que debían priorizarse en los accesos directos de la Home.",
+fp_l:"Primeras propuestas de diseño: jerarquía y navegación",
+fp_p1:"El equipo de diseño desarrolló propuestas iniciales a partir de los aprendizajes de la investigación, con distintas estructuras de navegación para evaluar cuál facilitaba mejor el acceso a las operaciones cotidianas y el descubrimiento de los productos.",
+gu1:"La comprensión de la estructura y organización de cada propuesta de Home.",
+gu2:"La facilidad para localizar productos y encontrar las principales operaciones.",
+gu3:"La comprensión de los elementos de la interfaz y su funcionalidad.",
+gu4:"La preferencia de los usuarios tras explorar ambas propuestas.",
+alt_gt1:"Propuesta con tabs, pestaña Operaciones, con la pestaña Productos resaltada",
+cap_gt1:"Tabs · Operaciones",
+alt_gt2:"Propuesta con tabs, pestaña Productos",
+cap_gt2:"Tabs · Productos",
+alt_gt3:"Propuesta con barra de navegación, Inicio, con el ítem Productos resaltado en la barra",
+cap_gt3:"Nav bar · Inicio",
+alt_gt4:"Propuesta con barra de navegación, pantalla Productos",
+cap_gt4:"Nav bar · Productos",
+mo_p3:"<strong>Muestra:</strong> 15 participantes, entre usuarios monoproducto, multiproducto y merchants.",
+mo_i1:"La comprensión de la organización de la Home y la encontrabilidad de operaciones y productos mediante tabs.",
+mo_i2:"La percepción de la jerarquía visual y la utilidad de los accesos a operaciones cotidianas.",
+mo_i3:"La interpretación de etiquetas, iconos y elementos comerciales, así como las expectativas que generaban.",
+mo_i4:"La utilidad y comprensión del onboarding para orientarse ante los cambios de la interfaz.",
+alt_mo1:"Mensaje de onboarding que anuncia que los productos se reubicaron en una segunda pestaña",
+cap_mo1:"Onboarding",
+alt_mo2:"Home rediseñada con pestañas de Operaciones y Productos",
+cap_mo2:"Home evaluada",
+mo4:"El onboarding se percibió como claro y orientador para comprender los cambios. Los spotlights facilitaban la identificación de opciones, aunque algunas imágenes resultaban repetitivas o distractoras.",
+di_l:"Iteración de diseño",
+alt_di1:"Mensaje de onboarding ajustado con contador de pasos",
+cap_di1:"Ajustes de onboarding",
+alt_di2:"Flujo de Plin con el saldo disponible visible en la parte superior y oculto por defecto",
+cap_di2:"Ajustes de visibilidad del saldo",
+mz_p1:"<strong>Objetivo:</strong> comprobar si los usuarios podían encontrar los productos en la segunda pestaña de la nueva Home y evaluar la contribución del onboarding a esa tarea en la versión iterada.",
+mz_p2:"<strong>Método:</strong> prueba no moderada en Maze, comparando una experiencia con onboarding y otra sin él.",
+mz_e1:"Si los participantes conseguían llegar a la sección de productos.",
+mz_e2:"El éxito en la tarea de descubrimiento.",
+mz_e3:"El tiempo necesario para completar la tarea en cada condición.",
+mz_k:"Los participantes que vieron el onboarding tuvieron mayor éxito y necesitaron menos tiempo para encontrar los productos.",
+mz_c:"<strong>Cómo contribuyó al proyecto:</strong> priorización del onboarding para la primera salida a producción, con el objetivo de facilitar la comprensión de la nueva navegación y el descubrimiento de los productos.",
+kf_h:"Hallazgos clave",
+al_tag_qual:"Investigación cualitativa",
+al_tag_gen:"Investigación generativa",
+al_card_eyebrow:"App de Interbank · Talleres de Alcancía",
+al_title:"Comprender distintos hábitos de ahorro para orientar la evolución de la Alcancía de Interbank",
+al_card_desc:"Dos talleres con 12 clientes para entender por qué las personas usan la Alcancía de maneras distintas y qué significa eso para la siguiente etapa del producto.",
+al_b1:"<b>Aprobado para desarrollo</b>",
+al_b2:"<b>12</b> clientes",
+al_b3:"<b>4</b> semanas",
+alt_al_ws:"Hoja de trabajo del taller con notas adhesivas bajo los títulos Me gusta, Cambiaría y Me gustaría",
+alt_al_app:"Pantalla de cuenta de la app de Interbank con el saldo disponible y el saldo de la Alcancía",
+al_m_time_v:"4 semanas",
+al_m_team_v:"2 Product Designers + 2 Design Researchers",
+al_m_scope_v:"Alcancía · Comportamientos de ahorro · Expectativas de los usuarios · Evolución del producto",
+al_m_methods_v:"Investigación cualitativa · 2 talleres presenciales · Análisis temático",
+al_qv_tldr:"La Alcancía es una funcionalidad de la app de Interbank que permite separar dinero del saldo disponible. Facilité dos talleres con 12 clientes: los usuarios valoran la flexibilidad, pero también necesitan organizar sus ahorros por objetivos y contar con mecanismos que les ayuden a mantener el dinero reservado. Las iniciativas resultantes fueron aprobadas para desarrollo.",
+al_s1:"clientes con saldo en la Alcancía",
+al_s2:"usuarios transaccionales, enfocados principalmente en organizar gastos",
+al_s3:"usuarios aspiracionales, enfocados principalmente en ahorrar",
+al_s4:"saldo promedio de los usuarios aspiracionales, frente al grupo de referencia del análisis interno",
+al_kpis:"Indicadores clave: Engagement · Saldos de ahorro · Retención del ahorro · Principalidad bancaria",
+al_sol_h:"Una herramienta de ahorro, distintas razones para usarla",
+al_k1h:"La Alcancía cumplía funciones distintas según el propósito del dinero",
+al_k1p:"Los usuarios transaccionales la usaban para organizar dinero destinado a gastos y pagos recurrentes, y valoraban poder retirarlo cuando llegaba el momento de pagar. Los aspiracionales la usaban para acumular ahorros a mediano y largo plazo, y valoraban que el dinero permaneciera apartado.",
+al_k1o:"<strong>Oportunidad de diseño:</strong> acompañar distintos comportamientos de ahorro sin asumir que todos los clientes usan la Alcancía con el mismo propósito.",
+al_k2h:"La flexibilidad facilita ahorrar, pero también retirar",
+al_k2p:"Los participantes valoraban decidir cuánto guardar y cuándo, sin importes ni fechas obligatorios. Pero esa misma facilidad para retirar podía dificultar mantener el ahorro para un objetivo concreto.",
+al_k2o:"<strong>Oportunidad de diseño:</strong> explorar cómo equilibrar la flexibilidad con un mayor control sobre los retiros.",
+al_k3h:"Separar el dinero da sensación de control y de seguridad",
+al_k3p:"Al mantener el dinero apartado del saldo que usaban a diario, y limitar el gasto a un monto específico, los participantes decían sentir mayor control sobre sus gastos. Algunos también lo veían como una forma de mantener ese dinero protegido.",
+al_k3o:"<strong>Oportunidad de diseño:</strong> reforzar el papel de la Alcancía como un espacio para organizar y proteger el dinero según su propósito.",
+al_k4h:"Ahorrar por objetivos no significa necesariamente buscar rentabilidad",
+al_k4p:"Los usuarios aspiracionales valoraban agrupar su dinero en torno a objetivos personales, como familia, educación, mascotas o viajes. Los intereses eran visibles y se apreciaban, pero organizar el dinero con un propósito podía importar más.",
+al_k4o:"<strong>Oportunidad de diseño:</strong> facilitar la estructuración del ahorro en torno a objetivos y preferencias individuales.",
+al_prob_h:"Dos patrones de uso, una misma funcionalidad",
+al_prob_p1:"La Alcancía es una funcionalidad de la app de Interbank que permite a los clientes separar parte del dinero de su cuenta y mantenerlo apartado de su saldo disponible.",
+al_prob_p2:"Los datos de uso mostraban dos comportamientos diferenciados:",
+al_prob_p3:"Aunque los usuarios aspiracionales representaban una proporción menor, su saldo promedio era 13 veces mayor que el del grupo de referencia del análisis interno, lo que los convertía en un segmento relevante para las captaciones del banco.",
+al_bq_l:"Pregunta de negocio",
+al_bq_p:"¿Cómo podemos adaptar la experiencia de la Alcancía a los distintos perfiles de clientes que la utilizan?",
+al_ob_l:"Objetivo de investigación",
+al_ob_p:"Conocer la percepción y las expectativas de los distintos perfiles de usuarios respecto a la Alcancía.",
+al_sc_p:"La Alcancía, comportamientos de ahorro, expectativas de los usuarios y evolución del producto.",
+al_sobj_l:"Objetivos específicos",
+al_o1:"Comprender cómo percibían la experiencia actual de la Alcancía y qué aspectos facilitaban o dificultaban su uso.",
+al_o2:"Explorar los comportamientos de ahorro y cómo utilizaban la funcionalidad para organizar pagos, gastos y objetivos financieros.",
+al_o3:"Identificar las necesidades y motivaciones detrás de los distintos patrones de uso, así como las oportunidades de evolución del producto.",
+al_res_h:"Dos talleres para entender qué valoraba cada perfil",
+al_r1:"participantes",
+al_r2:"talleres presenciales",
+al_r3:"perfiles de uso",
+al_pf_h:"Perfiles participantes",
+al_pf1l:"Usuarios transaccionales · 4",
+al_pf1p:"Realizan ahorros y retiros a lo largo del mes. Al final del mes, su saldo promedio es inferior a S/ 5.000.",
+al_pf2l:"Usuarios aspiracionales · 4",
+al_pf2p:"Realizan ahorros y no realizan retiros a lo largo del mes.",
+al_pf3l:"Usuarios mixtos · 4",
+al_pf3p:"Realizan ahorros y retiros a lo largo del mes; sin embargo, mantienen un saldo con el paso de los meses.",
+al_pf_n:"Los perfiles se definieron a partir de sus patrones de uso y saldos durante un período de tres meses.",
+al_wf_h:"Cómo se desarrollaron los talleres",
+al_wf_p:"Las sesiones combinaron reflexión individual, discusión grupal y priorización de oportunidades.",
+al_w1:"<strong>Contexto y apertura:</strong> prácticas financieras y relación de cada participante con la Alcancía.",
+al_w2:"<strong>Modelo mental:</strong> asociaciones espontáneas e interpretaciones del concepto de Alcancía.",
+al_w3:"<strong>Experiencia actual:</strong> qué valoraban, qué cambiarían y qué les gustaría, mediante una actividad de Me gusta / Cambiaría / Me gustaría.",
+al_w4:"<strong>Discusión y priorización:</strong> puesta en común de necesidades y expectativas, con actividades en grupos pequeños.",
+al_w5:"<strong>Exploración de conceptos:</strong> presentación y discusión de ideas para futuras funcionalidades.",
+al_w6:"<strong>Cierre:</strong> reflexiones y expectativas finales.",
+alt_al_g2:"Participantes trabajando con notas adhesivas alrededor de una mesa durante un taller",
+alt_al_g3:"Sala del taller con participantes sentados alrededor de una mesa larga",
+al_g1:"<strong>Ejercicio personal:</strong> hoja de Me gusta / Cambiaría / Me gustaría, completada por un participante.",
+al_g2:"<strong>Discusión grupal</strong> de respuestas personales y priorización en conjunto.",
+al_th:"Lideré el análisis temático de las sesiones, que permitió identificar patrones sobre cómo las personas organizan su dinero, qué tan flexible debe ser el ahorro, la sensación de control y de seguridad que genera mantener el dinero apartado y las diferencias entre quienes ahorran para objetivos y quienes usan la Alcancía para gestionar el mes.",
+al_des_l:"Diseño · De los hallazgos a las oportunidades de producto",
+al_des_h:"Flexibilidad frente a la protección del propósito del dinero",
+al_des_p1:"La pregunta dejó de ser únicamente qué funcionalidades añadir y pasó a ser cómo ofrecer una experiencia que permitiera organizar el dinero según su propósito y controlar mejor cuándo utilizarlo.",
+al_vs1l:"Facilidad y flexibilidad",
+al_vs1p:"Permitir que las personas separen dinero cuando lo necesiten y lo utilicen para sus pagos.",
+al_vs2l:"Protección del propósito",
+al_vs2p:"Ayudar a que el dinero destinado a ahorrar permanezca apartado y sea menos susceptible al gasto impulsivo.",
+al_vs_c:"La oportunidad era ofrecer diferentes niveles de organización y control según el propósito del dinero, sin eliminar la autonomía que hacía útil a la Alcancía.",
+al_imp_h:"Los hallazgos alimentaron un trabajo de diseño colaborativo sobre varias mejoras potenciales",
+al_d1:"<strong>Más categorías de ahorro</strong> para organizar el dinero según distintos propósitos.",
+al_d2:"<strong>Objetivos de ahorro flexibles</strong> con importes, fechas y frecuencias definidos por el usuario.",
+al_d3:"<strong>Mayor control sobre los retiros</strong> para ayudar a los clientes a proteger el dinero destinado al ahorro.",
+al_d4:"<strong>Ahorro programado</strong> para favorecer hábitos de ahorro más constantes.",
+al_d5:"Otras ideas, como el pago de servicios desde la Alcancía, recordatorios, ahorro compartido y educación financiera, también se exploraron como expectativas de los clientes. Se registraron como expectativas a explorar, no como decisiones de producto confirmadas.",
+al_d6:"Las propuestas pasaron por sucesivas rondas de evaluación con usuarios. Colaboré directamente con los diseñadores en la definición de soluciones y participé en pruebas posteriores de conceptos y pantallas.",
+al_role_p:"Participé en todo el proceso de investigación, desde definir los objetivos y los criterios de participantes hasta presentar los hallazgos a liderazgo. Más allá de la investigación inicial, trabajé directamente con los Product Designers para traducir la evidencia de los usuarios en oportunidades de diseño y participé en las evaluaciones posteriores de las soluciones propuestas.",
+al_ro1:"Definí los objetivos de la investigación y los criterios de selección de participantes.",
+al_ro2:"Diseñé y refiné la guía de los talleres y preparé los materiales.",
+al_ro3:"Coordiné el reclutamiento con una agencia externa.",
+al_ro4:"Facilité las sesiones de los talleres.",
+al_ro5:"Lideré el análisis temático.",
+al_ro6:"Presenté los hallazgos a liderazgo y los traduje en recomendaciones para los equipos de Producto y Diseño.",
+al_ro7:"Trabajé con los Product Designers en la definición de soluciones y participé en evaluaciones posteriores de conceptos y pantallas.",
+al_out1:"Aprobado para desarrollo",
+al_out1p:"Las iniciativas se aprobaron por fases. La implementación depende de la priorización y la capacidad de desarrollo.",
+al_out2:"clientes de perfiles transaccionales, aspiracionales y mixtos",
+al_out3n:"2 talleres",
+al_out3:"más evaluaciones posteriores de conceptos y pantallas",
+al_fr_h:"Investigación que orientó la dirección del producto",
+al_f1:"<strong>Mejor comprensión de los segmentos de clientes:</strong> se identificaron diferencias entre los comportamientos de gestión de gastos y el ahorro orientado a objetivos.",
+al_f2:"<strong>Oportunidades de diseño basadas en evidencia:</strong> las necesidades de los usuarios se tradujeron en direcciones para categorías, objetivos de ahorro, ahorro programado y controles de retiro.",
+al_f3:"<strong>Colaboración multidisciplinar:</strong> presenté los hallazgos a liderazgo y trabajé con diseñadores para definir posibles soluciones.",
+al_f4:"<strong>Evaluación continua:</strong> contribuí a pruebas posteriores con usuarios a medida que evolucionaban las propuestas.",
+al_nc_h:"Lo que este caso no afirma",
+al_nc_p:"La experiencia rediseñada aún no había llegado a producción, por lo que los cambios en engagement, saldos de ahorro, retención del ahorro y principalidad bancaria siguen siendo resultados esperados y no un impacto medido. El valor de este trabajo fue dar al equipo evidencia para definir y evaluar la dirección del producto.",
+mom_cap:"Presentando recomendaciones de investigación al equipo",
+alt_mom:"Tiffany presentando recomendaciones de investigación sobre una diapositiva proyectada en una sala de reuniones",
+sl_h:"Las tres primeras en la Home",
+sl1:"Plinear",
+sl2:"Transferencias",
+sl3:"Pago de tarjeta",
+al_tl1:"La Alcancía es una funcionalidad de la app de Interbank que permite a los clientes separar dinero de su saldo disponible.",
+al_tl2:"En base a indicadores de comportamiento, se identificaron dos formas de uso de la funcionalidad: separar dinero para pagos mensuales o a corto plazo, o para construir ahorros a mediano y largo plazo.",
+al_tl3:"Para entender cómo la experiencia podía responder mejor a estas necesidades, planifiqué y facilité dos talleres con 12 clientes de perfiles transaccionales, aspiracionales y mixtos.",
+al_tl4:"La investigación reveló que los usuarios valoran la flexibilidad de la funcionalidad, pero también expresan la necesidad de organizar sus ahorros por objetivos y contar con mecanismos que les ayuden a mantener el dinero reservado.",
+al_tl5:"Estos hallazgos alimentaron propuestas de diseño de objetivos de ahorro flexibles, ahorro programado y mayor control sobre los retiros.",
+al_tl6:"Colaboré directamente con los Product Designers para definir soluciones y luego participé en evaluaciones con usuarios de los conceptos y pantallas propuestos.",
+al_fn1:"Hallazgo 1",
+al_fn2:"Hallazgo 2",
+al_fn3:"Hallazgo 3",
+al_fn4:"Hallazgo 4",
+al_ff_aria:"Pantalla de la Alcancía: saldo disponible frente a saldo apartado",
+al_ff_l:"Saldo disponible para pagos y retiros en cajero",
+al_ff_r:"Saldo apartado y no disponible para pagos ni retiros en cajero",
+al_ff_o1:"Sensación de organización de gastos",
+al_ff_o2:"Sensación de seguridad",
+al_prob_b1:"El 76% de los clientes tenía un perfil transaccional, caracterizado por ingresos y retiradas frecuentes y saldos promedio inferiores a S/ 5.000.",
+al_prob_b2:"En cambio, el 6% presentaba un perfil aspiracional, con ingresos de dinero sin retiradas y saldos promedio superiores a S/ 5.000 durante tres meses.",
+al_an_l:"Análisis de resultados",
+click_p6:"Me interesa entender cómo las personas dan sentido a lo que diseñamos y cómo ese conocimiento puede ayudarnos a tomar mejores decisiones de producto."
+};;
+var META = {
+  en:{title:"Tiffany Macher — UX Researcher",desc:"Portfolio of Tiffany Macher, UX Researcher with a Psychology background and 3+ years of experience in digital banking research."},
+  es:{title:"Tiffany Macher — UX Researcher",desc:"Portafolio de Tiffany Macher, UX Researcher con formación en Psicología y más de 3 años de experiencia en investigación de banca digital."}
+};
+
+var root=document.documentElement;
+function safeGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function safeSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+
+/* ---------- capture EN originals ---------- */
+var i18nEls=[].slice.call(document.querySelectorAll("[data-i18n]"));
+i18nEls.forEach(function(el){el.dataset.en=el.innerHTML});
+var attrMap=[["data-i18n-alt","alt"],["data-i18n-aria","aria-label"]];
+attrMap.forEach(function(p){
+  [].slice.call(document.querySelectorAll("["+p[0]+"]")).forEach(function(el){el.dataset["en_"+p[1].replace("-","_")]=el.getAttribute(p[1])});
+});
+
+function setLang(lang){
+  lang=lang==="es"?"es":"en";
+  root.lang=lang; root.dataset.lang=lang;
+  i18nEls.forEach(function(el){
+    var k=el.getAttribute("data-i18n");
+    el.innerHTML = lang==="es" && ES[k]!=null ? ES[k] : el.dataset.en;
+  });
+  attrMap.forEach(function(p){
+    [].slice.call(document.querySelectorAll("["+p[0]+"]")).forEach(function(el){
+      var k=el.getAttribute(p[0]);
+      el.setAttribute(p[1], lang==="es" && ES[k]!=null ? ES[k] : el.dataset["en_"+p[1].replace("-","_")]);
+    });
+  });
+  [].slice.call(document.querySelectorAll(".toggle [data-lang]")).forEach(function(b){
+    b.setAttribute("aria-pressed", String(b.dataset.lang===lang));
+  });
+  document.title=META[lang].title;
+  var md=document.querySelector('meta[name="description"]'); if(md) md.setAttribute("content",META[lang].desc);
+  safeSet("lang",lang);
+}
+var saved=safeGet("lang");
+var initial=saved|| ((navigator.language||"en").toLowerCase().indexOf("es")===0?"es":"en");
+setLang(initial);
+document.querySelector(".toggle").addEventListener("click",function(e){
+  var b=e.target.closest("[data-lang]"); if(b) setLang(b.dataset.lang);
+});
+
+/* ---------- theme ---------- */
+var th=safeGet("theme"); if(th==="light"||th==="dark") root.dataset.theme=th;
+document.getElementById("themeBtn").addEventListener("click",function(){
+  var n=root.dataset.theme==="dark"?"light":"dark"; root.dataset.theme=n; safeSet("theme",n);
+});
+
+/* ---------- toast + copy ---------- */
+var toast=document.getElementById("toast"),tt;
+function say(msg){toast.textContent=msg;toast.classList.add("show");clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("show")},1800)}
+document.getElementById("copyEmail").addEventListener("click",function(){
+  var email="tiffanymacher@gmail.com", msg=root.lang==="es"?"Correo copiado":"Email copied";
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(email).then(function(){say(msg)},function(){say(email)})}
+  else{say(email)}
+});
+
+/* ---------- router ---------- */
+var views=[].slice.call(document.querySelectorAll("[data-view]"));
+var navLinks=[].slice.call(document.querySelectorAll(".nav a"));
+function viewOf(id){var el=document.getElementById(id);var v=el&&el.closest("[data-view]");return v?v.dataset.view:null}
+function route(){
+  var h=(location.hash||"#/").replace(/^#\/?/,""), name="home", scrollTo=null;
+  if(h==="case/alcancia") name="case-alcancia";
+  else if(h.indexOf("case/")===0) name="case";
+  else if(h==="about") name="about";
+  else if(h==="work") {name="home";scrollTo="work"}
+  else if(/^[a-z0-9-]+$/.test(h)&&h!==""&&(viewOf(h)||"").indexOf("case")===0) {name=viewOf(h);scrollTo=h}
+  views.forEach(function(v){v.hidden=v.dataset.view!==name});
+  navLinks.forEach(function(a){
+    var on=(a.dataset.route==="home"&&(name==="home"||name.indexOf("case")===0))||(a.dataset.route==="about"&&name==="about");
+    if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+  });
+  window.scrollTo({top:0,behavior:"instant"});
+  if(scrollTo){requestAnimationFrame(function(){var el=document.getElementById(scrollTo);if(el)el.scrollIntoView()})}
+  observeReveal();
+  heroSync();
+}
+window.addEventListener("hashchange",route);
+
+/* case-study subnav links should not change route */
+[].slice.call(document.querySelectorAll(".subnav-list")).forEach(function(ul){
+  ul.addEventListener("click",function(e){
+    var a=e.target.closest("a"); if(!a)return;
+    e.preventDefault();
+    var el=document.querySelector(a.getAttribute("href")); if(el) el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth"});
+  });
+});
+
+/* ---------- reveal on scroll ---------- */
+var io=("IntersectionObserver"in window)?new IntersectionObserver(function(es){
+  es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target)}});
+},{threshold:.12,rootMargin:"0px 0px -6% 0px"}):null;
+function observeReveal(){
+  var items=[].slice.call(document.querySelectorAll("[data-view]:not([hidden]) .reveal:not(.in)"));
+  items.forEach(function(el){if(io)io.observe(el);else el.classList.add("in")});
+}
+
+/* ---------- scrollspy (one per case study) ---------- */
+if("IntersectionObserver"in window){
+  [].slice.call(document.querySelectorAll(".subnav-list")).forEach(function(ul){
+    var links=[].slice.call(ul.querySelectorAll("a"));
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+en.target.id)});
+          var cur=ul.querySelector("a.on"); if(cur){ul.scrollLeft=cur.offsetLeft-ul.clientWidth/3}
+        }
+      });
+    },{rootMargin:"-30% 0px -60% 0px"});
+    links.forEach(function(a){var s=document.querySelector(a.getAttribute("href")); if(s)spy.observe(s)});
+  });
+}
+
+/* ---------- quick view dialogs ---------- */
+[].slice.call(document.querySelectorAll("[data-qv]")).forEach(function(btn){
+  var dlg=document.getElementById(btn.getAttribute("data-qv")); if(!dlg)return;
+  btn.addEventListener("click",function(){ if(dlg.showModal){dlg.showModal()} else {dlg.setAttribute("open","")} });
+  dlg.querySelector("[data-qv-close]").addEventListener("click",function(){dlg.close&&dlg.close();btn.focus()});
+  dlg.addEventListener("click",function(e){if(e.target===dlg){dlg.close();}});
+  dlg.querySelector("[data-qv-go]").addEventListener("click",function(){dlg.close&&dlg.close()});
+});
+
+/* ---------- hero background: interactive dot field ---------- */
+var heroEl=document.querySelector(".hero"), cv=document.getElementById("heroBg"), heroSync=function(){};
+if(heroEl&&cv&&cv.getContext){
+  var ctx=cv.getContext("2d"), reduce=matchMedia("(prefers-reduced-motion:reduce)"), GAP=30, R=150;
+  var dpr=1,W=0,H=0,cols=0,rows=0,dots=[],raf=0,onScreen=false,ptr={x:-9999,y:-9999,on:false},t0=performance.now(),colMuted="#888",colAccent="#8a90ff";
+  function readColors(){var cs=getComputedStyle(root);colMuted=cs.getPropertyValue("--muted").trim()||colMuted;colAccent=cs.getPropertyValue("--accent").trim()||colAccent}
+  function size(){
+    var rootPx=parseFloat(getComputedStyle(root).fontSize)||16; GAP=Math.round(rootPx*1.9); R=GAP*5;
+    var r=heroEl.getBoundingClientRect(); if(!r.width||!r.height)return false;
+    dpr=Math.min(window.devicePixelRatio||1,2); W=r.width;H=r.height;
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cv.style.width=W+"px";cv.style.height=H+"px";
+    cols=Math.ceil(W/GAP)+1;rows=Math.ceil(H/GAP)+1;dots=[];
+    var ox=(W-(cols-1)*GAP)/2, oy=(H-(rows-1)*GAP)/2;
+    for(var j=0;j<rows;j++)for(var i=0;i<cols;i++)dots.push({x:ox+i*GAP,y:oy+j*GAP,dx:0,dy:0});
+    return true;
+  }
+  function draw(now){
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+    var t=(now-t0)/1000, still=reduce.matches;
+    /* with no pointer (touch, or before the first move) a soft invisible “cursor” drifts across the field */
+    var px=ptr.x,py=ptr.y,act=ptr.on;
+    if(!act&&!still){px=W*(.5+.38*Math.sin(t*.35));py=H*(.5+.3*Math.sin(t*.52+1));act=true}
+    for(var k=0;k<dots.length;k++){
+      var d=dots[k],ex=0,ey=0,near=0;
+      if(act&&!still){
+        var vx=d.x-px,vy=d.y-py,dist=Math.sqrt(vx*vx+vy*vy);
+        if(dist<R){near=1-dist/R;var push=near*near*14;ex=dist?vx/dist*push:0;ey=dist?vy/dist*push:0}
+      }
+      d.dx+=(ex-d.dx)*.14;d.dy+=(ey-d.dy)*.14;
+      var x=d.x+d.dx,y=d.y+d.dy;
+      ctx.globalAlpha=.28+.1*Math.sin(d.x*.02+d.y*.015);
+      ctx.fillStyle=colMuted;ctx.beginPath();ctx.arc(x,y,1.1,0,6.2832);ctx.fill();
+      if(near>.02){
+        ctx.globalAlpha=Math.min(1,near*1.3);ctx.fillStyle=colAccent;
+        ctx.beginPath();ctx.arc(x,y,1.1+near*2.6,0,6.2832);ctx.fill();
+      }
+    }
+    ctx.globalAlpha=1;
+  }
+  function loop(now){draw(now);raf=(onScreen&&!reduce.matches)?requestAnimationFrame(loop):0}
+  function start(){if(!raf){raf=requestAnimationFrame(loop)}}
+  heroSync=function(){
+    var vis=!heroEl.closest("[data-view]").hidden;
+    if(vis&&size()){onScreen=true;readColors();reduce.matches?draw(performance.now()):start()}
+    else{onScreen=false}
+  };
+  heroEl.addEventListener("pointermove",function(e){var r=heroEl.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.on=e.pointerType!=="touch"});
+  heroEl.addEventListener("pointerleave",function(){ptr.on=false});
+  window.addEventListener("resize",function(){if(onScreen&&size()&&reduce.matches)draw(performance.now())});
+  if("ResizeObserver"in window)new ResizeObserver(function(){if(onScreen){size();if(reduce.matches)draw(performance.now())}}).observe(heroEl);
+  new MutationObserver(function(){readColors();if(onScreen&&reduce.matches)draw(performance.now())}).observe(root,{attributes:true,attributeFilter:["data-theme"]});
+  document.addEventListener("visibilitychange",function(){if(!document.hidden&&onScreen&&!reduce.matches)start()});
+}
+
+/* ---------- about photo: soft accent glow that follows the cursor (same language as the hero) ---------- */
+[].slice.call(document.querySelectorAll(".moment-frame")).forEach(function(f){
+  f.addEventListener("pointermove",function(e){var r=f.getBoundingClientRect();f.style.setProperty("--mx",(e.clientX-r.left)+"px");f.style.setProperty("--my",(e.clientY-r.top)+"px")});
+});
+
+route();
+})();
+</script>
+</body>
+</html>

@@ -381,6 +381,96 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
 .moment figcaption{margin-top:var(--s-3);font-size:.82rem;color:var(--muted);line-height:1.45}
 @media (prefers-reduced-motion:reduce){.moment-frame,.moment-frame img{transition:none}.moment-frame img{transform:none}}
 
+/* ========== Alcancía · editorial case (scoped) ========== */
+.ac-cap{margin-top:var(--s-3);font-size:.85rem;line-height:1.55;color:var(--muted)}
+.ac-cap strong{color:var(--text-2)}
+.ac-intro{margin-top:var(--s-6);font-size:1.12rem;line-height:1.7;color:var(--text-2)}
+.ac-lead{display:grid;gap:var(--s-4);margin-top:var(--s-6);font-size:clamp(1.2rem,2.2vw,1.55rem);line-height:1.5;color:var(--text);letter-spacing:-.005em}
+.ac-lead p+p{color:var(--text-2)}
+.ac-lead-sm{font-size:1.2rem;line-height:1.55;color:var(--text);margin-top:var(--s-4)}
+.ac-patterns{display:grid;gap:var(--s-5);grid-template-columns:1fr 1fr;margin-top:var(--s-7)}
+.ac-pattern{border:1px solid var(--border);background:var(--surface);border-radius:var(--r-md);padding:var(--s-6);display:grid;gap:var(--s-3);align-content:start}
+.ac-pattern svg{width:7.5rem;height:4rem;color:var(--accent);margin-bottom:var(--s-2)}
+.ac-pattern .checklist{margin-top:var(--s-2)}
+.ac-bridge{display:grid;justify-items:center;gap:var(--s-5);margin:var(--s-8) 0;text-align:center}
+.ac-bridge p{max-width:30ch;font-size:clamp(1.4rem,3vw,2.1rem);line-height:1.3;font-weight:600;letter-spacing:-.01em;color:var(--text)}
+.ac-bridge-line{width:1px;height:3rem;background:linear-gradient(var(--border),var(--accent))}
+.ac-bridge-line:last-child{background:linear-gradient(var(--accent),var(--border))}
+.ac-hyps{display:grid;gap:var(--s-4);grid-template-columns:1fr 1fr;margin-top:var(--s-5)}
+.ac-hyp{border:1.5px dashed var(--border);border-radius:var(--r-md);padding:var(--s-5);display:grid;gap:var(--s-2);align-content:start;background:transparent;transition:border-color .3s,transform .3s var(--ease)}
+.ac-hyp:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ac-hyp-n{font-weight:700;color:var(--accent);font-size:.9rem;letter-spacing:.08em}
+.ac-hyp p{color:var(--text-2);line-height:1.55}
+.ac-objective{margin:var(--s-5) 0 var(--s-6);padding:var(--s-5) var(--s-6);border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--r-md) var(--r-md) 0;display:grid;gap:var(--s-2)}
+.ac-objective p{font-size:1.2rem;line-height:1.55;color:var(--text)}
+.ac-why{display:grid;gap:var(--s-3);grid-template-columns:repeat(2,1fr);margin-top:var(--s-4)}
+.ac-why li{border:1px solid var(--border);border-radius:var(--r-sm);padding:var(--s-4);color:var(--text-2);line-height:1.45;background:var(--surface)}
+.ac-facts{display:grid;gap:var(--s-4);grid-template-columns:repeat(4,1fr);margin:var(--s-6) 0}
+.ac-facts div{display:grid;gap:.25rem;align-content:start;border-top:2px solid var(--accent);padding-top:var(--s-3)}
+.ac-facts strong{font-size:2.2rem;line-height:1.05;font-weight:700;color:var(--text)}
+.ac-facts strong.ac-small{font-size:1.15rem;line-height:1.3;padding-top:.55rem}
+.ac-facts span{font-size:.85rem;color:var(--muted);line-height:1.4}
+.ac-profiles{display:grid;gap:var(--s-4);grid-template-columns:repeat(3,1fr)}
+.ac-profile{border:1px solid var(--border);background:var(--surface);border-radius:var(--r-md);padding:var(--s-5);display:grid;gap:var(--s-3);align-content:start}
+.ac-profile p:not(.sub-eyebrow):not(.ac-dots){color:var(--text-2);line-height:1.55}
+.ac-dots{display:flex;gap:.45rem;margin-top:var(--s-2)}
+.ac-dots i{width:.8rem;height:.8rem;border-radius:50%;background:var(--accent);opacity:.85}
+.ac-modes{display:flex;align-items:center;gap:var(--s-3);flex-wrap:wrap;margin:var(--s-5) 0 var(--s-6);font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ac-modes i{flex:1 1 1.5rem;min-width:1.5rem;height:1px;background:linear-gradient(90deg,var(--border),var(--accent))}
+.ac-tl{display:grid;gap:0;counter-reset:none}
+.ac-tl>li{display:grid;grid-template-columns:2.6rem 1fr;gap:var(--s-5);position:relative;padding-bottom:var(--s-7)}
+.ac-tl>li:last-child{padding-bottom:0}
+.ac-tl>li::before{content:"";position:absolute;left:1.3rem;top:2.6rem;bottom:0;width:2px;background:linear-gradient(var(--accent),var(--border));opacity:.55}
+.ac-tl>li:last-child::before{display:none}
+.ac-node{width:2.6rem;height:2.6rem;border-radius:50%;border:2px solid var(--accent);display:grid;place-items:center;font-weight:700;color:var(--accent);background:var(--bg,#0a0a0b);z-index:1}
+.ac-tl h3{margin-top:.35rem}
+.ac-tl p{color:var(--muted);line-height:1.6;margin-top:var(--s-2)}
+.ac-key .ac-node{background:var(--accent);color:#0a0a0b}
+.ac-badge{display:inline-block;margin-top:var(--s-3);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:var(--r-pill);padding:.2rem .7rem}
+.ac-fig{margin:var(--s-4) 0 0}
+.ac-fig img{width:100%;border-radius:var(--r-md);border:1px solid var(--border)}
+.ac-fig figcaption{margin-top:var(--s-3);font-size:.85rem;color:var(--muted);line-height:1.5}
+.ac-fig figcaption strong{color:var(--text-2)}
+.ac-pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4);margin-top:var(--s-4)}
+.ac-pair .ac-fig{margin:0}
+.ac-pair img{aspect-ratio:4/3;object-fit:cover}
+.ac-dims{display:flex;flex-wrap:wrap;gap:var(--s-3);margin:var(--s-3) 0 var(--s-6)}
+.ac-dims li{border:1px solid var(--accent);color:var(--text);border-radius:var(--r-pill);padding:.5rem 1rem;font-size:.92rem}
+.ac-synth{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:var(--s-4);align-items:stretch;margin-top:var(--s-3)}
+.ac-col{border:1px solid var(--border);background:var(--surface);border-radius:var(--r-md);padding:var(--s-5);display:grid;gap:var(--s-2);align-content:start}
+.ac-col p{color:var(--text-2);line-height:1.5;font-size:.95rem}
+.ac-arrow{align-self:center;color:var(--accent);font-size:1.6rem}
+.ac-findings{display:grid;gap:var(--s-5);margin-top:var(--s-6)}
+.ac-finding{display:grid;grid-template-columns:4.5rem 1fr;gap:var(--s-5);border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);padding:var(--s-6)}
+.ac-finding>div{display:grid;gap:var(--s-3);align-content:start}
+.ac-finding p:not(.sub-eyebrow){color:var(--muted);line-height:1.65}
+.ac-finding .h3{font-size:1.3rem;line-height:1.3;color:var(--text)}
+.ac-num{font-size:2.6rem;font-weight:700;line-height:1;color:var(--accent);letter-spacing:-.02em}
+.ac-finding .ff{margin-top:var(--s-3)}
+.ac-tension{display:grid;grid-template-columns:1fr auto 1fr;gap:var(--s-4);align-items:center;margin:var(--s-6) 0}
+.ac-side{border:1px solid var(--border);background:var(--surface);border-radius:var(--r-md);padding:var(--s-6);display:grid;gap:var(--s-3);align-content:start;min-height:100%}
+.ac-side p{color:var(--text-2);line-height:1.55}
+.ac-pivot span{display:grid;place-items:center;width:3rem;height:3rem;border-radius:50%;border:2px solid var(--accent);color:var(--accent);font-size:1.4rem}
+.ac-thread{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-3);margin-top:var(--s-3);counter-reset:t}
+.ac-thread li{counter-increment:t;position:relative;border-top:2px solid var(--accent);padding-top:var(--s-3);display:grid;gap:.3rem;align-content:start}
+.ac-thread li::before{content:"0" counter(t);font-size:.75rem;font-weight:700;color:var(--accent);letter-spacing:.1em}
+.ac-thread b{font-size:1rem;color:var(--text)}
+.ac-thread span{font-size:.88rem;color:var(--muted);line-height:1.45}
+.ac-roles{display:grid;grid-template-columns:3fr 2fr;gap:var(--s-5);margin-top:var(--s-5)}
+.ac-rolecol{border:1px solid var(--border);border-radius:var(--r-md);background:var(--surface);padding:var(--s-6);display:grid;gap:var(--s-3);align-content:start}
+.ac-rolecol:first-child{border-color:var(--accent)}
+.ac-reflection{margin:var(--s-7) 0;padding:var(--s-6);border-left:3px solid var(--accent);background:var(--surface);border-radius:0 var(--r-md) var(--r-md) 0;display:grid;gap:var(--s-3)}
+.ac-reflection p{font-size:1.15rem;line-height:1.65;color:var(--text)}
+@media (max-width:760px){
+  .ac-patterns,.ac-hyps,.ac-why,.ac-profiles,.ac-roles{grid-template-columns:1fr}
+  .ac-facts{grid-template-columns:1fr 1fr}
+  .ac-synth{grid-template-columns:1fr}.ac-arrow{transform:rotate(90deg);justify-self:center}
+  .ac-tension{grid-template-columns:1fr}.ac-pivot{justify-self:center;transform:rotate(90deg)}
+  .ac-thread{grid-template-columns:1fr 1fr}
+  .ac-finding{grid-template-columns:1fr;padding:var(--s-5)}
+  .ac-pair{grid-template-columns:1fr}
+}
+
 /* ========== reveal ========== */
 .reveal{opacity:0;transform:translateY(1.125rem);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -499,7 +589,7 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
       <article class="card-project reveal">
         <div class="media">
           <figure class="tilt-l wide"><img src="assets/alcancia-worksheet.png" width="637" height="387" alt="Workshop worksheet with sticky notes under the headings Like, Would change and Would like" data-i18n-alt="alt_al_ws" loading="lazy"></figure>
-          <figure class="tilt-r"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app" loading="lazy"></figure>
+          <figure class="tilt-r"><img src="assets/alcancia-app.png" width="523" height="894" alt="Previous version of the Alcancía screen in the Interbank app (account details blurred)" data-i18n-alt="alt_ac_app" loading="lazy"></figure>
         </div>
         <div class="chips" aria-label="Project tags" data-i18n-aria="aria_tags">
           <span class="chip" data-i18n="tag_banking">Digital banking</span>
@@ -508,9 +598,9 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
         </div>
         <div class="card-body">
           <p class="eyebrow" data-i18n="al_card_eyebrow">Interbank app · Alcancía workshops</p>
-          <h3 class="h1" style="font-size:clamp(1.6rem,3.2vw,2.5rem)"><a class="card-stretch" href="#/case/alcancia" data-i18n="al_title">Understanding different saving habits to guide the evolution of Interbank's Alcancía</a></h3>
-          <p class="desc" data-i18n="al_card_desc">Two workshops with 12 customers to understand why people use Alcancía in different ways, and what that means for the product's next stage.</p>
-          <p class="badges"><span data-i18n="al_b1"><b>Approved for development</b></span><span data-i18n="al_b2"><b>12</b> customers</span><span data-i18n="al_b3"><b>4</b> weeks</span></p>
+          <h3 class="h1" style="font-size:clamp(1.6rem,3.2vw,2.5rem)"><a class="card-stretch" href="#/case/alcancia" data-i18n="al_title">Understanding different saving habits to guide the evolution of a financial feature</a></h3>
+          <p class="desc" data-i18n="al_card_desc">Two in-person workshops with 12 participants to understand how different saving habits gave meaning to the same financial feature.</p>
+          <p class="badges"><span data-i18n="al_b1"><b>Behavioral analysis</b> + workshops</span><span data-i18n="al_b2"><b>12</b> participants</span><span data-i18n="al_b3"><b>4</b> weeks</span></p>
         </div>
         <div class="card-actions">
           <a class="link-accent" href="#/case/alcancia"><span data-i18n="view_case">View case study</span> <span aria-hidden="true">→</span></a>
@@ -526,7 +616,7 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
         <div class="photo reveal"><img src="assets/tiffany.jpg" width="800" height="800" alt="Portrait of Tiffany Macher smiling in front of green plants" data-i18n-alt="alt_photo" loading="lazy"></div>
         <div class="reveal">
           <h2 class="h2" id="ab-h" data-i18n="ab_h">Hi, I'm Tiffany.</h2>
-          <p class="lead" style="margin-top:var(--s-4)" data-i18n="ab_p">I'm a UX Researcher with a Psychology background and 3+ years of experience in digital banking helping product teams make sense of user behavior, challenge assumptions, and turn research into better product decisions.</p>
+          <p class="lead" style="margin-top:var(--s-4)" data-i18n="ab_p">I'm a UX Researcher with a Psychology background, a soft spot for asking one more question, and 3+ years of experience in digital banking helping product teams make sense of user behavior, challenge assumptions, and turn research into better product decisions.</p>
           <p class="edu"><span data-i18n="edu_l">Ux Researcher</span><span class="spark" aria-hidden="true">✦</span><span data-i18n="edu_r">Bachelor's degree in Psychology</span></p>
           <p style="margin-top:var(--s-5)"><a class="btn" href="#/about"><span data-i18n="about_btn">About me</span> <span aria-hidden="true">→</span></a></p>
         </div>
@@ -675,9 +765,7 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
       <p class="muted" style="margin-top:var(--s-5);font-size:.92rem" data-i18n="kpis">Key indicators: Transactionality + Discovery + Engagement + Conversion</p>
     </div>
   </div>
-  </div>
 
-   
   <nav class="subnav" aria-label="Case study sections" data-i18n-aria="aria_sections" style="margin-top:var(--s-7)">
     <div class="wrap wrap-case">
       <ul class="subnav-list">
@@ -997,6 +1085,8 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
 
 <!-- ===================== CASE STUDY · ALCANCÍA ===================== -->
 <div data-view="case-alcancia" hidden>
+
+  <!-- 1 · INTRODUCCIÓN -->
   <div class="wrap wrap-case case-hero">
     <a class="back" href="#/work"><span aria-hidden="true">←</span> <span data-i18n="back">All work</span></a>
     <div class="chips" aria-label="Project tags" data-i18n-aria="aria_tags">
@@ -1004,13 +1094,14 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
       <span class="chip" data-i18n="al_tag_qual">Qualitative research</span>
       <span class="chip" data-i18n="al_tag_gen">Generative research</span>
     </div>
-    <h1 class="h1" data-i18n="al_title">Understanding different saving habits to guide the evolution of Interbank's Alcancía</h1>
+    <h1 class="h1" data-i18n="al_title">Understanding different saving habits to guide the evolution of a financial feature</h1>
   </div>
 
   <div class="wrap">
     <div class="panel cover" style="max-width:var(--w-case);margin-inline:auto">
-      <figure class="pcover"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app"></figure>
+      <figure class="pcover"><img src="assets/alcancia-app.png" width="523" height="894" alt="Previous version of the Alcancía screen in the Interbank app (account details blurred)" data-i18n-alt="alt_ac_app"></figure>
     </div>
+    <p class="ac-cap" style="max-width:var(--w-case);margin-inline:auto" data-i18n="ac_cap_app">Previous version of the experience, shown as historical documentation. Sensitive data is blurred.</p>
   </div>
 
   <div class="wrap wrap-case" style="margin-top:var(--s-6)">
@@ -1018,238 +1109,308 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
       <div><dt data-i18n="m_time">Duration</dt><dd data-i18n="al_m_time_v">4 weeks</dd></div>
       <div><dt data-i18n="m_role">Role</dt><dd data-i18n="m_role_v">UX Researcher</dd></div>
       <div><dt data-i18n="m_team">Team</dt><dd data-i18n="al_m_team_v">2 Product Designers + 2 Design Researchers</dd></div>
-      <div><dt data-i18n="m_scope">Scope</dt><dd data-i18n="al_m_scope_v">Alcancía · Saving behaviors · User expectations · Product evolution</dd></div>
-      <div><dt data-i18n="m_methods">Methods</dt><dd data-i18n="al_m_methods_v">Qualitative research · 2 in-person workshops · Thematic analysis</dd></div>
+      <div><dt data-i18n="m_scope">Scope</dt><dd data-i18n="ac_scope_v">Saving behaviors, user expectations and the evolution of the experience</dd></div>
+      <div><dt data-i18n="m_methods">Methods</dt><dd data-i18n="ac_methods_v">Behavioral analysis, qualitative research, 2 in-person workshops and thematic analysis</dd></div>
     </dl>
-    <div class="tldr" style="margin-top:var(--s-6)">
-      <p class="eyebrow">TL;DR</p>
-      <div class="tl-body">
-        <p data-i18n="al_tl1">Alcancía is a feature of the Interbank app that lets customers set money aside from their available balance.</p>
-        <p data-i18n="al_tl2">Based on behavioral indicators, two ways of using the feature were identified: setting money aside for monthly or short-term payments, or building savings for the medium and long term.</p>
-        <p data-i18n="al_tl3">To understand how the experience could better respond to these needs, I planned and facilitated two workshops with 12 customers across transactional, aspirational, and mixed profiles.</p>
-        <p data-i18n="al_tl4">The research revealed that users value the flexibility of the feature, but also express the need to organize their savings by goals and to have mechanisms that help them keep the money set aside.</p>
-        <p data-i18n="al_tl5">These findings informed design proposals for flexible savings goals, scheduled savings, and greater control over withdrawals.</p>
-        <p data-i18n="al_tl6">I collaborated directly with Product Designers to define solutions and later participated in user evaluations of the proposed concepts and screens.</p>
-      </div>
-      <!-- CONFIRMAR antes de publicar: base del 13× y si 76% / 6% corresponden a todos los clientes con saldo -->
-      <div class="stats">
-        <div class="stat"><div class="num">877K</div><div class="cap" data-i18n="al_s1">customers with a balance in Alcancía</div></div>
-        <div class="stat"><div class="num">76%</div><div class="cap" data-i18n="al_s2">transactional users, primarily focused on organizing expenses</div></div>
-        <div class="stat"><div class="num">6%</div><div class="cap" data-i18n="al_s3">aspirational users, primarily focused on saving</div></div>
-        <div class="stat"><div class="num">13×</div><div class="cap" data-i18n="al_s4">average balance among aspirational users, compared with the reference group used in the internal analysis</div></div>
-      </div>
-      <p class="muted" style="margin-top:var(--s-5);font-size:.92rem" data-i18n="al_kpis">Key indicators: Engagement · Savings balances · Savings retention · Bank primacy</p>
-    </div>
+    <p class="ac-intro" data-i18n="ac_intro">Alcancía was a feature of the Interbank app that let people set money aside from their available balance and keep it reserved. The research set out to understand the different habits, motivations and expectations of the people who used it, in order to find opportunities that could guide how the experience evolved.</p>
   </div>
-   
+
   <nav class="subnav" aria-label="Case study sections" data-i18n-aria="aria_sections" style="margin-top:var(--s-7)">
     <div class="wrap wrap-case">
       <ul class="subnav-list">
-        <li><a href="#a-solution" data-i18n="sn1">Solution</a></li>
-        <li><a href="#a-problem" data-i18n="sn2">Problem</a></li>
-        <li><a href="#a-research" data-i18n="sn3">Research</a></li>
-        <li><a href="#a-design" data-i18n="sn4">Design</a></li>
-        <li><a href="#a-role" data-i18n="sn5">My role</a></li>
-        <li><a href="#a-outcome" data-i18n="sn6">Outcome</a></li>
+        <li><a href="#a-start" data-i18n="ac_sn1">Starting point</a></li>
+        <li><a href="#a-approach" data-i18n="ac_sn2">Approach</a></li>
+        <li><a href="#a-design" data-i18n="ac_sn3">Participants</a></li>
+        <li><a href="#a-workshops" data-i18n="ac_sn4">Workshops</a></li>
+        <li><a href="#a-analysis" data-i18n="ac_sn5">Analysis</a></li>
+        <li><a href="#a-findings" data-i18n="ac_sn6">Findings</a></li>
+        <li><a href="#a-opps" data-i18n="ac_sn7">Opportunities</a></li>
+        <li><a href="#a-role" data-i18n="ac_sn8">My role</a></li>
+        <li><a href="#a-close" data-i18n="ac_sn9">Reflection</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- SOLUTION · KEY FINDINGS -->
-  <section class="case-sec" id="a-solution" aria-labelledby="a-sol-h">
+  <!-- 2 · PUNTO DE PARTIDA -->
+  <section class="case-sec" id="a-start" aria-labelledby="a-start-h">
     <div class="wrap wrap-case">
-      <p class="eyebrow accent" data-i18n="sol_l">Solution · Key findings</p>
-      <h2 class="h2" id="a-sol-h" data-i18n="al_sol_h">One savings tool, different reasons to use it</h2>
-
-      <div class="findings">
-        <div class="finding reveal">
-          <p class="sub-eyebrow" data-i18n="al_fn1">Finding 1</p>
-          <h3 class="h3" data-i18n="al_k1h">Alcancía served different functions depending on the purpose of the money</h3>
-          <p data-i18n="al_k1p">Transactional users used it to organize money for recurring expenses and payments, and valued being able to withdraw it when it was time to pay. Aspirational users used it to accumulate savings for the medium and long term, and valued that the money stayed set aside.</p>
-          <p class="opp" data-i18n="al_k1o"><strong>Design opportunity:</strong> support different saving behaviors without assuming that every customer uses Alcancía for the same purpose.</p>
-        </div>
-
-        <div class="finding reveal">
-          <p class="sub-eyebrow" data-i18n="al_fn2">Finding 2</p>
-          <h3 class="h3" data-i18n="al_k2h">Flexibility makes saving easier, but also withdrawing</h3>
-          <p data-i18n="al_k2p">Participants valued deciding how much to put in and when, with no mandatory amounts or dates. But that same ease of withdrawal could make it harder to keep savings for a specific goal.</p>
-          <p class="opp" data-i18n="al_k2o"><strong>Design opportunity:</strong> explore ways to balance flexibility with greater control over withdrawals.</p>
-        </div>
-
-        <div class="finding reveal">
-          <p class="sub-eyebrow" data-i18n="al_fn3">Finding 3</p>
-          <h3 class="h3" data-i18n="al_k3h">Setting money apart gives a sense of control and security</h3>
-          <p data-i18n="al_k3p">By keeping money apart from the balance they used every day, and limiting spending to a specific amount, participants described feeling more in control of their expenses. Some also saw it as a way to keep that money protected.</p>
-          <p class="opp" data-i18n="al_k3o"><strong>Design opportunity:</strong> strengthen the role of Alcancía as a space to organize and protect money according to its intended use.</p>
-          <figure class="ff" aria-label="Alcancía screen: available balance versus balance set aside" data-i18n-aria="al_ff_aria">
-            <div class="ff-stage">
-              <div class="ff-left"><p class="ff-tag" data-i18n="al_ff_l">Balance available for payments and ATM withdrawals</p></div>
-              <div class="ff-phone"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app"></div>
-              <div class="ff-right">
-                <p class="ff-tag" data-i18n="al_ff_r">Balance set aside, not available for payments or ATM withdrawals</p>
-                <ul class="ff-out"><li data-i18n="al_ff_o1">Sense of expense organization</li><li data-i18n="al_ff_o2">Sense of security</li></ul>
-              </div>
-            </div>
-          </figure>
-        </div>
-
-        <div class="finding reveal">
-          <p class="sub-eyebrow" data-i18n="al_fn4">Finding 4</p>
-          <h3 class="h3" data-i18n="al_k4h">Saving for goals doesn't necessarily mean looking for returns</h3>
-          <p data-i18n="al_k4p">Aspirational users valued grouping money around personal goals, such as family, education, pets, and travel. Interest was visible and appreciated, but organizing money around a purpose could matter more.</p>
-          <p class="opp" data-i18n="al_k4o"><strong>Design opportunity:</strong> make it easier to structure savings around individual goals and preferences.</p>
-        </div>
+      <p class="eyebrow accent" data-i18n="ac_start_l">The starting point</p>
+      <h2 class="h2" id="a-start-h" data-i18n="ac_start_h">From data to hypotheses</h2>
+      <div class="ac-lead reveal">
+        <p data-i18n="ac_start_p1">Analyzing behavioral indicators made it possible to identify different patterns in the way people used the feature. While some users made frequent movements of money in and out, others kept their funds reserved for longer periods.</p>
+        <p data-i18n="ac_start_p2">These differences led to hypotheses about the different purposes Alcancía could serve and about the experience needs associated with each behavior.</p>
       </div>
+
+      <div class="ac-patterns reveal">
+        <article class="ac-pattern">
+          <svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="14" width="40" height="36" rx="8"/><path d="M6 26h28M28 20l6 6-6 6"/><path d="M114 38H86M92 32l-6 6 6 6"/></svg>
+          <p class="sub-eyebrow" data-i18n="ac_pt1_l">Pattern 1</p>
+          <h3 class="h3" data-i18n="ac_pt1_h">Everyday money management</h3>
+          <ul class="checklist">
+            <li data-i18n="ac_pt1_a">Frequent movements of money in and out.</li>
+            <li data-i18n="ac_pt1_b">Money set aside to organize expenses and recurring payments.</li>
+            <li data-i18n="ac_pt1_c">A need to keep flexibility and availability.</li>
+          </ul>
+        </article>
+        <article class="ac-pattern">
+          <svg viewBox="0 0 120 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="14" width="40" height="36" rx="8"/><path d="M6 32h28M28 26l6 6-6 6"/><circle cx="60" cy="32" r="3.5" fill="currentColor"/><path d="M90 32h24" stroke-dasharray="1 8"/></svg>
+          <p class="sub-eyebrow" data-i18n="ac_pt2_l">Pattern 2</p>
+          <h3 class="h3" data-i18n="ac_pt2_h">Goal-oriented saving</h3>
+          <ul class="checklist">
+            <li data-i18n="ac_pt2_a">Money reserved for longer.</li>
+            <li data-i18n="ac_pt2_b">Fewer withdrawals.</li>
+            <li data-i18n="ac_pt2_c">Saving linked to personal goals, in the medium or long term.</li>
+          </ul>
+        </article>
+      </div>
+      <p class="ac-cap" data-i18n="ac_pt_note">Conceptual illustration of the two patterns. It does not represent proportions of users. These patterns were a first approximation based on behavioral data, not final conclusions about people's motivations.</p>
+
+      <div class="ac-bridge reveal" role="note">
+        <span class="ac-bridge-line" aria-hidden="true"></span>
+        <p data-i18n="ac_bridge">The data showed how people used the feature, but did not fully explain why they did.</p>
+        <span class="ac-bridge-line" aria-hidden="true"></span>
+      </div>
+
+      <h3 class="h3" data-i18n="ac_hyp_h">Hypotheses that guided the study</h3>
+      <div class="ac-hyps">
+        <div class="ac-hyp reveal"><span class="ac-hyp-n">H1</span><p data-i18n="ac_h1">The feature could be serving different purposes depending on each person's financial habits.</p></div>
+        <div class="ac-hyp reveal"><span class="ac-hyp-n">H2</span><p data-i18n="ac_h2">The flexibility to withdraw money could be valued by some users, but be a difficulty for those trying to keep their savings.</p></div>
+        <div class="ac-hyp reveal"><span class="ac-hyp-n">H3</span><p data-i18n="ac_h3">Setting money apart from the available balance could create a greater sense of organization and control.</p></div>
+        <div class="ac-hyp reveal"><span class="ac-hyp-n">H4</span><p data-i18n="ac_h4">Personal goals could influence the way people organize and keep their reserved money.</p></div>
+      </div>
+      <p class="ac-cap" data-i18n="ac_hyp_note">These were initial hypotheses to explore and test through qualitative research. They are not findings.</p>
     </div>
   </section>
 
-  <!-- PROBLEM -->
-  <section class="case-sec" id="a-problem" aria-labelledby="a-prob-h">
+  <!-- 3 · OBJETIVO Y ENFOQUE -->
+  <section class="case-sec" id="a-approach" aria-labelledby="a-app-h">
     <div class="wrap wrap-case">
-      <p class="eyebrow accent" data-i18n="prob_l">Problem</p>
-      <h2 class="h2" id="a-prob-h" data-i18n="al_prob_h">Two usage patterns, one feature</h2>
-      <div class="prose">
-        <p data-i18n="al_prob_p1">Alcancía is a feature of the Interbank app that lets customers set aside part of the money in their account and keep it apart from their available balance.</p>
-        <p data-i18n="al_prob_p2">Usage data showed two distinct behaviors:</p>
-      </div>
-      <ul class="checklist">
-        <li data-i18n="al_prob_b1">76% of customers had a transactional profile, characterized by frequent deposits and withdrawals and average balances below S/ 5,000.</li>
-        <li data-i18n="al_prob_b2">In contrast, 6% had an aspirational profile, with deposits but no withdrawals and average balances above S/ 5,000 over three months.</li>
-      </ul>
-      <p class="prose-p" data-i18n="al_prob_p3">Although aspirational users were a smaller share, their average balance was 13 times higher than that of the reference group in the internal analysis, which made them a relevant segment for the bank's deposit growth.</p>
-      <div class="cards">
-        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="al_bq_l">Business question</span><p data-i18n="al_bq_p">How can we adapt the Alcancía experience to the different customer profiles that use it?</p></div>
-        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="al_ob_l">Research objective</span><p data-i18n="al_ob_p">Understand how the different user profiles perceived Alcancía and what they expected from it.</p></div>
-        <div class="cardlet reveal"><span class="sub-eyebrow" data-i18n="sc_l">Scope</span><p data-i18n="al_sc_p">Alcancía, saving behaviors, user expectations and product evolution.</p></div>
-      </div>
+      <p class="eyebrow accent" data-i18n="ac_app_l">Objective and methodological approach</p>
+      <h2 class="h2" id="a-app-h" data-i18n="ac_app_h">Understanding the “why” behind the behavior</h2>
+      <blockquote class="ac-objective reveal"><span class="sub-eyebrow" data-i18n="ac_obj_l">Research objective</span><p data-i18n="ac_obj">To understand how people used Alcancía, what they valued about the current experience, and what needs and expectations they had about its evolution.</p></blockquote>
       <p class="lbl" data-i18n="al_sobj_l">Specific objectives</p>
-      <ul class="checklist">
-        <li data-i18n="al_o1">Understand how they perceived the current Alcancía experience and which aspects made it easier or harder to use.</li>
-        <li data-i18n="al_o2">Explore saving behaviors and how they used the feature to organize payments, expenses and financial goals.</li>
-        <li data-i18n="al_o3">Identify the needs and motivations behind the different usage patterns, as well as opportunities for the product to evolve.</li>
+      <ol class="flow">
+        <li data-i18n="ac_o1">Understand how people perceived the current experience.</li>
+        <li data-i18n="ac_o2">Explore saving habits and how people organize their money.</li>
+        <li data-i18n="ac_o3">Identify the motivations behind the different usage patterns.</li>
+        <li data-i18n="ac_o4">Identify needs and opportunities for the experience to evolve.</li>
+      </ol>
+      <h3 class="h3" style="margin-top:var(--s-7)" data-i18n="ac_why_h">Why in-person workshops</h3>
+      <p class="prose-p" data-i18n="ac_why_p">As a methodological choice, workshops made it possible to bring together four things that matter when behavior needs explaining:</p>
+      <ul class="ac-why">
+        <li data-i18n="ac_w_a">Exploring personal experiences</li>
+        <li data-i18n="ac_w_b">Contrasting perspectives</li>
+        <li data-i18n="ac_w_c">Encouraging discussion</li>
+        <li data-i18n="ac_w_d">Going deeper into the motivations behind observed behaviors</li>
       </ul>
     </div>
   </section>
 
-  <!-- RESEARCH -->
-  <section class="case-sec" id="a-research" aria-labelledby="a-res-h">
-    <div class="wrap wrap-case">
-      <p class="eyebrow accent" data-i18n="res_l">Research</p>
-      <h2 class="h2" id="a-res-h" data-i18n="al_res_h">Two workshops to understand what each profile valued</h2>
-
-      <div class="stats" style="margin-top:var(--s-4)">
-        <div class="stat"><div class="num">12</div><div class="cap" data-i18n="al_r1">participants</div></div>
-        <div class="stat"><div class="num">2</div><div class="cap" data-i18n="al_r2">in-person workshops</div></div>
-        <div class="stat"><div class="num">3</div><div class="cap" data-i18n="al_r3">usage profiles</div></div>
-      </div>
-
-      <div class="block reveal">
-        <h3 class="h3" data-i18n="al_pf_h">Participant profiles</h3>
-        <div class="cards">
-          <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_pf1l">Transactional users · 4</span><p data-i18n="al_pf1p">They save and withdraw throughout the month. At the end of the month, their average balance stays below S/ 5,000.</p></div>
-          <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_pf2l">Aspirational users · 4</span><p data-i18n="al_pf2p">They save and make no withdrawals throughout the month.</p></div>
-          <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_pf3l">Mixed users · 4</span><p data-i18n="al_pf3p">They save and withdraw throughout the month, yet they keep a balance as the months go by.</p></div>
-        </div>
-        <p class="muted" data-i18n="al_pf_n">Profiles were defined from usage patterns and balances over a three-month period.</p>
-      </div>
-
-      <div class="block reveal">
-        <h3 class="h3" data-i18n="al_wf_h">How the workshops worked</h3>
-        <p data-i18n="al_wf_p">The sessions combined individual reflection, group discussion and prioritization of opportunities.</p>
-        <ol class="flow">
-          <li data-i18n="al_w1"><strong>Context and opening:</strong> financial practices and each participant's relationship with Alcancía.</li>
-          <li data-i18n="al_w2"><strong>Mental model:</strong> spontaneous associations and interpretations of the Alcancía concept.</li>
-          <li data-i18n="al_w3"><strong>Current experience:</strong> what they valued, what they would change and what they would like, through a Like / Would change / Would like activity.</li>
-          <li data-i18n="al_w4"><strong>Discussion and prioritization:</strong> sharing needs and expectations, with small-group activities.</li>
-          <li data-i18n="al_w5"><strong>Concept exploration:</strong> presenting and discussing ideas for future features.</li>
-          <li data-i18n="al_w6"><strong>Closing:</strong> final reflections and expectations.</li>
-        </ol>
-        <div class="gallery">
-          <figure class="g-main"><img src="assets/alcancia-worksheet.png" width="637" height="387" alt="Workshop worksheet with sticky notes under the headings Like, Would change and Would like" data-i18n-alt="alt_al_ws" loading="lazy"><figcaption data-i18n="al_g1"><strong>Personal exercise:</strong> Like / Would change / Would like worksheet, filled in by a participant.</figcaption></figure>
-          <div class="g-pair">
-            <img src="assets/alcancia-workshop-table.png" width="637" height="387" alt="Participants working with sticky notes around a table during a workshop" data-i18n-alt="alt_al_g2" loading="lazy">
-            <img src="assets/alcancia-workshop-room.png" width="637" height="372" alt="Workshop room with participants seated around a long table" data-i18n-alt="alt_al_g3" loading="lazy">
-          </div>
-          <p class="g-cap" data-i18n="al_g2"><strong>Group discussion</strong> of personal answers and joint prioritization.</p>
-        </div>
-      </div>
-
-      <div class="block reveal">
-        <p class="sub-eyebrow" data-i18n="al_an_l">Analysis of results</p>
-        <p data-i18n="al_th">I led the thematic analysis of the sessions, which surfaced patterns around how people organize money, how flexible saving should be, the sense of control and security that comes from keeping money apart, and the differences between those who save for goals and those who manage their month with Alcancía.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESIGN -->
+  <!-- 4 · DISEÑO DE LA INVESTIGACIÓN Y RECLUTAMIENTO -->
   <section class="case-sec" id="a-design" aria-labelledby="a-des-h">
     <div class="wrap wrap-case">
-      <p class="eyebrow accent" data-i18n="al_des_l">Design · From insights to product opportunities</p>
-      <h2 class="h2" id="a-des-h" data-i18n="al_des_h">From a long feature wish list to one guiding tension</h2>
-      <p data-i18n="al_des_p1">The question stopped being only which features to add. It became how to let people organize money by its purpose and have better control over when they use it.</p>
-
-      <div class="versus reveal">
-        <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_vs1l">Ease and flexibility</span><p data-i18n="al_vs1p">Let people set money aside when they need to and use it for their payments.</p></div>
-        <div class="cardlet"><span class="sub-eyebrow" data-i18n="al_vs2l">Protecting the purpose</span><p data-i18n="al_vs2p">Help money meant for saving stay set apart and be less exposed to impulsive spending.</p></div>
+      <p class="eyebrow accent" data-i18n="ac_des_l">Research design and recruitment</p>
+      <h2 class="h2" id="a-des-h" data-i18n="ac_des_h">Three behavior profiles, twelve participants</h2>
+      <div class="ac-facts reveal">
+        <div><strong>12</strong><span data-i18n="al_r1">participants</span></div>
+        <div><strong>2</strong><span data-i18n="al_r2">in-person workshops</span></div>
+        <div><strong>3</strong><span data-i18n="ac_f3">behavior profiles</span></div>
+        <div><strong class="ac-small" data-i18n="ac_f4n">External agency</strong><span data-i18n="ac_f4">coordinated the recruitment</span></div>
       </div>
-      <p data-i18n="al_vs_c">The opportunity was to offer different levels of organization and control depending on the purpose of the money, without removing the autonomy that made Alcancía useful in the first place.</p>
+      <div class="ac-profiles">
+        <article class="ac-profile reveal">
+          <p class="sub-eyebrow" data-i18n="ac_pf1_l">Transactional profile</p>
+          <p data-i18n="ac_pf1_p">People who made frequent movements of money in and out, using the feature mainly to organize expenses and payments.</p>
+          <p class="ac-dots" role="img" aria-label="4 participants" data-i18n-aria="ac_dots"><i></i><i></i><i></i><i></i></p>
+        </article>
+        <article class="ac-profile reveal">
+          <p class="sub-eyebrow" data-i18n="ac_pf2_l">Aspirational profile</p>
+          <p data-i18n="ac_pf2_p">People who used the feature to accumulate money and keep it reserved for long periods.</p>
+          <p class="ac-dots" role="img" aria-label="4 participants" data-i18n-aria="ac_dots"><i></i><i></i><i></i><i></i></p>
+        </article>
+        <article class="ac-profile reveal">
+          <p class="sub-eyebrow" data-i18n="ac_pf3_l">Mixed profile</p>
+          <p data-i18n="ac_pf3_p">People who combined movements in and out with an intention to keep money reserved over time.</p>
+          <p class="ac-dots" role="img" aria-label="4 participants" data-i18n-aria="ac_dots"><i></i><i></i><i></i><i></i></p>
+        </article>
+      </div>
+      <p class="ac-cap" data-i18n="ac_pf_note">The profiles were built from usage patterns observed over a three-month analysis period. The four participants per profile reflect the design of the research sample, not the composition of the product's user base.</p>
+    </div>
+  </section>
 
-      <div class="block reveal">
-        <h3 class="h3" data-i18n="al_imp_h">The findings informed collaborative design work on several potential improvements</h3>
-        <ul class="checklist">
-          <li data-i18n="al_d1"><strong>More saving categories</strong> to organize money according to different purposes.</li>
-          <li data-i18n="al_d2"><strong>Flexible savings goals</strong> with user-defined amounts, dates and frequencies.</li>
-          <li data-i18n="al_d3"><strong>Greater control over withdrawals</strong> to help customers protect money intended for saving.</li>
-          <li data-i18n="al_d4"><strong>Scheduled savings</strong> to support more consistent saving habits.</li>
-        </ul>
-        <p data-i18n="al_d5">Other ideas, including bill payments from Alcancía, reminders, shared savings, and financial education, were also explored as customer expectations. They were recorded as expectations to explore, not as confirmed product decisions.</p>
-        <p data-i18n="al_d6">The proposals went through subsequent rounds of user evaluation. I collaborated directly with designers on solution definition and participated in later testing of concepts and screens.</p>
+  <!-- 5 · DISEÑO DE LOS TALLERES -->
+  <section class="case-sec" id="a-workshops" aria-labelledby="a-ws-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="ac_ws_l">Workshop design</p>
+      <h2 class="h2" id="a-ws-h" data-i18n="ac_ws_h">A structured session, not a group conversation</h2>
+      <p class="prose-p" data-i18n="ac_ws_p">The sessions combined individual reflection, group discussion and prioritization of opportunities. Each stage built on the previous one, from personal experience to shared needs.</p>
+      <p class="ac-modes reveal" aria-hidden="true"><span data-i18n="ac_m1">Individual reflection</span><i></i><span data-i18n="ac_m2">Group discussion</span><i></i><span data-i18n="ac_m3">Prioritization</span></p>
+
+      <ol class="ac-tl">
+        <li class="reveal"><span class="ac-node">1</span><div><h3 class="h3" data-i18n="ac_s1h">Context and opening</h3><p data-i18n="ac_s1p">Exploring financial practices and each person's relationship with the feature.</p></div></li>
+        <li class="reveal"><span class="ac-node">2</span><div><h3 class="h3" data-i18n="ac_s2h">Mental model</h3><p data-i18n="ac_s2p">Spontaneous associations and interpretations of the Alcancía concept.</p></div></li>
+        <li class="reveal ac-key"><span class="ac-node">3</span><div>
+          <h3 class="h3" data-i18n="ac_s3h">Current experience</h3>
+          <p data-i18n="ac_s3p">Identifying valued aspects, difficulties and expectations through the “Like / Would change / Would like” activity.</p>
+          <span class="ac-badge" data-i18n="ac_s3b">Featured activity</span>
+          <figure class="ac-fig"><img src="assets/alcancia-worksheet.png" width="637" height="387" alt="Workshop worksheet with sticky notes under the headings Like, Would change and Would like" data-i18n-alt="alt_al_ws" loading="lazy"><figcaption data-i18n="ac_s3f"><strong>Personal exercise:</strong> Like / Would change / Would like worksheet, filled in by a participant.</figcaption></figure>
+        </div></li>
+        <li class="reveal"><span class="ac-node">4</span><div>
+          <h3 class="h3" data-i18n="ac_s4h">Discussion and contrast</h3>
+          <p data-i18n="ac_s4p">Sharing individual answers and discussing them in small groups.</p>
+          <div class="ac-pair">
+            <figure class="ac-fig"><img src="assets/alcancia-workshop-table.png" width="637" height="387" alt="Participants working with sticky notes around a table during a workshop" data-i18n-alt="alt_al_g2" loading="lazy"></figure>
+            <figure class="ac-fig"><img src="assets/alcancia-workshop-room.png" width="637" height="372" alt="Workshop room with participants seated around a long table" data-i18n-alt="alt_al_g3" loading="lazy"></figure>
+          </div>
+          <p class="ac-cap" data-i18n="ac_s4f"><strong>Group discussion</strong> of personal answers and joint prioritization. Faces are blurred to protect participants' privacy.</p>
+        </div></li>
+        <li class="reveal"><span class="ac-node">5</span><div><h3 class="h3" data-i18n="ac_s5h">Concept exploration</h3><p data-i18n="ac_s5p">Presenting and discussing ideas for possible future features.</p></div></li>
+        <li class="reveal"><span class="ac-node">6</span><div><h3 class="h3" data-i18n="ac_s6h">Prioritization and closing</h3><p data-i18n="ac_s6p">Synthesizing the needs identified and sharing final reflections.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 6 · ANÁLISIS Y SÍNTESIS -->
+  <section class="case-sec" id="a-analysis" aria-labelledby="a-an-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="ac_an_l">Analysis and synthesis</p>
+      <h2 class="h2" id="a-an-h" data-i18n="ac_an_h">From observed behavior to understood motivations</h2>
+      <p class="ac-lead-sm" data-i18n="ac_an_p">I led the thematic analysis of the sessions, identifying recurring patterns in participants' experiences, motivations and expectations.</p>
+      <p class="lbl" data-i18n="ac_dim_l">Dimensions analyzed</p>
+      <ul class="ac-dims reveal">
+        <li data-i18n="ac_d1">Purpose of the money</li>
+        <li data-i18n="ac_d2">Flexibility and availability</li>
+        <li data-i18n="ac_d3">Sense of control and security</li>
+        <li data-i18n="ac_d4">Organizing savings</li>
+        <li data-i18n="ac_d5">Personal goals</li>
+      </ul>
+      <div class="ac-synth reveal" role="img" aria-label="Explanatory diagram: what the data showed, what was heard in the workshops, and the findings that emerged" data-i18n-aria="ac_syn_aria">
+        <div class="ac-col"><span class="sub-eyebrow" data-i18n="ac_syn1l">What the data showed</span><p data-i18n="ac_syn1p">Two patterns of use: everyday management and goal-oriented saving.</p></div>
+        <span class="ac-arrow" aria-hidden="true">→</span>
+        <div class="ac-col"><span class="sub-eyebrow" data-i18n="ac_syn2l">What we heard</span><p data-i18n="ac_syn2p">Experiences, motivations and expectations, analyzed through five dimensions.</p></div>
+        <span class="ac-arrow" aria-hidden="true">→</span>
+        <div class="ac-col"><span class="sub-eyebrow" data-i18n="ac_syn3l">What emerged</span><p data-i18n="ac_syn3p">Four findings that connect behavior with meaning.</p></div>
+      </div>
+      <p class="ac-cap" data-i18n="ac_syn_note">Explanatory visualization of the synthesis process. It is not an original artifact of the study.</p>
+      <p class="prose-p" data-i18n="ac_an_p2">Connecting the behaviors observed at the start with what we learned by talking to people is what turned a description of use into an understanding of purpose.</p>
+    </div>
+  </section>
+
+  <!-- 7 · HALLAZGOS -->
+  <section class="case-sec" id="a-findings" aria-labelledby="a-find-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="ac_fi_l">Findings</p>
+      <h2 class="h2" id="a-find-h" data-i18n="ac_fi_h">Four findings about what the feature meant to people</h2>
+      <div class="ac-findings">
+        <article class="ac-finding reveal">
+          <span class="ac-num" aria-hidden="true">01</span>
+          <div>
+            <p class="sub-eyebrow" data-i18n="ac_fi1_r">Related to hypothesis 1</p>
+            <h3 class="h3" data-i18n="ac_f1h">Alcancía served different functions depending on the purpose of the money.</h3>
+            <p data-i18n="ac_f1p">Some users valued having their money available when it was time to pay. Others valued that it stayed set aside.</p>
+            <p class="opp" data-i18n="ac_f1o"><strong>Design opportunity:</strong> support different saving behaviors without assuming that everyone uses the feature for the same purpose.</p>
+          </div>
+        </article>
+        <article class="ac-finding reveal">
+          <span class="ac-num" aria-hidden="true">02</span>
+          <div>
+            <p class="sub-eyebrow" data-i18n="ac_fi2_r">Related to hypothesis 2</p>
+            <h3 class="h3" data-i18n="ac_f2h">Flexibility makes saving easier, but also withdrawing.</h3>
+            <p data-i18n="ac_f2p">Participants valued deciding how much to put in and when. But that same ease could make it harder to keep savings for a specific goal.</p>
+            <p class="opp" data-i18n="ac_f2o"><strong>Design opportunity:</strong> explore how to balance flexibility with more control over withdrawals.</p>
+          </div>
+        </article>
+        <article class="ac-finding reveal">
+          <span class="ac-num" aria-hidden="true">03</span>
+          <div>
+            <p class="sub-eyebrow" data-i18n="ac_fi3_r">Related to hypothesis 3</p>
+            <h3 class="h3" data-i18n="ac_f3h">Setting money apart creates a sense of organization, control and security.</h3>
+            <p data-i18n="ac_f3p">Keeping money apart from the balance used day to day helped participants feel more in control of their spending. Some also saw it as a way to keep that money protected.</p>
+            <p class="opp" data-i18n="ac_f3o"><strong>Design opportunity:</strong> strengthen the role of the feature as a space to organize and protect money according to its intended use.</p>
+            <figure class="ff" aria-label="Previous Alcancía screen: available balance and reserved balance" data-i18n-aria="ac_ff_aria">
+              <div class="ff-stage">
+                <div class="ff-left"><p class="ff-tag" data-i18n="ac_ff_l">Available balance</p></div>
+                <div class="ff-phone"><img src="assets/alcancia-app.png" width="523" height="894" alt="Previous version of the Alcancía screen in the Interbank app (account details blurred)" data-i18n-alt="alt_ac_app"></div>
+                <div class="ff-right">
+                  <p class="ff-tag" data-i18n="ac_ff_r">Reserved balance</p>
+                  <ul class="ff-out"><li data-i18n="al_ff_o1">Sense of expense organization</li><li data-i18n="al_ff_o2">Sense of security</li></ul>
+                </div>
+              </div>
+              <figcaption class="ac-cap" data-i18n="ac_ff_cap">Previous version of the experience, shown as documentation.</figcaption>
+            </figure>
+          </div>
+        </article>
+        <article class="ac-finding reveal">
+          <span class="ac-num" aria-hidden="true">04</span>
+          <div>
+            <p class="sub-eyebrow" data-i18n="ac_fi4_r">Related to hypothesis 4</p>
+            <h3 class="h3" data-i18n="ac_f4h">Saving for goals doesn't necessarily mean looking for returns.</h3>
+            <p data-i18n="ac_f4p">For people who saved toward personal goals, organizing money around a purpose could matter more than what it earned.</p>
+            <p class="opp" data-i18n="ac_f4o"><strong>Design opportunity:</strong> make it easier to structure savings around individual goals and preferences.</p>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ROLE -->
+  <!-- 8 · OPORTUNIDADES -->
+  <section class="case-sec" id="a-opps" aria-labelledby="a-op-h">
+    <div class="wrap wrap-case">
+      <p class="eyebrow accent" data-i18n="ac_op_l">From findings to design opportunities</p>
+      <h2 class="h2" id="a-op-h" data-i18n="ac_op_h">One central tension</h2>
+      <div class="ac-tension reveal">
+        <div class="ac-side"><span class="sub-eyebrow" data-i18n="ac_t1l">Flexibility</span><p data-i18n="ac_t1p">Letting people set money aside when they need to and have it available for their expenses.</p></div>
+        <div class="ac-pivot" aria-hidden="true"><span>⇄</span></div>
+        <div class="ac-side"><span class="sub-eyebrow" data-i18n="ac_t2l">Protecting the purpose</span><p data-i18n="ac_t2p">Helping keep reserved the money meant for savings goals.</p></div>
+      </div>
+      <p class="prose-p" data-i18n="ac_op_p">The opportunity was to explore how to balance both without removing the autonomy that made the feature useful. The findings fed collaborative conversations and explorations with Product Designers.</p>
+
+      <p class="lbl" data-i18n="ac_thread_l">The thread of the case</p>
+      <ol class="ac-thread reveal">
+        <li><b data-i18n="ac_th1">Hypotheses</b><span data-i18n="ac_th1p">Patterns in behavioral data raised questions about purpose.</span></li>
+        <li><b data-i18n="ac_th2">Research</b><span data-i18n="ac_th2p">Two workshops, 12 participants, three profiles.</span></li>
+        <li><b data-i18n="ac_th3">Findings</b><span data-i18n="ac_th3p">What the feature meant for each person.</span></li>
+        <li><b data-i18n="ac_th4">Opportunities</b><span data-i18n="ac_th4p">Balancing flexibility and protecting the purpose.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 9 · MI ROL -->
   <section class="case-sec" id="a-role" aria-labelledby="a-role-h">
     <div class="wrap wrap-case">
       <p class="eyebrow accent" data-i18n="role_l">My role</p>
       <h2 class="h2" id="a-role-h" data-i18n="role_h">My role as UX Researcher</h2>
-      <p class="muted" data-i18n="al_role_p">I contributed across the research process, from defining objectives and participant criteria to presenting findings to leadership. Beyond the initial research, I worked directly with Product Designers to translate user evidence into design opportunities and took part in the later evaluations of the proposed solutions.</p>
-      <ul class="checklist">
-        <li data-i18n="al_ro1">Defined the research objectives and participant selection criteria.</li>
-        <li data-i18n="al_ro2">Designed and refined the workshop guide and prepared the materials.</li>
-        <li data-i18n="al_ro3">Coordinated recruitment with an external agency.</li>
-        <li data-i18n="al_ro4">Facilitated the workshop sessions.</li>
-        <li data-i18n="al_ro5">Led the thematic analysis.</li>
-        <li data-i18n="al_ro6">Presented the findings to leadership and turned them into recommendations for the Product and Design teams.</li>
-        <li data-i18n="al_ro7">Worked with Product Designers to define solutions, and took part in later evaluations of concepts and screens.</li>
-      </ul>
+      <div class="ac-roles">
+        <div class="ac-rolecol reveal">
+          <h3 class="h3" data-i18n="ac_led_h">What I led</h3>
+          <ul class="checklist">
+            <li data-i18n="ac_l1">Defining the research objectives and participant selection criteria.</li>
+            <li data-i18n="ac_l2">Designing and refining the workshop guide.</li>
+            <li data-i18n="ac_l3">Preparing the materials.</li>
+            <li data-i18n="ac_l4">Coordinating the recruitment.</li>
+            <li data-i18n="ac_l5">Facilitating the sessions.</li>
+            <li data-i18n="ac_l6">Leading the thematic analysis.</li>
+            <li data-i18n="ac_l7">Presenting the findings to leadership.</li>
+            <li data-i18n="ac_l8">Turning the findings into recommendations.</li>
+          </ul>
+        </div>
+        <div class="ac-rolecol reveal">
+          <h3 class="h3" data-i18n="ac_col_h">Where I collaborated</h3>
+          <ul class="checklist">
+            <li data-i18n="ac_c1">Working with Product Designers to explore and evaluate solutions.</li>
+          </ul>
+          <p class="muted" data-i18n="ac_c2">I did not design the interfaces or prototypes: my responsibility was the research and bringing its evidence into those conversations.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- OUTCOME -->
-  <section class="case-sec" id="a-outcome" aria-labelledby="a-out-h">
+  <!-- 10 · CIERRE Y REFLEXIÓN -->
+  <section class="case-sec" id="a-close" aria-labelledby="a-close-h">
     <div class="wrap wrap-case">
-      <p class="eyebrow accent" id="a-out-h" data-i18n="out_l">Outcome</p>
-      <div class="outcome reveal">
-        <div class="cardlet big">
-          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 7v5l3 2"/></svg>
-          <strong data-i18n="al_out1">Approved for development</strong>
-          <p data-i18n="al_out1p">The initiatives were approved in different phases. Implementation depends on prioritization and development capacity.</p>
-        </div>
-        <div class="cardlet small"><strong>12</strong><p data-i18n="al_out2">customers across transactional, aspirational and mixed profiles</p></div>
-        <div class="cardlet small"><strong data-i18n="al_out3n">2 workshops</strong><p data-i18n="al_out3">plus later evaluations of concepts and screens</p></div>
-      </div>
-      <h3 class="h3" style="margin-top:var(--s-7)" data-i18n="al_fr_h">Research that informed product direction</h3>
-      <ul class="checklist">
-        <li data-i18n="al_f1"><strong>A clearer understanding of customer segments:</strong> identified differences between expense-management behaviors and goal-oriented saving.</li>
-        <li data-i18n="al_f2"><strong>Evidence-informed design opportunities:</strong> translated user needs into directions for categories, savings goals, scheduled saving and withdrawal controls.</li>
-        <li data-i18n="al_f3"><strong>Cross-functional collaboration:</strong> presented findings to leadership and worked with designers to define potential solutions.</li>
-        <li data-i18n="al_f4"><strong>Continued evaluation:</strong> contributed to subsequent user testing as the proposals evolved.</li>
-      </ul>
-      <div class="callout reveal" style="margin-top:var(--s-6)">
-        <h3 class="h3" data-i18n="al_nc_h">What this case does not claim</h3>
-        <p class="muted" data-i18n="al_nc_p">The redesigned experience had not yet reached production, so changes in engagement, savings balances, savings retention and bank primacy remain expected outcomes rather than measured impact. The value of this work was to give the team evidence to define and evaluate the direction of the product.</p>
-      </div>
+      <p class="eyebrow accent" id="a-close-h" data-i18n="ac_cl_l">Closing and reflection</p>
+      <p class="ac-lead reveal" data-i18n="ac_cl_p">The research made it possible to understand that a single feature can respond to very different financial needs. By connecting behavioral patterns with people's experiences and motivations, we were able to identify opportunities to guide the evolution of the product from a deeper understanding of its users.</p>
+      <blockquote class="ac-reflection reveal"><span class="sub-eyebrow" data-i18n="ac_ref_l">What I took from it</span><p data-i18n="ac_ref">One of the main lessons of this project was understanding that research is not only about identifying which features people need, but about understanding what a tool means to them and what role it plays in their everyday life.</p></blockquote>
       <div class="cta-end">
         <a class="btn" href="#/work"><span aria-hidden="true">←</span> <span data-i18n="back">All work</span></a>
         <a class="btn primary" href="#/about"><span data-i18n="about_btn">About me</span> <span aria-hidden="true">→</span></a>
@@ -1313,19 +1474,19 @@ dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(0.5rem)}
       <span class="chip" data-i18n="al_tag_qual">Qualitative research</span>
       <span class="chip" data-i18n="al_tag_gen">Generative research</span>
     </div>
-    <h2 class="h1" id="qv-al-title" data-i18n="al_title">Understanding different saving habits to guide the evolution of Interbank's Alcancía</h2>
+    <h2 class="h1" id="qv-al-title" data-i18n="al_title">Understanding different saving habits to guide the evolution of a financial feature</h2>
     <div class="panel cover">
-      <figure class="pcover"><img src="assets/alcancia-app.png" width="523" height="894" alt="Interbank app account screen showing the available balance and the Alcancía balance" data-i18n-alt="alt_al_app"></figure>
+      <figure class="pcover"><img src="assets/alcancia-app.png" width="523" height="894" alt="Previous version of the Alcancía screen in the Interbank app (account details blurred)" data-i18n-alt="alt_ac_app"></figure>
     </div>
     <dl class="meta">
       <div><dt data-i18n="m_time">Duration</dt><dd data-i18n="al_m_time_v">4 weeks</dd></div>
       <div><dt data-i18n="m_role">Role</dt><dd data-i18n="m_role_v">UX Researcher</dd></div>
       <div><dt data-i18n="m_team">Team</dt><dd data-i18n="al_m_team_v">2 Product Designers + 2 Design Researchers</dd></div>
-      <div><dt data-i18n="m_methods">Methods</dt><dd data-i18n="al_m_methods_v">Qualitative research · 2 in-person workshops · Thematic analysis</dd></div>
+      <div><dt data-i18n="m_methods">Methods</dt><dd data-i18n="ac_methods_v">Behavioral analysis, qualitative research, 2 in-person workshops and thematic analysis</dd></div>
     </dl>
     <div class="tldr">
       <p class="eyebrow">TL;DR</p>
-      <p data-i18n="al_qv_tldr">Alcancía is a feature of the Interbank app that lets customers set money aside from their available balance. I facilitated two workshops with 12 customers: users value flexibility, but also need to organize their savings by goals and have mechanisms that help them keep the money set aside. The resulting initiatives were approved for development.</p>
+      <p data-i18n="ac_qv">Alcancía was a feature of the Interbank app that let people set money aside from their available balance. From behavioral indicators I framed hypotheses about its different uses and tested them in two in-person workshops with 12 participants across three profiles. A central tension emerged between flexibility and protecting the purpose of the money.</p>
     </div>
     <p><a class="btn primary" href="#/case/alcancia" data-qv-go><span data-i18n="see_full">See full case study</span> <span aria-hidden="true">→</span></a></p>
   </div>
@@ -1352,7 +1513,7 @@ aria_sections:"Secciones del caso de estudio",
 aria_ranks:"Operaciones ordenadas por uso",
 aria_close:"Cerrar",
 hero_h1:"Las personas no usan los productos como los imaginamos.",
-hero_sub:"UX Researcher con formación en Psicología y más de 3 años de experiencia investigando cómo mejorar los productos digitales para las personas que los usan",
+hero_sub:"UX Researcher con formación en Psicología y más de 3 años de experiencia buscando cómo hacer que los productos digitales funcionen mejor para las personas que los usan.",
 work_eyebrow:"Trabajo seleccionado",
 tag_banking:"Banca digital",
 tag_mixed:"Investigación cuantitativa y cualitativa",
@@ -1370,7 +1531,7 @@ alt_old:"Pantalla de inicio anterior de la app de Interbank",
 alt_new:"Pantalla de inicio rediseñada de la app de Interbank con pestañas de operaciones y productos",
 alt_photo:"Retrato de Tiffany Macher sonriendo frente a unas plantas verdes",
 ab_h:"Hola, soy Tiffany.",
-ab_p:"Soy UX Researcher con formación en Psicología y más de 3 años de experiencia en banca digital ayudando a los equipos de producto a entender el comportamiento de los usuarios, cuestionar supuestos y convertir la investigación en mejores decisiones de producto.",
+ab_p:"Soy UX Researcher con formación en Psicología, una debilidad por hacer una pregunta más y más de 3 años de experiencia en banca digital ayudando a los equipos de producto a entender el comportamiento de los usuarios, cuestionar supuestos y convertir la investigación en mejores decisiones de producto.",
 edu_l:"Universidad de Lima",
 edu_r:"Grado en Psicología",
 about_btn:"Sobre mí",
@@ -1645,134 +1806,185 @@ kf_h:"Hallazgos clave",
 al_tag_qual:"Investigación cualitativa",
 al_tag_gen:"Investigación generativa",
 al_card_eyebrow:"App de Interbank · Talleres de Alcancía",
-al_title:"Comprender distintos hábitos de ahorro para orientar la evolución de la Alcancía de Interbank",
-al_card_desc:"Dos talleres con 12 clientes para entender por qué las personas usan la Alcancía de maneras distintas y qué significa eso para la siguiente etapa del producto.",
-al_b1:"<b>Aprobado para desarrollo</b>",
-al_b2:"<b>12</b> clientes",
+al_title:"Comprender distintos hábitos de ahorro para orientar la evolución de una funcionalidad financiera",
+al_card_desc:"Dos talleres presenciales con 12 participantes para entender cómo distintos hábitos de ahorro daban sentido a una misma funcionalidad financiera.",
+al_b1:"<b>Análisis de comportamiento</b> + talleres",
+al_b2:"<b>12</b> participantes",
 al_b3:"<b>4</b> semanas",
 alt_al_ws:"Hoja de trabajo del taller con notas adhesivas bajo los títulos Me gusta, Cambiaría y Me gustaría",
-alt_al_app:"Pantalla de cuenta de la app de Interbank con el saldo disponible y el saldo de la Alcancía",
 al_m_time_v:"4 semanas",
 al_m_team_v:"2 Product Designers + 2 Design Researchers",
-al_m_scope_v:"Alcancía · Comportamientos de ahorro · Expectativas de los usuarios · Evolución del producto",
-al_m_methods_v:"Investigación cualitativa · 2 talleres presenciales · Análisis temático",
-al_qv_tldr:"La Alcancía es una funcionalidad de la app de Interbank que permite separar dinero del saldo disponible. Facilité dos talleres con 12 clientes: los usuarios valoran la flexibilidad, pero también necesitan organizar sus ahorros por objetivos y contar con mecanismos que les ayuden a mantener el dinero reservado. Las iniciativas resultantes fueron aprobadas para desarrollo.",
-al_s1:"clientes con saldo en la Alcancía",
-al_s2:"usuarios transaccionales, enfocados principalmente en organizar gastos",
-al_s3:"usuarios aspiracionales, enfocados principalmente en ahorrar",
-al_s4:"saldo promedio de los usuarios aspiracionales, frente al grupo de referencia del análisis interno",
-al_kpis:"Indicadores clave: Engagement · Saldos de ahorro · Retención del ahorro · Principalidad bancaria",
-al_sol_h:"Una herramienta de ahorro, distintas razones para usarla",
-al_k1h:"La Alcancía cumplía funciones distintas según el propósito del dinero",
-al_k1p:"Los usuarios transaccionales la usaban para organizar dinero destinado a gastos y pagos recurrentes, y valoraban poder retirarlo cuando llegaba el momento de pagar. Los aspiracionales la usaban para acumular ahorros a mediano y largo plazo, y valoraban que el dinero permaneciera apartado.",
-al_k1o:"<strong>Oportunidad de diseño:</strong> acompañar distintos comportamientos de ahorro sin asumir que todos los clientes usan la Alcancía con el mismo propósito.",
-al_k2h:"La flexibilidad facilita ahorrar, pero también retirar",
-al_k2p:"Los participantes valoraban decidir cuánto guardar y cuándo, sin importes ni fechas obligatorios. Pero esa misma facilidad para retirar podía dificultar mantener el ahorro para un objetivo concreto.",
-al_k2o:"<strong>Oportunidad de diseño:</strong> explorar cómo equilibrar la flexibilidad con un mayor control sobre los retiros.",
-al_k3h:"Separar el dinero da sensación de control y de seguridad",
-al_k3p:"Al mantener el dinero apartado del saldo que usaban a diario, y limitar el gasto a un monto específico, los participantes decían sentir mayor control sobre sus gastos. Algunos también lo veían como una forma de mantener ese dinero protegido.",
-al_k3o:"<strong>Oportunidad de diseño:</strong> reforzar el papel de la Alcancía como un espacio para organizar y proteger el dinero según su propósito.",
-al_k4h:"Ahorrar por objetivos no significa necesariamente buscar rentabilidad",
-al_k4p:"Los usuarios aspiracionales valoraban agrupar su dinero en torno a objetivos personales, como familia, educación, mascotas o viajes. Los intereses eran visibles y se apreciaban, pero organizar el dinero con un propósito podía importar más.",
-al_k4o:"<strong>Oportunidad de diseño:</strong> facilitar la estructuración del ahorro en torno a objetivos y preferencias individuales.",
-al_prob_h:"Dos patrones de uso, una misma funcionalidad",
-al_prob_p1:"La Alcancía es una funcionalidad de la app de Interbank que permite a los clientes separar parte del dinero de su cuenta y mantenerlo apartado de su saldo disponible.",
-al_prob_p2:"Los datos de uso mostraban dos comportamientos diferenciados:",
-al_prob_p3:"Aunque los usuarios aspiracionales representaban una proporción menor, su saldo promedio era 13 veces mayor que el del grupo de referencia del análisis interno, lo que los convertía en un segmento relevante para las captaciones del banco.",
-al_bq_l:"Pregunta de negocio",
-al_bq_p:"¿Cómo podemos adaptar la experiencia de la Alcancía a los distintos perfiles de clientes que la utilizan?",
-al_ob_l:"Objetivo de investigación",
-al_ob_p:"Conocer la percepción y las expectativas de los distintos perfiles de usuarios respecto a la Alcancía.",
-al_sc_p:"La Alcancía, comportamientos de ahorro, expectativas de los usuarios y evolución del producto.",
 al_sobj_l:"Objetivos específicos",
-al_o1:"Comprender cómo percibían la experiencia actual de la Alcancía y qué aspectos facilitaban o dificultaban su uso.",
-al_o2:"Explorar los comportamientos de ahorro y cómo utilizaban la funcionalidad para organizar pagos, gastos y objetivos financieros.",
-al_o3:"Identificar las necesidades y motivaciones detrás de los distintos patrones de uso, así como las oportunidades de evolución del producto.",
-al_res_h:"Dos talleres para entender qué valoraba cada perfil",
 al_r1:"participantes",
 al_r2:"talleres presenciales",
-al_r3:"perfiles de uso",
-al_pf_h:"Perfiles participantes",
-al_pf1l:"Usuarios transaccionales · 4",
-al_pf1p:"Realizan ahorros y retiros a lo largo del mes. Al final del mes, su saldo promedio es inferior a S/ 5.000.",
-al_pf2l:"Usuarios aspiracionales · 4",
-al_pf2p:"Realizan ahorros y no realizan retiros a lo largo del mes.",
-al_pf3l:"Usuarios mixtos · 4",
-al_pf3p:"Realizan ahorros y retiros a lo largo del mes; sin embargo, mantienen un saldo con el paso de los meses.",
-al_pf_n:"Los perfiles se definieron a partir de sus patrones de uso y saldos durante un período de tres meses.",
-al_wf_h:"Cómo se desarrollaron los talleres",
-al_wf_p:"Las sesiones combinaron reflexión individual, discusión grupal y priorización de oportunidades.",
-al_w1:"<strong>Contexto y apertura:</strong> prácticas financieras y relación de cada participante con la Alcancía.",
-al_w2:"<strong>Modelo mental:</strong> asociaciones espontáneas e interpretaciones del concepto de Alcancía.",
-al_w3:"<strong>Experiencia actual:</strong> qué valoraban, qué cambiarían y qué les gustaría, mediante una actividad de Me gusta / Cambiaría / Me gustaría.",
-al_w4:"<strong>Discusión y priorización:</strong> puesta en común de necesidades y expectativas, con actividades en grupos pequeños.",
-al_w5:"<strong>Exploración de conceptos:</strong> presentación y discusión de ideas para futuras funcionalidades.",
-al_w6:"<strong>Cierre:</strong> reflexiones y expectativas finales.",
 alt_al_g2:"Participantes trabajando con notas adhesivas alrededor de una mesa durante un taller",
 alt_al_g3:"Sala del taller con participantes sentados alrededor de una mesa larga",
-al_g1:"<strong>Ejercicio personal:</strong> hoja de Me gusta / Cambiaría / Me gustaría, completada por un participante.",
-al_g2:"<strong>Discusión grupal</strong> de respuestas personales y priorización en conjunto.",
-al_th:"Lideré el análisis temático de las sesiones, que permitió identificar patrones sobre cómo las personas organizan su dinero, qué tan flexible debe ser el ahorro, la sensación de control y de seguridad que genera mantener el dinero apartado y las diferencias entre quienes ahorran para objetivos y quienes usan la Alcancía para gestionar el mes.",
-al_des_l:"Diseño · De los hallazgos a las oportunidades de producto",
-al_des_h:"Flexibilidad frente a la protección del propósito del dinero",
-al_des_p1:"La pregunta dejó de ser únicamente qué funcionalidades añadir y pasó a ser cómo ofrecer una experiencia que permitiera organizar el dinero según su propósito y controlar mejor cuándo utilizarlo.",
-al_vs1l:"Facilidad y flexibilidad",
-al_vs1p:"Permitir que las personas separen dinero cuando lo necesiten y lo utilicen para sus pagos.",
-al_vs2l:"Protección del propósito",
-al_vs2p:"Ayudar a que el dinero destinado a ahorrar permanezca apartado y sea menos susceptible al gasto impulsivo.",
-al_vs_c:"La oportunidad era ofrecer diferentes niveles de organización y control según el propósito del dinero, sin eliminar la autonomía que hacía útil a la Alcancía.",
-al_imp_h:"Los hallazgos alimentaron un trabajo de diseño colaborativo sobre varias mejoras potenciales",
-al_d1:"<strong>Más categorías de ahorro</strong> para organizar el dinero según distintos propósitos.",
-al_d2:"<strong>Objetivos de ahorro flexibles</strong> con importes, fechas y frecuencias definidos por el usuario.",
-al_d3:"<strong>Mayor control sobre los retiros</strong> para ayudar a los clientes a proteger el dinero destinado al ahorro.",
-al_d4:"<strong>Ahorro programado</strong> para favorecer hábitos de ahorro más constantes.",
-al_d5:"Otras ideas, como el pago de servicios desde la Alcancía, recordatorios, ahorro compartido y educación financiera, también se exploraron como expectativas de los clientes. Se registraron como expectativas a explorar, no como decisiones de producto confirmadas.",
-al_d6:"Las propuestas pasaron por sucesivas rondas de evaluación con usuarios. Colaboré directamente con los diseñadores en la definición de soluciones y participé en pruebas posteriores de conceptos y pantallas.",
-al_role_p:"Participé en todo el proceso de investigación, desde definir los objetivos y los criterios de participantes hasta presentar los hallazgos a liderazgo. Más allá de la investigación inicial, trabajé directamente con los Product Designers para traducir la evidencia de los usuarios en oportunidades de diseño y participé en las evaluaciones posteriores de las soluciones propuestas.",
-al_ro1:"Definí los objetivos de la investigación y los criterios de selección de participantes.",
-al_ro2:"Diseñé y refiné la guía de los talleres y preparé los materiales.",
-al_ro3:"Coordiné el reclutamiento con una agencia externa.",
-al_ro4:"Facilité las sesiones de los talleres.",
-al_ro5:"Lideré el análisis temático.",
-al_ro6:"Presenté los hallazgos a liderazgo y los traduje en recomendaciones para los equipos de Producto y Diseño.",
-al_ro7:"Trabajé con los Product Designers en la definición de soluciones y participé en evaluaciones posteriores de conceptos y pantallas.",
-al_out1:"Aprobado para desarrollo",
-al_out1p:"Las iniciativas se aprobaron por fases. La implementación depende de la priorización y la capacidad de desarrollo.",
-al_out2:"clientes de perfiles transaccionales, aspiracionales y mixtos",
-al_out3n:"2 talleres",
-al_out3:"más evaluaciones posteriores de conceptos y pantallas",
-al_fr_h:"Investigación que orientó la dirección del producto",
-al_f1:"<strong>Mejor comprensión de los segmentos de clientes:</strong> se identificaron diferencias entre los comportamientos de gestión de gastos y el ahorro orientado a objetivos.",
-al_f2:"<strong>Oportunidades de diseño basadas en evidencia:</strong> las necesidades de los usuarios se tradujeron en direcciones para categorías, objetivos de ahorro, ahorro programado y controles de retiro.",
-al_f3:"<strong>Colaboración multidisciplinar:</strong> presenté los hallazgos a liderazgo y trabajé con diseñadores para definir posibles soluciones.",
-al_f4:"<strong>Evaluación continua:</strong> contribuí a pruebas posteriores con usuarios a medida que evolucionaban las propuestas.",
-al_nc_h:"Lo que este caso no afirma",
-al_nc_p:"La experiencia rediseñada aún no había llegado a producción, por lo que los cambios en engagement, saldos de ahorro, retención del ahorro y principalidad bancaria siguen siendo resultados esperados y no un impacto medido. El valor de este trabajo fue dar al equipo evidencia para definir y evaluar la dirección del producto.",
 mom_cap:"Presentando recomendaciones de investigación al equipo",
 alt_mom:"Tiffany presentando recomendaciones de investigación sobre una diapositiva proyectada en una sala de reuniones",
 sl_h:"Las tres primeras en la Home",
 sl1:"Plinear",
 sl2:"Transferencias",
 sl3:"Pago de tarjeta",
-al_tl1:"La Alcancía es una funcionalidad de la app de Interbank que permite a los clientes separar dinero de su saldo disponible.",
-al_tl2:"En base a indicadores de comportamiento, se identificaron dos formas de uso de la funcionalidad: separar dinero para pagos mensuales o a corto plazo, o para construir ahorros a mediano y largo plazo.",
-al_tl3:"Para entender cómo la experiencia podía responder mejor a estas necesidades, planifiqué y facilité dos talleres con 12 clientes de perfiles transaccionales, aspiracionales y mixtos.",
-al_tl4:"La investigación reveló que los usuarios valoran la flexibilidad de la funcionalidad, pero también expresan la necesidad de organizar sus ahorros por objetivos y contar con mecanismos que les ayuden a mantener el dinero reservado.",
-al_tl5:"Estos hallazgos alimentaron propuestas de diseño de objetivos de ahorro flexibles, ahorro programado y mayor control sobre los retiros.",
-al_tl6:"Colaboré directamente con los Product Designers para definir soluciones y luego participé en evaluaciones con usuarios de los conceptos y pantallas propuestos.",
-al_fn1:"Hallazgo 1",
-al_fn2:"Hallazgo 2",
-al_fn3:"Hallazgo 3",
-al_fn4:"Hallazgo 4",
-al_ff_aria:"Pantalla de la Alcancía: saldo disponible frente a saldo apartado",
-al_ff_l:"Saldo disponible para pagos y retiros en cajero",
-al_ff_r:"Saldo apartado y no disponible para pagos ni retiros en cajero",
 al_ff_o1:"Sensación de organización de gastos",
 al_ff_o2:"Sensación de seguridad",
-al_prob_b1:"El 76% de los clientes tenía un perfil transaccional, caracterizado por ingresos y retiradas frecuentes y saldos promedio inferiores a S/ 5.000.",
-al_prob_b2:"En cambio, el 6% presentaba un perfil aspiracional, con ingresos de dinero sin retiradas y saldos promedio superiores a S/ 5.000 durante tres meses.",
-al_an_l:"Análisis de resultados",
-click_p6:"Me interesa entender cómo las personas dan sentido a lo que diseñamos y cómo ese conocimiento puede ayudarnos a tomar mejores decisiones de producto."
+click_p6:"Me interesa entender cómo las personas dan sentido a lo que diseñamos y cómo ese conocimiento puede ayudarnos a tomar mejores decisiones de producto.",
+alt_ac_app:"Versión anterior de la pantalla de Alcancía en la app de Interbank (datos de cuenta difuminados)",
+ac_cap_app:"Versión anterior de la experiencia, mostrada como documentación histórica. Los datos sensibles están difuminados.",
+ac_scope_v:"Comportamientos de ahorro, expectativas de los usuarios y evolución de la experiencia",
+ac_methods_v:"Análisis de comportamiento, investigación cualitativa, 2 talleres presenciales y análisis temático",
+ac_intro:"Alcancía era una funcionalidad de la app de Interbank que permitía separar dinero del saldo disponible para mantenerlo reservado. La investigación buscaba comprender los distintos hábitos, motivaciones y expectativas de las personas que la utilizaban, para identificar oportunidades que orientaran la evolución de la experiencia.",
+ac_sn1:"Punto de partida",
+ac_sn2:"Enfoque",
+ac_sn3:"Participantes",
+ac_sn4:"Talleres",
+ac_sn5:"Análisis",
+ac_sn6:"Hallazgos",
+ac_sn7:"Oportunidades",
+ac_sn8:"Mi rol",
+ac_sn9:"Reflexión",
+ac_start_l:"El punto de partida",
+ac_start_h:"De los datos a las hipótesis",
+ac_start_p1:"El análisis de indicadores de uso permitió identificar patrones diferenciados en la manera en que las personas utilizaban la funcionalidad. Mientras algunos usuarios realizaban movimientos frecuentes de entrada y salida de dinero, otros mantenían sus fondos reservados durante periodos más prolongados.",
+ac_start_p2:"Estas diferencias dieron lugar a hipótesis sobre los distintos propósitos que podía cumplir Alcancía y sobre las necesidades de experiencia asociadas a cada comportamiento.",
+ac_pt1_l:"Patrón 1",
+ac_pt1_h:"Gestión financiera cotidiana",
+ac_pt1_a:"Movimientos frecuentes de entrada y salida.",
+ac_pt1_b:"Dinero destinado a organizar gastos y pagos recurrentes.",
+ac_pt1_c:"Necesidad de mantener flexibilidad y disponibilidad.",
+ac_pt2_l:"Patrón 2",
+ac_pt2_h:"Ahorro orientado a objetivos",
+ac_pt2_a:"Mayor permanencia del dinero reservado.",
+ac_pt2_b:"Menor frecuencia de retiros.",
+ac_pt2_c:"Asociación del ahorro con objetivos personales y de mediano o largo plazo.",
+ac_pt_note:"Ilustración conceptual de los dos patrones. No representa proporciones de usuarios. Estos patrones fueron una primera aproximación basada en datos de comportamiento, no conclusiones definitivas sobre las motivaciones de las personas.",
+ac_bridge:"Los datos mostraban cómo utilizaban la funcionalidad, pero no explicaban completamente por qué lo hacían.",
+ac_hyp_h:"Hipótesis que orientaron el estudio",
+ac_h1:"La funcionalidad podía estar cumpliendo propósitos distintos según los hábitos financieros de cada persona.",
+ac_h2:"La flexibilidad para retirar dinero podía ser valorada por algunos usuarios, pero representar una dificultad para quienes buscaban mantener sus ahorros.",
+ac_h3:"Separar dinero del saldo disponible podía generar una mayor sensación de organización y control.",
+ac_h4:"Los objetivos personales podían influir en la manera de organizar y mantener el dinero reservado.",
+ac_hyp_note:"Eran hipótesis iniciales que se buscaba explorar y contrastar mediante investigación cualitativa. No son hallazgos.",
+ac_app_l:"Objetivo y enfoque metodológico",
+ac_app_h:"Comprender el «porqué» detrás del comportamiento",
+ac_obj_l:"Objetivo de investigación",
+ac_obj:"Comprender cómo las personas utilizaban Alcancía, qué valoraban de la experiencia actual y qué necesidades y expectativas tenían respecto a su evolución.",
+ac_o1:"Comprender la percepción de la experiencia actual.",
+ac_o2:"Explorar los hábitos de ahorro y organización del dinero.",
+ac_o3:"Identificar las motivaciones detrás de los distintos patrones de uso.",
+ac_o4:"Identificar necesidades y oportunidades de evolución de la experiencia.",
+ac_why_h:"Por qué talleres presenciales",
+ac_why_p:"Como decisión metodológica, los talleres permitían reunir cuatro cosas que importan cuando hay que explicar un comportamiento:",
+ac_w_a:"Explorar experiencias personales",
+ac_w_b:"Contrastar perspectivas",
+ac_w_c:"Facilitar la discusión",
+ac_w_d:"Profundizar en las motivaciones detrás de los comportamientos observados",
+ac_des_l:"Diseño de la investigación y reclutamiento",
+ac_des_h:"Tres perfiles de comportamiento, doce participantes",
+ac_f3:"perfiles de comportamiento",
+ac_f4n:"Agencia externa",
+ac_f4:"coordinó el reclutamiento",
+ac_pf1_l:"Perfil transaccional",
+ac_pf1_p:"Personas que realizaban movimientos frecuentes de entrada y salida de dinero, utilizando la funcionalidad principalmente para organizar gastos y pagos.",
+ac_pf2_l:"Perfil aspiracional",
+ac_pf2_p:"Personas que utilizaban la funcionalidad para acumular dinero y mantenerlo reservado durante periodos prolongados.",
+ac_pf3_l:"Perfil mixto",
+ac_pf3_p:"Personas que combinaban movimientos de entrada y salida con una intención de mantener dinero reservado a lo largo del tiempo.",
+ac_dots:"4 participantes",
+ac_pf_note:"Los perfiles se construyeron a partir de patrones de uso observados durante un periodo de análisis de tres meses. Los cuatro participantes por perfil responden al diseño de la muestra de investigación, no a la composición de la base de usuarios del producto.",
+ac_ws_l:"Diseño de los talleres",
+ac_ws_h:"Una sesión estructurada, no una conversación grupal",
+ac_ws_p:"Las sesiones combinaron reflexión individual, discusión grupal y priorización de oportunidades. Cada etapa se apoyaba en la anterior, de la experiencia personal a las necesidades compartidas.",
+ac_m1:"Reflexión individual",
+ac_m2:"Discusión grupal",
+ac_m3:"Priorización",
+ac_s1h:"Contexto y apertura",
+ac_s1p:"Exploración de prácticas financieras y relación personal con la funcionalidad.",
+ac_s2h:"Modelo mental",
+ac_s2p:"Asociaciones espontáneas e interpretaciones del concepto de Alcancía.",
+ac_s3h:"Experiencia actual",
+ac_s3p:"Identificación de aspectos valorados, dificultades y expectativas mediante la dinámica «Me gusta / Cambiaría / Me gustaría».",
+ac_s3b:"Dinámica destacada",
+ac_s3f:"<strong>Ejercicio personal:</strong> hoja de Me gusta / Cambiaría / Me gustaría, completada por un participante.",
+ac_s4h:"Discusión y contraste",
+ac_s4p:"Puesta en común de respuestas individuales y discusión en grupos pequeños.",
+ac_s4f:"<strong>Discusión grupal</strong> de respuestas personales y priorización en conjunto. Los rostros están difuminados para proteger la privacidad de los participantes.",
+ac_s5h:"Exploración de conceptos",
+ac_s5p:"Presentación y discusión de ideas para posibles funcionalidades futuras.",
+ac_s6h:"Priorización y cierre",
+ac_s6p:"Síntesis de las necesidades identificadas y reflexiones finales.",
+ac_an_l:"Análisis y síntesis",
+ac_an_h:"Del comportamiento observado a las motivaciones comprendidas",
+ac_an_p:"Lideré el análisis temático de las sesiones, identificando patrones recurrentes en las experiencias, motivaciones y expectativas de los participantes.",
+ac_dim_l:"Dimensiones analizadas",
+ac_d1:"Propósito del dinero",
+ac_d2:"Flexibilidad y disponibilidad",
+ac_d3:"Sensación de control y seguridad",
+ac_d4:"Organización del ahorro",
+ac_d5:"Objetivos personales",
+ac_syn_aria:"Diagrama explicativo: lo que mostraban los datos, lo que se escuchó en los talleres y los hallazgos que surgieron",
+ac_syn1l:"Lo que mostraban los datos",
+ac_syn1p:"Dos patrones de uso: gestión cotidiana y ahorro orientado a objetivos.",
+ac_syn2l:"Lo que escuchamos",
+ac_syn2p:"Experiencias, motivaciones y expectativas, analizadas en cinco dimensiones.",
+ac_syn3l:"Lo que surgió",
+ac_syn3p:"Cuatro hallazgos que conectan el comportamiento con su significado.",
+ac_syn_note:"Visualización explicativa del proceso de síntesis. No es un artefacto original del estudio.",
+ac_an_p2:"Conectar los comportamientos observados al inicio con lo que aprendimos al conversar con las personas fue lo que convirtió una descripción de uso en una comprensión de propósito.",
+ac_fi_l:"Hallazgos",
+ac_fi_h:"Cuatro hallazgos sobre lo que la funcionalidad significaba para las personas",
+ac_fi1_r:"Relacionado con la hipótesis 1",
+ac_fi2_r:"Relacionado con la hipótesis 2",
+ac_fi3_r:"Relacionado con la hipótesis 3",
+ac_fi4_r:"Relacionado con la hipótesis 4",
+ac_f1h:"La Alcancía cumplía funciones distintas según el propósito del dinero.",
+ac_f1p:"Para algunos usuarios era importante tener el dinero disponible cuando llegaba el momento de pagar. Para otros, lo importante era que permaneciera apartado.",
+ac_f1o:"<strong>Oportunidad de diseño:</strong> acompañar distintos comportamientos de ahorro sin asumir que todas las personas usan la funcionalidad con el mismo propósito.",
+ac_f2h:"La flexibilidad facilita ahorrar, pero también retirar.",
+ac_f2p:"Los participantes valoraban decidir cuánto guardar y cuándo. Pero esa misma facilidad podía dificultar mantener el ahorro para un objetivo concreto.",
+ac_f2o:"<strong>Oportunidad de diseño:</strong> explorar cómo equilibrar la flexibilidad con un mayor control sobre los retiros.",
+ac_f3h:"Separar el dinero genera una sensación de organización, control y seguridad.",
+ac_f3p:"Mantener el dinero apartado del saldo de uso diario ayudaba a los participantes a sentir mayor control sobre sus gastos. Algunos también lo veían como una forma de mantener ese dinero protegido.",
+ac_f3o:"<strong>Oportunidad de diseño:</strong> reforzar el papel de la funcionalidad como un espacio para organizar y proteger el dinero según su propósito.",
+ac_ff_aria:"Pantalla anterior de Alcancía: saldo disponible y saldo reservado",
+ac_ff_l:"Saldo disponible",
+ac_ff_r:"Saldo reservado",
+ac_ff_cap:"Versión anterior de la experiencia, mostrada como documentación.",
+ac_f4h:"Ahorrar por objetivos no significa necesariamente buscar rentabilidad.",
+ac_f4p:"Para quienes ahorraban pensando en objetivos personales, organizar el dinero con un propósito podía importar más que lo que generaba.",
+ac_f4o:"<strong>Oportunidad de diseño:</strong> facilitar la estructuración del ahorro en torno a objetivos y preferencias individuales.",
+ac_op_l:"De los hallazgos a las oportunidades de diseño",
+ac_op_h:"Una tensión central",
+ac_t1l:"Flexibilidad",
+ac_t1p:"Permitir que las personas separen dinero cuando lo necesiten y dispongan de él para sus gastos.",
+ac_t2l:"Protección del propósito",
+ac_t2p:"Ayudar a mantener reservado el dinero destinado a objetivos de ahorro.",
+ac_op_p:"La oportunidad consistía en explorar cómo equilibrar ambos aspectos sin eliminar la autonomía que hacía útil a la funcionalidad. Los hallazgos alimentaron conversaciones y exploraciones colaborativas con Product Designers.",
+ac_thread_l:"El hilo del caso",
+ac_th1:"Hipótesis",
+ac_th1p:"Patrones en los datos de comportamiento abrieron preguntas sobre el propósito.",
+ac_th2:"Investigación",
+ac_th2p:"Dos talleres, 12 participantes, tres perfiles.",
+ac_th3:"Hallazgos",
+ac_th3p:"Qué significaba la funcionalidad para cada persona.",
+ac_th4:"Oportunidades",
+ac_th4p:"Equilibrar flexibilidad y protección del propósito.",
+ac_led_h:"Lo que lideré",
+ac_l1:"Definición de los objetivos de investigación y los criterios de selección.",
+ac_l2:"Diseño y refinamiento de la guía de los talleres.",
+ac_l3:"Preparación de los materiales.",
+ac_l4:"Coordinación del reclutamiento.",
+ac_l5:"Facilitación de las sesiones.",
+ac_l6:"Liderazgo del análisis temático.",
+ac_l7:"Presentación de los hallazgos a liderazgo.",
+ac_l8:"Traducción de los hallazgos en recomendaciones.",
+ac_col_h:"Donde colaboré",
+ac_c1:"Trabajo con Product Designers en la exploración y evaluación de soluciones.",
+ac_c2:"No diseñé las interfaces ni los prototipos: mi responsabilidad fue la investigación y llevar su evidencia a esas conversaciones.",
+ac_cl_l:"Cierre y reflexión",
+ac_cl_p:"La investigación permitió comprender que una misma funcionalidad puede responder a necesidades financieras muy diferentes. Al conectar los patrones de comportamiento con las experiencias y motivaciones de las personas, pudimos identificar oportunidades para orientar la evolución del producto desde una comprensión más profunda de sus usuarios.",
+ac_ref_l:"Lo que me llevo",
+ac_ref:"Una de las principales lecciones de este proyecto fue entender que investigar no consiste únicamente en identificar qué funcionalidades necesitan las personas, sino en comprender qué significado tiene para ellas una herramienta y qué papel cumple en su vida cotidiana.",
+ac_qv:"Alcancía era una funcionalidad de la app de Interbank que permitía separar dinero del saldo disponible. A partir del análisis de indicadores de comportamiento planteé hipótesis sobre sus distintos usos y las contrasté con dos talleres presenciales con 12 participantes de tres perfiles. Ahí vi una tensión central entre la flexibilidad y la protección del propósito del dinero."
 };;
 var META = {
   en:{title:"Tiffany Macher — UX Researcher",desc:"Portfolio of Tiffany Macher, UX Researcher with a Psychology background and 3+ years of experience in digital banking research."},

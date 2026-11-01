@@ -18,6 +18,17 @@ mkdirSync(dist, { recursive: true });
 cpSync(resolve(root, 'index.html'), resolve(dist, 'index.html'));
 if (existsSync(resolve(root, 'assets'))) cpSync(resolve(root, 'assets'), resolve(dist, 'assets'), { recursive: true });
 
+// Copy analytics.js and @vercel/analytics package
+if (existsSync(resolve(root, 'analytics.js'))) {
+  cpSync(resolve(root, 'analytics.js'), resolve(dist, 'analytics.js'));
+}
+const vercelAnalyticsPath = resolve(root, 'node_modules', '@vercel', 'analytics', 'dist');
+if (existsSync(vercelAnalyticsPath)) {
+  const analyticsDistPath = resolve(dist, 'node_modules', '@vercel', 'analytics', 'dist');
+  mkdirSync(analyticsDistPath, { recursive: true });
+  cpSync(vercelAnalyticsPath, analyticsDistPath, { recursive: true });
+}
+
 const missing = findMissingAssets();
 if (missing.length) {
   console.warn(`\nAVISO: faltan ${missing.length} imagen(es) referenciadas en index.html (se verán rotas en la web):`);
